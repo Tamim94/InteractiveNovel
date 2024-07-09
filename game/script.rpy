@@ -37,9 +37,9 @@ define b = DynamicCharacter('Bryan', emotions={
 }, color="#ffbdbd")
 
 define e = DynamicCharacter('Emily', emotions={
-    'neutral': 'emily_normal',
+    'neutral': 'emily_normal2',
     'happy': 'emily-smiling3',
-    'sad': 'emily_sad',
+    'sad': 'emily_sad2',
 }, color="#ffbdbd")
 
 define a = DynamicCharacter('Adam', emotions={
@@ -73,6 +73,12 @@ image uni_night = "uni_night.png"
 image uni_sunset = "uni_sunset.png"
 image parisw = "parisweird.png"
 image creditt = "creditt.png"
+image uni_hallway1 = "uni_hallway1.png"
+image uni_hallway3 = "uni_hallway3.png"
+image uni_principaloffice = "uni_principaloffice.png"
+image uni_library_empty = "uni_library_empty.png"
+image uni_library_full = "uni_library_full.png"
+image classroom = "classroom.png"
 
 
 
@@ -201,10 +207,68 @@ label continue_conversation:
             show expression e.image at right
             "Emily" "That's the spirit! There are lots of great people here."
 
-    $ t.set_emotion('neutral')
+    # New Scene: Classroom
+    hide expression e.image
+    show classroom at cover_screen(1100, 1380)
+    with dissolve
+    $ t.set_emotion ('neutral')
     show expression t.image at right
     "Teacher" "Alright, class, let's get started."
+    hide expression t.image
+    $ a.set_emotion ('happy')
+    show expression a.image at right
+    "Adam" "Hey [player_name], do you want to join our study group after class?"
 
+    menu:
+        "Sure, that sounds great!":
+            jump choice_interesting
+        "I'm not sure, I need to catch up on the material first.":
+            jump choice_unsure
+        "No thanks, I prefer to study alone.":
+            jump choice_decline
+
+# Labels for Menu Choices (with character names)
+label choice_interesting2:
+    $ adam_friendship += 3
+    $ emily_friendship += 2
+    show expression m.image at middle
+    "Me" "Sure, that sounds great!"
+    show expression a.image at right
+    "Adam" "Awesome! We usually meet in the library."
+    jump after_study_group_choice
+
+label choice_unsure:
+    show expression m.image at middle
+    "Me" "I'm not sure, I need to catch up on the material first."
+    show expression a.image at right
+    "Adam" "No worries, maybe next time."
+    jump after_study_group_choice
+
+label after_study_group_choice:
+    show uni_library_empty at cover_screen(1100, 1380)
+    with dissolve
+
+    show expression a.image at right
+    "Adam" "Alright, let's get started. What do you need help with?"
+
+    menu:
+        "I need help with the last lecture.":
+            jump choice_last_lecture
+        "I need help with the homework assignment.":
+            jump choice_homework_assignment
+        "I need help with both.":
+            jump choice_both
+
+label choice_decline:
+    $ adam_friendship -= 1
+    $ emily_friendship -= 1
+    $ m.set_emotion('neutral')
+    show expression m.image at middle
+    "Me" "No thanks, I prefer to study alone."
+    $ a.set_emotion('happy')
+    show expression a.image at right
+    "Adam" "Alright, suit yourself."
+    jump after_study_group_choice
     # Later in the game, you can check the friendship level:
     if adam_friendship >= 20:
         "Adam" "Hey, you're becoming a great friend!"
