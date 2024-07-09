@@ -2,89 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 61: end of line expected.
-    show a.character at right with dissolve
-          ^
+File "game/script.rpy", line 133: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    $ b.set_emotion('neutral')
+    ^
 
-File "game/script.rpy", line 65: end of line expected.
-    show m.character at middle with dissolve
-          ^
-
-File "game/script.rpy", line 68: end of line expected.
-    show m.character at middle with dissolve
-          ^
-
-File "game/script.rpy", line 72: end of line expected.
-    show a.character at right
-          ^
-
-File "game/script.rpy", line 86: end of line expected.
-    show m.character at middle
-          ^
-
-File "game/script.rpy", line 89: end of line expected.
-    show a.character at right
-          ^
-
-File "game/script.rpy", line 96: end of line expected.
-    show m.character at middle
-          ^
-
-File "game/script.rpy", line 99: end of line expected.
-    show a.character at right
-          ^
-
-File "game/script.rpy", line 106: end of line expected.
-    show m.character at middle
-          ^
-
-File "game/script.rpy", line 109: end of line expected.
-    show a.character at right
-          ^
-
-File "game/script.rpy", line 112: end of line expected.
-    show b.character at right
-          ^
-
-File "game/script.rpy", line 118: end of line expected.
-    show a.character at right
-          ^
-
-File "game/script.rpy", line 122: end of line expected.
-    show a.character at right
-          ^
-
-File "game/script.rpy", line 126: end of line expected.
-    show e.character at right
-          ^
-
-File "game/script.rpy", line 134: end of line expected.
-    show m.character at middle
-          ^
-
-File "game/script.rpy", line 138: end of line expected.
-    show e.character at right
-          ^
-
-File "game/script.rpy", line 144: end of line expected.
-    show m.character at middle
-          ^
-
-File "game/script.rpy", line 147: end of line expected.
-    show e.character at right
-          ^
-
-File "game/script.rpy", line 151: end of line expected.
-    show m.character at middle
-          ^
-
-File "game/script.rpy", line 154: end of line expected.
-    show e.character at right
-          ^
-
-File "game/script.rpy", line 158: end of line expected.
-    show t.character at right
-          ^
-
-Ren'Py Version: Ren'Py 8.2.1.24030407
-Mon Jul  8 00:08:44 2024
+Ren'Py Version: Ren'Py 8.2.3.24061702
+Mon Jul  8 14:18:43 2024
