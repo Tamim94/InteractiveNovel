@@ -94,7 +94,7 @@ label start:
     n " members of the group are Tamim, Maxime, Ilyas."
     show parisw
     n "It's a new bachelor year for you (student 1), you are a student in the university (Estiam), your actions and relationship with other students will affect the ending "
-    show uni_park_day at cover_screen(1100, 1380)
+    scene uni_park_day at cover_screen(1100, 1380)
     $ a.set_emotion('happy')
     show expression a.image at right with dissolve
     "Adam" "Hi there! How was class?"
@@ -134,7 +134,7 @@ label choice_interesting:
 
 label choice_boring:
     $ adam_friendship -= 2
-    $ bryan_friendship += 2
+    $ bryan_friendship += 5
     $ m.set_emotion('neutral')
     show expression m.image at middle with dissolve
     "Me" "It was boring..."
@@ -207,9 +207,25 @@ label continue_conversation:
             show expression e.image at right
             "Emily" "That's the spirit! There are lots of great people here."
 
+    n "You have met Adam and Emily, two students at Estiam. Your interactions with them will affect your relationships and the story's outcome."
+   ### hallway scene
+    scene uni_hallway1 at cover_screen(1100, 1380)
+    n "As you walk through the hallway, you see Bryan, another student at Estiam."
+
+    if bryan_friendship >= 5:
+        $ b.set_emotion('neutral')
+        show expression b.image at right
+        "Bryan" "Hey, [player_name], how's it going? join our group at the end of the class if you want  since adam a boring nerd hehe"
+    else:
+        $ b.set_emotion('neutral')
+        show expression b.image at right
+        "Bryan" "Hey, [player_name], how's it going? join us if you find Adam boring hehe"
+
+
+    # New Scene: Classroom
     # New Scene: Classroom
     hide expression e.image
-    show classroom at cover_screen(1100, 1380)
+    scene classroom at cover_screen(1100, 1380)
     with dissolve
     $ t.set_emotion ('neutral')
     show expression t.image at right
@@ -221,13 +237,12 @@ label continue_conversation:
 
     menu:
         "Sure, that sounds great!":
-            jump choice_interesting
+            jump choice_interesting2
         "I'm not sure, I need to catch up on the material first.":
             jump choice_unsure
         "No thanks, I prefer to study alone.":
             jump choice_decline
 
-# Labels for Menu Choices (with character names)
 label choice_interesting2:
     $ adam_friendship += 3
     $ emily_friendship += 2
@@ -242,6 +257,17 @@ label choice_unsure:
     "Me" "I'm not sure, I need to catch up on the material first."
     show expression a.image at right
     "Adam" "No worries, maybe next time."
+    jump after_study_group_choice
+
+label choice_decline:
+    $ adam_friendship -= 1
+    $ emily_friendship -= 1
+    $ m.set_emotion('neutral')
+    show expression m.image at middle
+    "Me" "No thanks, I prefer to study alone."
+    $ a.set_emotion('happy')
+    show expression a.image at right
+    "Adam" "Alright, suit yourself."
     jump after_study_group_choice
 
 label after_study_group_choice:
@@ -259,16 +285,14 @@ label after_study_group_choice:
         "I need help with both.":
             jump choice_both
 
-label choice_decline:
-    $ adam_friendship -= 1
-    $ emily_friendship -= 1
-    $ m.set_emotion('neutral')
-    show expression m.image at middle
-    "Me" "No thanks, I prefer to study alone."
-    $ a.set_emotion('happy')
-    show expression a.image at right
-    "Adam" "Alright, suit yourself."
-    jump after_study_group_choice
+label choice_last_lecture:
+    # Continue your story from here
+
+label choice_homework_assignment:
+    # Continue your story from here
+
+label choice_both:
+    # Continue your story from here
     # Later in the game, you can check the friendship level:
     if adam_friendship >= 20:
         "Adam" "Hey, you're becoming a great friend!"
