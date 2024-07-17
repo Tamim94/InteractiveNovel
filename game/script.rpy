@@ -30,83 +30,133 @@ init python:
             self.update_image()
 
 # Define characters with their emotion states
+### the popular main jock ( main bad influence friend) that love partying and having fun and always mocks adam but try's to bring the player to his group at the beginning of the game he will hate the students if he get to annoying or close to adam but doesn't mind if the player is close to emily
 define b = DynamicCharacter('Bryan', emotions={
     'neutral': 'bryan_normal',
     'happy': 'bryan_happy',
     'sad': 'bryan_sad',
 }, color="#ffbdbd")
-
+### emilu the good influence friend and maybe best friend of the player she trys to be friendly to adam but doesnt have adam as a friend she will be distant with the player if he does push adam studying no break agenda on emily  / very close to the player.She also trust the player that he will make the right choice and not follow the bad influence group
 define e = DynamicCharacter('Emily', emotions={
     'neutral': 'emily_normal2',
     'happy': 'emily-smiling3',
     'sad': 'emily_sad2',
 }, color="#ffbdbd")
-
+### the good influence but overprotective and overeactive friend of the player he will be distant if the player is close to the bad influence or the other bad students . Also distant if the player very close to emily and doesnt
 define a = DynamicCharacter('Adam', emotions={
     'neutral': 'adam_smiling',
     'happy': 'adam_happy',
     'sad': 'adam_sad',
 }, color="#c8ffc8")
 
+### the player character he will have a skills and popularity and stress variables that will change depending on the choices he makes in the game
 define m = DynamicCharacter('Me', emotions={
     'neutral': 'me_normal',
     'happy': 'me_smiling',
     'sad': 'me_sad',
 }, color="#c8c8ff", )
 
-define t = DynamicCharacter('Teacher', emotions={
+### the main teacher character that will give courses and he will keep an eyes on the students and will have small interactions with the player about his study's status
+define t = DynamicCharacter('Mr Jackson', emotions={
     'neutral': 'teacher1_normal',
     'sad': 'teacher1_sad',
 }, color="#ffbdbd")
+
+### the 2nd teacher character that will give courses and she will keep an eyes on the students and will have small interactions with the player about his study's status
+define t2 = DynamicCharacter('Ms Baker', emotions={
+    'neutral': 'teacher2_normal',
+    'sad': 'teacher2_sad',
+}, color="#ffbdbd")
+
+### the principal of the college he hate troublemakers and will be angry if the player is close to the bad influence group
+define p = DynamicCharacter('Principal Stan', emotions={
+    'neutral': 'principal_normal',
+    'angry': 'principal_angry',
+}, color="#ffbdbd")
+
+
+### the 2nd main character of the bad influence group (bryan and nico ) he will be the one that will be the most angry if the player is close to adam and will be the one that will try to bring the player to the bad influence group.
 define ni = DynamicCharacter('Nico', emotions={
     'neutral':'nico_normal',
     'angry': 'nico_angry',
 }, color="#ffbdbd")
 
+
+### group of random students that  will have different reactions
 define rg = DynamicCharacter('random_group',emotions={
-    'neutral':'random_group_n',
-    'shocked':'random_group_s',
+    'neutral':'random_group_n', ## normal reactions group of rg random students
+    'shocked':'random_group_s',## shocked reactions group of rg random students
     }, color="#ffbdbd")
+### group of random students that  will have different reactions [those character images shadow mode]
 define rb = DynamicCharacter('random_students',emotions={
-'neutral':'random_student_b',
-'neutral2':'random_student_b2',
+'neutral':'random_student_b',# shadow of the random students
+'neutral2':'random_student_b2',# shadow2 of the random students
 },color="#ffbdbd")
 
+### one  random student shadow
 define ri = DynamicCharacter('random_student',emotions={
-'neutral':'random_student_f',
-'neutral2':'random_student_m',
+'neutral':'random_student_f', #female student  shadow
+'neutral2':'random_student_m',#male student  shadow
 },color="#ffbdbd")
+
+### The "3rd main character of the bad influence group (bryan and nico )
+define br = DynamicCharacter('Brett', emotions={
+    'neutral': 'brett_normal',
+    'angry' : 'brett_angry',
+}, color="#ffbdbd")
+
+### The groups of random students jocks that loves partying and having fun
+define jocks = DynamicCharacter('Jocks',emotions={
+'neutral':'jocks_group_normal',
+'dissapointed':'jocks_group_disappointed',
+},color="#ffbdbd")
+
+
+
 # Relationship Variables
 default adam_friendship = 0
 default emily_friendship = 0
 default bryan_friendship = 0
+default teacher_friendship = 0
+default nico_friendship = 0
+
 
 
 
 
 # choices conséquences
-default skills = 0
-default popularity = 0
-default stress = 0
+default skills = 0 # skills of the player that will unlock some choices in the game
+default popularity = 0 # popularity of the player
+default stress = 0 # stress of the player that will affect the choices in the game
 # 1- Adam classroom
 default adamproposition = False
 
 # Unrelated images (no character tags)
 image uni = "uniiii.png"
-image uni_park_day = "uni_park_day.png"
-image uni_park_evening = "uni_park_evening.png"
-image uni_day = "uni_daylight.png"
-image uni_night = "uni_night.png"
-image uni_sunset = "uni_sunset.png"
 image parisw = "parisweird.png"
 image creditt = "creditt.png"
-image uni_hallway1 = "uni_hallway1.png"
-image uni_hallway3 = "uni_hallway3.png"
-image uni_principaloffice = "uni_principaloffice.png"
-image uni_library_empty = "uni_library_empty.png"
-image uni_library_full = "uni_library_full.png"
-image classroom = "classroom.png"
 
+# All scenes background images
+image uni_park_day = "uni_park_day.png" # University park during the day
+image uni_park_evening = "uni_park_evening.png" # University park during the evening
+image uni_day = "uni_daylight.png" # University during the day
+image uni_night = "uni_night.png" # University during the night
+image uni_sunset = "uni_sunset.png" # University during the sunset
+
+image uni_hallway1 = "uni_hallway1.png" # University hallway 1
+image uni_hallway3 = "uni_hallway3.png" # University hallway 3
+image uni_principaloffice = "uni_principaloffice.png" # University principal's office hallway
+image uni_library_empty = "uni_library_empty.png"  # University library empty
+image uni_library_full = "uni_library_full.png" # University library full
+image classroom = "classroom.png" # Classroom
+image principaloffice = "principaloffice.png" # Principal's office
+image uni_cafeteria = "uni_cafeteria.png" # University cafeteria
+image bryan_house = "bryan_house.png" # Bryan's house
+image player_house_room = "player_house_room.png" # Player's house room
+image player_house_room_evening = "player_house_evening.png" # Player's house at evening
+image uni_mainbighall = "uni_mainbighall.png" # University main hall where important principal announcement and  graduation would take place
+image emily_room = "emily_room.png" # Emily's room
+image adam_room = "adam_room.png" # Adam's room
 #Notifications screen
 screen notification(msg):
     frame:
@@ -139,7 +189,7 @@ image skill_icon = "skill_icon.png"
 image stress_icon = "stress_icon.png"
 image popularity_icon = "popularity_icon.png"
 
-# Custom screen to display stats
+
 
 
 label start:
@@ -290,7 +340,7 @@ label continue_conversation:
 
 
 
-    # New Scene: Classroom
+
 
     # New Scene: Classroom
 
@@ -314,6 +364,10 @@ label continue_conversation:
     show expression ri.image at right with dissolve
     "Random student" "I heard Bryan is throwing a party tonight, are you guys coming?"
     hide expression ri.image
+    $ jocks.set_emotion('neutral')
+    show expression jocks.image at right2 with dissolve
+    "Jocks" "Yeah, it's going to be epic! You should all come!"
+    hide expression jocks.image
     $ t.set_emotion('neutral')
     show expression t.image at right with dissolve
     "Teacher" "Be quiet, class! I need silence to see what's wrong with the projector."
@@ -333,6 +387,7 @@ label continue_conversation:
             $ e.set_emotion('neutral')
             show expression e.image at right2 with dissolve
             "Emily" "I'm more worried about this project exam. I hope it's not too hard."
+            hide screen notification
             hide expression e.image
 
             n "The teacher finally manages to get the projector working and starts the lesson. A slide with complex diagrams appears on the screen."
@@ -345,6 +400,7 @@ label continue_conversation:
 
     n "The teacher begins to explain the concepts, and you do your best to take notes. You notice that some students are struggling to keep up."
 
+
     $ a.set_emotion('happy')
     show expression a.image at right
     "Adam" "Hey [player_name], since there are rumors about some project, do you want to join our study group after class?"
@@ -353,6 +409,7 @@ label continue_conversation:
     $ ni.set_emotion('neutral')
     show expression ni.image at right2 with dissolve
     "Nico" "I can't believe we're diving into quantum mechanics already. This is going to be a tough semester."
+    hide expression ni.image
 
     n "The teacher continues the lecture, covering more advanced topics. You do your best to stay focused, but your mind occasionally drifts to thoughts of the party Bryan mentioned and the study group Adam suggested."
 
