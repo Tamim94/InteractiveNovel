@@ -35,19 +35,19 @@ define b = DynamicCharacter('Bryan', emotions={
     'neutral': 'bryan_normal',
     'happy': 'bryan_happy',
     'sad': 'bryan_sad',
-}, color="#ffbdbd")
+}, color="#ff6363",)
 ### emilu the good influence friend and maybe best friend of the player she trys to be friendly to adam but doesnt have adam as a friend she will be distant with the player if he does push adam studying no break agenda on emily  / very close to the player.She also trust the player that he will make the right choice and not follow the bad influence group
 define e = DynamicCharacter('Emily', emotions={
     'neutral': 'emily_normal2',
     'happy': 'emily-smiling3',
     'sad': 'emily_sad2',
-}, color="#ffbdbd")
+}, color="#f71e66",)
 ### the good influence but overprotective and overeactive friend of the player he will be distant if the player is close to the bad influence or the other bad students . Also distant if the player very close to emily and doesnt
 define a = DynamicCharacter('Adam', emotions={
     'neutral': 'adam_smiling',
     'happy': 'adam_happy',
     'sad': 'adam_sad',
-}, color="#c8ffc8")
+}, color="#6370ff",)
 
 ### the player character he will have a skills and popularity and stress variables that will change depending on the choices he makes in the game
 define m = DynamicCharacter('Me', emotions={
@@ -157,17 +157,19 @@ image player_house_room_evening = "player_house_evening.png" # Player's house at
 image uni_mainbighall = "uni_mainbighall.png" # University main hall where important principal announcement and  graduation would take place
 image emily_room = "emily_room.png" # Emily's room
 image adam_room = "adam_room.png" # Adam's room
+
+
 #Notifications screen
 screen notification(msg):
     frame:
         xalign 0.5
         yalign 0.1
-        background Frame("gui/frame.png", 20, 20)
+        background Frame("gui/thoughtbubble.png",)
         text msg style "notification_text"
 
 style notification_text is default:
-    size 30
-    color "#ff0000"
+    size 22
+    color "#63ff69"
 
 transform right:
     xalign 1.2 yalign 0.9
