@@ -11,24 +11,27 @@ init python:
         return Transform(zoom=zoom_factor)
 
     class DynamicCharacter:
-        def __init__(self, name, emotions, **kwargs):
-            self.name = name
-            self.emotions = emotions
-            self.current_emotion = 'neutral'
-            self.color = kwargs.get('color', "#ffffff")
-            self.position = kwargs.get('position', None)
-            self.update_image()
+       def __init__(self, name, emotions, **kwargs):
+           self.name = name
+           self.emotions = emotions
+           self.current_emotion = 'neutral'
+           self.color = kwargs.get('color', "#ffffff")
+           self.position = kwargs.get('position', None)
+           self.character = Character(name, color=self.color)  # Create the Character object here
+           self.update_image()
 
-        def update_image(self):
-            self.image = self.emotions.get(self.current_emotion, self.emotions['neutral'])
+       def update_image(self):
+           self.image = self.emotions.get(self.current_emotion, self.emotions['neutral'])
 
-        def set_emotion(self, emotion):
-            if emotion in self.emotions:
-                self.current_emotion = emotion
-            else:
-                raise ValueError(f"Emotion '{emotion}' not found for character {self.name}")
-            self.update_image()
+       def set_emotion(self, emotion):
+           if emotion in self.emotions:
+               self.current_emotion = emotion
+           else:
+               raise ValueError(f"Emotion '{emotion}' not found for character {self.name}")
+           self.update_image()
 
+       def __call__(self, *args, **kwargs):
+           return self.character(*args, **kwargs)
 # Define characters with their emotion states
 ### the popular main jock ( main bad influence friend) that love partying and having fun and always mocks adam but try's to bring the player to his group at the beginning of the game he will hate the students if he get to annoying or close to adam but doesn't mind if the player is close to emily
 define b = DynamicCharacter('Bryan', emotions={
@@ -47,7 +50,7 @@ define a = DynamicCharacter('Adam', emotions={
     'neutral': 'adam_smiling',
     'happy': 'adam_happy',
     'sad': 'adam_sad',
-}, color="#6370ff",)
+}, color="#04B486",)
 
 ### the player character he will have a skills and popularity and stress variables that will change depending on the choices he makes in the game
 define m = DynamicCharacter('Me', emotions={
@@ -231,10 +234,10 @@ label choice_interesting:
     $ adam_friendship += 5
     $ m.set_emotion('happy')
     show expression m.image at middle with dissolve
-    "Me" "It was interesting! I learned a lot."
+    m "It was interesting! I learned a lot."
     $ a.set_emotion('happy')
     show expression a.image at right with dissolve
-    "Adam" "That's great to hear! I'm glad you enjoyed it."
+    a "That's great to hear! I'm glad you enjoyed it."
     hide a
     jump continue_conversation
 
@@ -243,49 +246,50 @@ label choice_boring:
     $ bryan_friendship += 5
     $ m.set_emotion('neutral')
     show expression m.image at middle with dissolve
-    "Me" "It was boring..."
+    m "It was boring..."
     $ a.set_emotion('sad')
     show expression a.image at right with dissolve
-    "Adam" "Oh, that's too bad. Maybe next time it'll be more engaging."
+    a "Oh, that's too bad. Maybe next time it'll be more engaging."
     hide expression a.image
     $ renpy.pause(0.2)
     $ b.set_emotion('neutral')
     hide expression a.image
     show expression b.image at right with dissolve
-    "Bryan" "Hey, what's up? You are rightttt this course is boringggg.don't listen to the nerd on the right hehe"
+    b "Hey, how's it going? join our group at the end of the class if you want since adam a boring nerd hehe"
     jump continue_conversation
 
 label choice_not_paying_attention:
     $ adam_friendship -= 5
     $ m.set_emotion('sad')
     show expression m.image at middle
-    "Me" "I didn't pay attention..."
+    m "I didn't pay attention..."
     $ a.set_emotion('neutral')
     show expression a.image at right with dissolve
-    "Adam" "Well, that's not ideal, but it happens sometimes."
+    m "Well, that's not ideal, but it happens sometimes."
     hide expression a.image
     $ b.set_emotion('neutral')
     hide expression a.image
+    #b_character = b.get_character(),
     show expression b.image at right with dissolve
-    "Bryan" "Hey, what's up? You are rightttt this course is boringggg.don't listen to the nerd on the right hehe"
+    b "Hey, what's up? You are rightttt this course is boringggg.don't listen to the nerd on the right hehe"
     jump continue_conversation
 
     hide a
 label continue_conversation:
     $ m.set_emotion('neutral')
     show expression m.image at middle with dissolve
-    "Me" "Well, I'm new around here."
+    m "Well, I'm new around here."
 
 
     $ a.set_emotion('happy')
     show expression a.image at right with dissolve
-    "Adam" "Don't worry, you'll get the hang of it. By the way, this is Emily, my friend."
+    a "Don't worry, you'll get the hang of it. By the way, this is Emily, my friend."
     hide expression a.image
 
     hide a
     $ e.set_emotion('happy')
     show expression e.image at right with dissolve
-    "Emily" "Nice to meet you! What's your name?"
+    e "Nice to meet you! What's your name?"
 
     $ player_name = renpy.input("What is your name?")
     $ player_name = player_name.strip() if player_name else "Me"
@@ -293,28 +297,28 @@ label continue_conversation:
 
     $ m.set_emotion('neutral')
     show expression m.image at middle
-    "Me" "[player_name]"
+    m "[player_name]"
     hide expression m.image
 
     $ e.set_emotion('happy')
     show expression e.image at right
-    "Emily" "Well, [player_name], welcome to Estiam! I hope you enjoy your time here."
+    e "Well, [player_name], welcome to Estiam! I hope you enjoy your time here."
 
     menu:
         "I'm a bit nervous about being the new kid.":
             $ m.set_emotion('sad')
             show expression m.image at middle
-            "Me" "I'm a bit nervous about being the new kid."
+            m "I'm a bit nervous about being the new kid."
             $ e.set_emotion('neutral')
             show expression e.image at right
-            "Emily" "It's totally normal to feel that way. Just be yourself and you'll find your place."
+            e "It's totally normal to feel that way. Just be yourself and you'll find your place."
         "I'm excited to meet new people!":
             $ m.set_emotion('happy')
             show expression m.image at middle
-            "Me" "I'm excited to meet new people!"
+            m "I'm excited to meet new people!"
             $ e.set_emotion('happy')
             show expression e.image at right
-            "Emily" "That's the spirit! There are lots of great people here."
+            e "That's the spirit! There are lots of great people here."
 
     n "You have met Adam and Emily, two students at Estiam. Your interactions with them will affect your relationships and the story's outcome."
    ### hallway scene
@@ -324,20 +328,20 @@ label continue_conversation:
     if bryan_friendship >= 5:
         $ b.set_emotion('neutral')
         show expression b.image at right with dissolve
-        "Bryan" "Hey, [player_name], how's it going? join our group at the end of the class if you want since adam a boring nerd hehe"
+        b "Hey, [player_name], how's it going? join our group at the end of the class if you want since adam a boring nerd hehe"
         hide expression b.image
         $ ni.set_emotion('neutral')
         show expression ni.image at right2 with dissolve
-        "Nico" "Hey, [player_name], I heard you're new here and you are already bored haha i like you join us !"
+        ni "Hey, [player_name], I heard you're new here and you are already bored haha i like you join us !"
         hide expression ni.image
     else:
         $ b.set_emotion('neutral')
         show expression b.image at right with dissolve
-        "Bryan" "Hey, [player_name], how's it going? join us if you find Adam boring hehe"
+        b "Hey, [player_name], how's it going? join us if you find Adam boring hehe"
         hide expression b.image
         $ ni.set_emotion('neutral')
         show expression ni.image at right2 with dissolve
-        "Nico" "Hey, [player_name], I heard you  are getting to friendly with the losers be careful!"
+        ni "Hey, [player_name], I heard you  are getting to friendly with the losers be careful!"
         hide expression ni.image
 
 
@@ -353,26 +357,26 @@ label continue_conversation:
     hide screen notification
     $ rb.set_emotion('neutral')
     show expression rb.image at left2 with dissolve
-    "Random Students" "Hey, have you heard that we may get a project exam today?"
+    rb "Hey, have you heard that we may get a project exam today?"
     $ rb.set_emotion('neutral2')
     show expression rb.image at right3 with dissolve
-    "Random Students" "I hope not, I didn't study at all!"
+    rb "I hope not, I didn't study at all!"
     hide expression rb.image
     $ rg.set_emotion('neutral')
     show expression rg.image at right2 with dissolve
-    "Random student" "I heard that the teacher will announce it soon, so be prepared!"
+    rg "I heard that the teacher will announce it soon, so be prepared!"
     hide expression rg.image
     $ ri.set_emotion('neutral2')
     show expression ri.image at right with dissolve
-    "Random student" "I heard Bryan is throwing a party tonight, are you guys coming?"
+    ri "I heard Bryan is throwing a party tonight, are you guys coming?"
     hide expression ri.image
     $ jocks.set_emotion('neutral')
     show expression jocks.image at right2 with dissolve
-    "Jocks" "Yeah, it's going to be epic! You should all come!"
+    jocks "Yeah, it's going to be epic! You should all come!"
     hide expression jocks.image
     $ t.set_emotion('neutral')
     show expression t.image at right with dissolve
-    "Teacher" "Be quiet, class! I need silence to see what's wrong with the projector."
+    t "Be quiet, class! I need silence to see what's wrong with the projector."
     hide expression t.image
 
     n "The classroom falls silent as everyone watches the teacher struggle with the projector. You glance around and notice the different reactions from your classmates."
@@ -384,11 +388,11 @@ label continue_conversation:
             $ b.set_emotion('neutral')
             show screen notification("You gained [popularity] popularity and [stress] stress.")
             show expression b.image at right with dissolve
-            "Bryan" "[player_name], did you hear about the party tonight? It's going to be epic!"
+            b "[player_name], did you hear about the party tonight? It's going to be epic!"
             hide expression b.image
             $ e.set_emotion('neutral')
             show expression e.image at right2 with dissolve
-            "Emily" "I'm more worried about this project exam. I hope it's not too hard."
+            e "I'm more worried about this project exam. I hope it's not too hard."
             hide screen notification
             hide expression e.image
 
@@ -405,26 +409,26 @@ label continue_conversation:
 
     $ a.set_emotion('happy')
     show expression a.image at right
-    "Adam" "Hey [player_name], since there are rumors about some project, do you want to join our study group after class?"
+    a "Hey [player_name], since there are rumors about some project, do you want to join our study group after class?"
 
     hide expression a.image
     $ ni.set_emotion('neutral')
     show expression ni.image at right2 with dissolve
-    "Nico" "I can't believe we're diving into quantum mechanics already. This is going to be a tough semester."
+    ni "I can't believe we're diving into quantum mechanics already. This is going to be a tough semester."
     hide expression ni.image
 
     n "The teacher continues the lecture, covering more advanced topics. You do your best to stay focused, but your mind occasionally drifts to thoughts of the party Bryan mentioned and the study group Adam suggested."
 
     $ t.set_emotion('neutral')
     show expression t.image at right with dissolve
-    "Teacher" "Before we wrap up, I want to remind you all that there will be a project exam at the end of the month. Make sure you're studying regularly."
+    t "Before we wrap up, I want to remind you all that there will be a project exam at the end of the month. Make sure you're studying regularly."
 
     hide expression t.image
     n "The bell rings, signaling the end of the class. Students start packing up their things, and you feel a mix of relief and anxiety about the upcoming project."
 
     $ a.set_emotion('happy')
     show expression a.image at right
-    "Adam" "So, [player_name], what do you think about joining our study group?"
+    a "So, [player_name], what do you think about joining our study group?"
 
     menu:
         "Sure, that sounds great!":
