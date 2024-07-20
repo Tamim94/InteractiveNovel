@@ -121,7 +121,7 @@ define jocks = DynamicCharacter('Jocks',emotions={
 default adam_friendship = 0
 default emily_friendship = 0
 default bryan_friendship = 0
-default teacher_friendship = 0
+default teacher_friendship = 5
 default nico_friendship = 0
 default brett_friendship = 0
 
@@ -426,14 +426,14 @@ label continue_conversation:
             show screen notification("You gained 10 friendship points with Brett and 5 with Emily, but lost 5 with Adam.")
 
             $ popularity += 7
-            $ skills += 3
+            $ skills += 5
             $ stress += 1
             $ adam_friendship -= 5
             $ emily_friendship += 5
             $ brett_friendship += 10
             $ bryan_friendship += 5
             $ nico_friendship += 5
-            $ teacher_friendship -= 5
+            $ teacher_friendship -=1
 
             $ m.set_emotion('neutral')
             show expression m.image at middle with dissolve
@@ -473,11 +473,11 @@ label continue_conversation:
 
         "Calm the situation down":
             $ popularity += 3
-            $ skills += 7
+            $ skills += 10
             $ stress += 1
             $ adam_friendship -= 2
             $ emily_friendship += 6
-            $ brett_friendship += 5
+            $ brett_friendship += 6
             $ bryan_friendship += 3
             $ nico_friendship += 3
             $ teacher_friendship += 3
@@ -515,7 +515,7 @@ label continue_conversation:
 
         "Stay out of it":
             $ popularity += 0
-            $ skills += 5
+            $ skills += 7
             $ stress += 0
             $ adam_friendship -= 0
             $ emily_friendship -= 3
@@ -534,7 +534,7 @@ label continue_conversation:
             hide expression t.image
 
         "Back up Adam":
-            $ popularity += 0
+            $ popularity += 2
             $ skills += 3
             $ stress += 1
             $ adam_friendship +=10
@@ -542,7 +542,7 @@ label continue_conversation:
             $ brett_friendship -= 5
             $ bryan_friendship -= 5
             $ nico_friendship -= 5
-            $ teacher_friendship += 5
+            $ teacher_friendship -= 1
             show screen notification("You gained 3 skills and 1 stress point you also gained 10 friendship points with Adam, 5 with the teacher, but lost 1 with Emily, 5 with Brett, Bryan and Nico.")
             $ m.set_emotion('neutral')
             show expression m.image at middle with dissolve
@@ -800,6 +800,8 @@ label continue_conversation:
         $ stress += 3
         $ bryan_friendship += 7
         $ adam_friendship -= 3
+        $ teacher_friendship += 5
+        $ emily_friendship += 3
         n "You whisper a simplified explanation to Bryan, comparing qubits to spinning coins and entanglement to magical linked coins. Bryan seems to grasp the basics and looks impressed."
         $ m.set_emotion('neutral')
         show expression m.image at middle with dissolve
@@ -818,14 +820,15 @@ label continue_conversation:
         $ stress += 1
         $ adam_friendship -= 2
         $ emily_friendship += 3
-        $ teacher_friendship += 10
+        $ teacher_friendship += 7
         n "You shrug and whisper back that you're just as confused. Bryan seems relieved he's not the only one struggling with the complex concepts."
         $ m.set_emotion('sad')
         show expression m.image at middle with dissolve
         m "I'm struggling too, this is really tough."
-        $ b.set_emotion('happy')
+        $ b.set_emotion('neutral')
         show expression b.image at right with dissolve
         b "So this course really though only that loser over there can enjoy it hehe but i appreciate it [player_name] "
+        hide expression b.image
       "Ignore Bryan and focus on the lecture":
         n "Watch out ! ignoring bryan will make him feel left out and he will not like you for that"
         $ bryan_friendship -= 7
@@ -849,11 +852,13 @@ label continue_conversation:
         br "Hey player i get that your focused but don't ignore people like that everytime"
         hide expression br.image
 
+    show screen notification("You have [skills] skills, [popularity] popularity, and [stress] stress. teacher_friendship [teacher_friendship] ")
     t "And that brings us to the end of today's introduction to quantum computing. Remember, understanding these concepts is crucial for your upcoming project, where you'll be designing a basic quantum algorithm."
 
     n "The teacher continues, discussing potential applications of quantum computing in various fields."
 
     t "Quantum computing has the potential to revolutionize many fields. In cryptography, it could break many of our current encryption methods, but also create unbreakable ones. In drug discovery, it could simulate molecular interactions far more accurately than classical computers."
+    hide screen notification
 
     t "In artificial intelligence and machine learning, quantum computers could process vast amounts of data and recognize patterns far faster than classical computers. This could lead to breakthroughs in areas like natural language processing and computer vision."
 
@@ -874,12 +879,12 @@ label continue_conversation:
 
     hide expression t.image
 
-    if teacher_friendship >= 4 and popularity >= 10 :
+    if teacher_friendship >= 4 and popularity >= 10 and skills >= 6:
         $ t.set_emotion('neutral')
         show expression t.image at right with dissolve
         t "I'm impressed with your focus and dedication, [player_name]. Keep it up, and you'll do great things in this field unlike some other students you help other students and you are not just focused on yourself which is a great trait to have at work"
         hide expression t.image
-    if  popularity >= 20 and skills <= 6:
+    if  teacher_friendship < 4 and popularity >= 20 and skills <= 6:
         $ t.set_emotion('sad')
         show expression t.image at right with dissolve
         t "[player_name] i see you are not paying attention and you are not taking this seriously , this is serious even if you pass the exam and graduate you will not be able to work without any knowledge, i am saying this because you seem to be the kind of student only want the degree and not the knowledge you need to look out for your future"
@@ -899,15 +904,68 @@ label continue_conversation:
 
     menu:
         "Sure, that sounds great!":
-            jump choice_interesting2
+            jump group_study
         "I'm not sure, I need to catch up on the material first.":
             jump choice_unsure
         "No thanks, I prefer to study alone.":
-            jump choice_decline
+            jump choice_unsure
+
+label choice_unsure:
+    scene uni_hallway3 at cover_screen(1100, 1380)
+    n "You walk out of the classroom and find yourself in the hallway thinking about the study group offer. You see Bryan and Nico chatting near the lockers."
+    if  bryan_friendship >= 15:
+
+       $ b.set_emotion('neutral')
+       show expression b.image at right with dissolve
+       b "Hey, [player_name], how was the class? I hope you understood the quantum stuff better than me! do you want to join our study group hehe?"
+       hide expression b.image
+       $ ni.set_emotion('neutral')
+       show expression ni.image at right2 with dissolve
+       ni "Hey, [player_name], we like you to join our study group we don't often get new people to join us"
+       hide expression ni.image
+       $ m.set_emotion('happy')
+       show expression m.image at middle with dissolve
+       m"Thanks for the offer guys, I appreciate it.I am still thinking about it"
+       hide expression m.image
+    if bryan_friendship >= 15 and brett_friendship >= 5 and teacher_friendship >= 4:
+      $ e.set_emotion('neutral')
+      show expression e.image at right with dissolve
+      e "Hey [player_name], i was wondering if you want to join my study , i know adam is a work machine and can get irritating  but i think we can make a great study group you and me , if adam get in the way we can just be a duo study group"
+    menu:
+        "I am still thinking about it":
+         $ m.set_emotion('neutral')
+         show expression m.image at middle with dissolve
+         m "I am still thinking about it"
+         e "Alright, let me know if you decide to join me i will be not far from here taking a coffee from the vending machine"
+         jump choice_unsure2
+        "Join Emily's study group":
+         e "Great! I'll just take a coffee from the vending machine and we can start studying"
+         jump emily_study_group
 
 
+label choice_unsure2:
+    hide expression e.image
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    show screen notification("This is your last chance to join a study group, choose wisely.it will affect your skills and friendship most importantly the ending")
+    m "i have to join a study group but i don't know who to join who should i join ?"
+    menu:
+        "Join Bryan's study group":
+            jump after_study_group_choice2
+        "Join Emily's study group":
+            jump emily_study_group
+        "Join Adam's study group":
+            jump adam_study_group
+        "Study alone":
+            jump study_alone
 
-
+label emily_study_group:
+    scene uni_hallway3  at cover_screen(1100, 1380)
+    n "You walk over to Emily, who is waiting by the vending machine."
+    $ e.set_emotion('happy')
+    show expression e.image at right with dissolve
+    e "I'm glad you decided to join me, [player_name]. Let's choose a place to study."
+    hide expression e.image
 
 
 

@@ -1,30 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 882, in script
-    $ t.set_emotion('angry')
-  File "game/script.rpy", line 882, in <module>
-    $ t.set_emotion('angry')
-  File "game/script.rpy", line 30, in set_emotion
-    raise ValueError(f"Emotion '{emotion}' not found for character {self.name}")
-ValueError: Emotion 'angry' not found for character Mr Jackson
+  File "game/script.rpy", line 929, in script
+    if bryan_friendship => 15 and brett_friendship >= 5 and teacher_friendship >= 8:
+SyntaxError: invalid syntax (game/script.rpy, line 929)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 882, in script
-    $ t.set_emotion('angry')
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 882, in <module>
-    $ t.set_emotion('angry')
-  File "game/script.rpy", line 30, in set_emotion
-    raise ValueError(f"Emotion '{emotion}' not found for character {self.name}")
-ValueError: Emotion 'angry' not found for character Mr Jackson
+  File "game/script.rpy", line 929, in script
+    if bryan_friendship => 15 and brett_friendship >= 5 and teacher_friendship >= 8:
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1842, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1207, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1144, in py_compile
+    raise e
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1081, in py_compile
+    raise orig_e
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1073, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/script.rpy, line 929)
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 InteractiveNovel 1.0
-Sat Jul 20 21:41:52 2024
+Sat Jul 20 23:59:23 2024
