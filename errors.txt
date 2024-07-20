@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 133: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    $ b.set_emotion('neutral')
-    ^
+File "game/script.rpy", line 875: reached end of line when expecting ':'.
+    if teacher_friendship >= 10 and popularity >= 30
+                                                    ^
 
-Ren'Py Version: Ren'Py 8.2.3.24061702
-Mon Jul  8 14:18:43 2024
+Ren'Py Version: Ren'Py 8.2.1.24030407
+Sat Jul 20 21:32:44 2024

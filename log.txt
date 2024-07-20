@@ -1,375 +1,149 @@
-2024-07-09 13:07:08 UTC
+2024-07-20 19:54:23 UTC
 Windows-10-10.0.22631
-Ren'Py 8.2.3.24061702
+Ren'Py 8.2.1.24030407
 
-Early init took 0.08s
-Loading error handling took 0.05s
-Loading script took 0.44s
-Loading save slot metadata took 0.05s
+Early init took 0.05s
+Loading error handling took 0.03s
+Loading script took 0.24s
+Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
-Running init code took 0.08s
-Loading analysis data took 0.02s
+Running init code took 0.05s
+Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.06s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.05s
+Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.05s
+Initial gc took 0.02s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.02s
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
 Cleaning stores took 0.00s
-Init translation took 0.05s
+Init translation took 0.02s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.02s
-Prepare screens took 0.08s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.05s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
-Interface start took 0.35s
+Interface start took 0.14s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 2256, 1504)
+primary display bounds: (0, 0, 2560, 1440)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) UHD Graphics 620'
-Version: b'4.6.0 - Build 31.0.101.2127'
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2250, 1266) drawable=(2250, 1266)
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 181, in script
-    "Me" f"[player_name]"
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
-    Say.execute(self)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 615, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1492, in say
-    renpy.store.say(who, what, *args, **kwargs)
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1332, in __call__
-    old_attr_state = self.handle_say_attributes(False, interact)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1151, in handle_say_attributes
-    if self.resolve_say_attributes(predicting, attrs):
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1077, in resolve_say_attributes
-    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
-
-While running game code:
-  File "game/script.rpy", line 181, in script
-    "Me" f"[player_name]"
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
 Resetting cache.
-Early init took 911.58s
-Loading error handling took 0.04s
-Loading script took 0.34s
+Early init took 148.22s
+Loading error handling took 0.02s
+Loading script took 0.22s
 Loading save slot metadata took 0.04s
 Loading persistent took 0.00s
 Running init code took 0.04s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.06s
+Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.06s
+Initial gc took 0.03s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.08s
+Prepare screens took 0.04s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.19s
+Interface start took 0.12s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 2256, 1504)
+primary display bounds: (0, 0, 2560, 1440)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) UHD Graphics 620'
-Version: b'4.6.0 - Build 31.0.101.2127'
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2250, 1266) drawable=(2250, 1266)
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 181, in script
-    "Me" f"{player_name}"
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
-    Say.execute(self)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 615, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1492, in say
-    renpy.store.say(who, what, *args, **kwargs)
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1332, in __call__
-    old_attr_state = self.handle_say_attributes(False, interact)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1151, in handle_say_attributes
-    if self.resolve_say_attributes(predicting, attrs):
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1077, in resolve_say_attributes
-    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
-
-While running game code:
-  File "game/script.rpy", line 181, in script
-    "Me" f"{player_name}"
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
 Resetting cache.
-Early init took 1041.02s
-Loading error handling took 0.03s
-Loading script took 0.23s
-Loading save slot metadata took 0.05s
+Early init took 186.83s
+Loading error handling took 0.02s
+Loading script took 0.17s
+Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-Running init code took 0.05s
-Loading analysis data took 0.02s
+Running init code took 0.02s
+Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.04s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.06s
+Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.06s
+Initial gc took 0.03s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.08s
+Prepare screens took 0.05s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
-Interface start took 0.18s
+Interface start took 0.13s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 2256, 1504)
+primary display bounds: (0, 0, 2560, 1440)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) UHD Graphics 620'
-Version: b'4.6.0 - Build 31.0.101.2127'
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2250, 1266) drawable=(2250, 1266)
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 181, in script
-    "Me" f"[player_name]"
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
-    Say.execute(self)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 615, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1492, in say
-    renpy.store.say(who, what, *args, **kwargs)
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1332, in __call__
-    old_attr_state = self.handle_say_attributes(False, interact)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1151, in handle_say_attributes
-    if self.resolve_say_attributes(predicting, attrs):
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1077, in resolve_say_attributes
-    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
-
-While running game code:
-  File "game/script.rpy", line 181, in script
-    "Me" f"[player_name]"
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
-Resetting cache.
-Early init took 5222.20s
-Loading error handling took 0.11s
-Loading script took 1.54s
-Loading save slot metadata took 0.26s
-Loading persistent took 0.00s
-Running init code took 0.21s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.24s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.07s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.06s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.05s
+Init translation took 0.00s
 Build styles took 0.00s
-Load screen analysis took 0.01s
-Analyze screens took 0.02s
-Save screen analysis took 0.02s
-Prepare screens took 0.08s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
+Load screen analysis took 0.03s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
 Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2256, 1504)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) UHD Graphics 620'
-Version: b'4.6.0 - Build 31.0.101.2127'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2250, 1266) drawable=(2250, 1266)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 181, in script
-    Me f"[player_name]"
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
-    Say.execute(self)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 575, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 464, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Me' is not defined.
-
-While running game code:
-  File "game/script.rpy", line 181, in script
-    Me f"[player_name]"
-Exception: Sayer 'Me' is not defined.
-Resetting cache.
-Early init took 5243.63s
-Loading error handling took 0.04s
-Loading script took 0.23s
-Loading save slot metadata took 0.05s
-Loading persistent took 0.00s
-Running init code took 0.06s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.05s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.08s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.06s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.06s
+Init translation took 0.00s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-Prepare screens took 0.10s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
 Running _start took 0.00s
-Interface start took 0.17s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2256, 1504)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) UHD Graphics 620'
-Version: b'4.6.0 - Build 31.0.101.2127'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2250, 1266) drawable=(2250, 1266)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 181, in script
-    "Me" f"[player_name]"
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 2560, in execute
-    Say.execute(self)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 615, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\exports.py", line 1492, in say
-    renpy.store.say(who, what, *args, **kwargs)
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1332, in __call__
-    old_attr_state = self.handle_say_attributes(False, interact)
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1151, in handle_say_attributes
-    if self.resolve_say_attributes(predicting, attrs):
-  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\character.py", line 1077, in resolve_say_attributes
-    raise Exception("Say has image attributes %r, but there's no image tag associated with the speaking character." % (attrs,))
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
-
-While running game code:
-  File "game/script.rpy", line 181, in script
-    "Me" f"[player_name]"
-  File "renpy/common/00library.rpy", line 321, in say
-    who(what, interact=interact, *args, **kwargs)
-Exception: Say has image attributes ('f',), but there's no image tag associated with the speaking character.
-Resetting cache.
-Early init took 5351.90s
-Loading error handling took 0.05s
-Loading script took 0.30s
-Loading save slot metadata took 0.05s
-Loading persistent took 0.00s
-Running init code took 0.08s
-Loading analysis data took 0.03s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.05s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.11s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.08s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: b"Couldn't load nvlib." (can be ignored)
-Creating interface object took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.06s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-Prepare screens took 0.11s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Init translation took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Prepare screens took 0.00s
 Running _start took 0.00s
-Interface start took 0.19s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2256, 1504)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) UHD Graphics 620'
-Version: b'4.6.0 - Build 31.0.101.2127'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(2250, 1266) drawable=(2250, 1266)
-Maximum texture size: 4096x4096
