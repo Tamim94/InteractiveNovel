@@ -1,28 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 929, in script
-    if bryan_friendship => 15 and brett_friendship >= 5 and teacher_friendship >= 8:
-SyntaxError: invalid syntax (game/script.rpy, line 929)
+  File "game/script.rpy", line 1118, in script
+    show expression ti.image at right with dissolve
+  File "game/script.rpy", line 1118, in <module>
+    show expression ti.image at right with dissolve
+NameError: name 'ti' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 929, in script
-    if bryan_friendship => 15 and brett_friendship >= 5 and teacher_friendship >= 8:
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1842, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1207, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1144, in py_compile
-    raise e
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1081, in py_compile
-    raise orig_e
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1073, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/script.rpy, line 929)
+  File "game/script.rpy", line 1118, in script
+    show expression ti.image at right with dissolve
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1113, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1069, in show_imspec
+    expression = renpy.python.py_eval(expression)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 1118, in <module>
+    show expression ti.image at right with dissolve
+NameError: name 'ti' is not defined
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 InteractiveNovel 1.0
-Sat Jul 20 23:59:23 2024
+Sun Jul 21 15:40:20 2024

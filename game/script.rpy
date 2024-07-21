@@ -124,7 +124,8 @@ default bryan_friendship = 0
 default teacher_friendship = 5
 default nico_friendship = 0
 default brett_friendship = 0
-
+default teacher2_friendship = 0
+default principal_friendship = 0
 
 
 
@@ -140,6 +141,7 @@ default adamproposition = False
 image uni = "uniiii.png"
 image parisw = "parisweird.png"
 image creditt = "creditt.png"
+image uniii = "uniii.png"
 
 # All scenes background images
 image uni_park_day = "uni_park_day.png" # University park during the day
@@ -156,12 +158,15 @@ image uni_library_full = "uni_library_full.png" # University library full
 image classroom = "classroom.png" # Classroom
 image principaloffice = "principaloffice.png" # Principal's office
 image uni_cafeteria = "uni_cafeteria.png" # University cafeteria
-image bryan_house = "bryan_house.png" # Bryan's house
+image bryan_house = "bryan_mansion.png" # Bryan's house
 image player_house_room = "player_house_room.png" # Player's house room
 image player_house_room_evening = "player_house_evening.png" # Player's house at evening
 image uni_mainbighall = "uni_mainbighall.png" # University main hall where important principal announcement and  graduation would take place
 image emily_room = "emily_room.png" # Emily's room
 image adam_room = "adam_room.png" # Adam's room
+image bryan_dance_room = "bryan_dance_room.png" # Bryan's dance room
+image bryan_chill_room = "bryan_chill_room.png" # Bryan's chill room
+
 
 
 #Notifications screen
@@ -900,16 +905,47 @@ label continue_conversation:
     $ a.set_emotion('happy')
     show expression a.image at right
     a "So, [player_name], what do you think about joining our study group?"
+    hide expression a.image
 
-
+if adam_friendship >= 15 or skills >= 10:
     menu:
         "Sure, that sounds great!":
+            $ a.set_emotion('happy')
+            show expression a.image at right with dissolve
+            a "Awesome! We'll meet at the library after school. I'm sure we can help each other out."
             jump group_study
         "I'm not sure, I need to catch up on the material first.":
+            $ a.set_emotion('neutral')
+            show expression a.image at right with dissolve
+            a "No problem, take your time. I will be at the library if you need help."
+            n "Adam nods and heads out of the classroom and you are also leaving for the hallway"
+            hide expression a.image
             jump choice_unsure
         "No thanks, I prefer to study alone.":
+            $ a.set_emotion('sad')
+            show expression a.image at right with dissolve
+            a "Alright,suit yourself. I'll be at the library if you change your mind."
+            hide expression a.image
+            $ b.set_emotion('neutral')
+            show expression b.image at right with dissolve
+            b "hehe will you look at that adam got rejected by [player_name] not a surprise, nobody want your 'carrying the team' attitude"
+            hide expression b.image
+            $ ni.set_emotion('neutral')
+            show expression ni.image at right2 with dissolve
+            ni "In your face adam ! that's karma for talking when you dont have to!"
+            hide expression ni.image
+            $ br.set_emotion('neutral')
+            show expression br.image at right2 with dissolve
+            br "You are not the team player you think you are adam haha"
+            hide expression br.image
+            $ a.set_emotion('sad')
+            show expression a.image at right with dissolve
+            a "You can go partying instead of bashing me guys, i'm out of here"
+            hide expression a.image
+            n"You leave the classroom and head to the hallway"
             jump choice_unsure
 
+### hallway scenes
 label choice_unsure:
     scene uni_hallway3 at cover_screen(1100, 1380)
     n "You walk out of the classroom and find yourself in the hallway thinking about the study group offer. You see Bryan and Nico chatting near the lockers."
@@ -959,13 +995,313 @@ label choice_unsure2:
         "Study alone":
             jump study_alone
 
+### emily group choices
+hide screen notification
 label emily_study_group:
+
     scene uni_hallway3  at cover_screen(1100, 1380)
     n "You walk over to Emily, who is waiting by the vending machine."
     $ e.set_emotion('happy')
     show expression e.image at right with dissolve
     e "I'm glad you decided to join me, [player_name]. Let's choose a place to study."
     hide expression e.image
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Yeah sure let's go to ..."
+    hide expression m.image
+    n"You are suddenly interrupted by random students who are talking about the party tonight "
+    $ jocks.set_emotion('neutral')
+    show expression jocks.image at right2 with dissolve
+    jocks "**megaphone** Hey guys don't forget about the party tonight it's going to be epic! you should all come!"
+    $ rb.set_emotion('neutral')
+    show expression rb.image at left2 with dissolve
+    rb "And why should we come to the party when we have to study for the project exam?"
+    jocks "Because it's going to be fun! You can study later aswell , come on! it's not like you have to stay all night"
+    rb "Well we could go for a bit and then study later"
+    if popularity >= 25 and bryan_friendship >= 15:
+        show screen notification("Your popularity and relationships with bryan are so high that you are liked by the jocks and they want you to come to the party")
+        $ jocks.set_emotion('neutral')
+        show expression jocks.image at right2 with dissolve
+        jocks "Hey [player_name] you should come to the party tonight it's going to be epic! You really impressed us by helping bryan "
+        hide  screen notification
+        hide expression jocks.image
+        $ rb.set_emotion('neutral')
+    if popularity >= 25 and bryan_friendship >= 15 and skills >= 15:
+        show screen notification("Your popularity and relationships are so high that you are already popular and liked by EVERYONE in the class you are doing great !!!")
+        show expression rb.image at left2 with dissolve
+        rb "Yeah [player_name] yeah if you come i think most of us will come aswell he is very skilled and a team player a good example for all of us"
+        hide expression rb.image
+        hide screen notification
+    if popularity >= 25 and bryan_friendship >= 15 and skills >= 15 and teacher_friendship >= 8:
+         $ emily_friendship += 15
+         $ e.set_emotion('neutral')
+         show expression e.image at right with dissolve
+         e "Adam wish he was you right now [player_name] huh ? but yeah they are right you are a great team player from what i've seen so far"
+         hide expression e.image
+    $ e.set_emotion('neutral')
+    show expression e.image at right with dissolve
+    e "Hmmm maybe we should go to the party for a bit ? and then study later? wouldn't hurt to have some fun what do you think [player_name] ?"
+    hide expression e.image
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "Well i think we should ..."
+    hide expression m.image
+    menu:
+     "Go to the party":
+
+        $ popularity += 10
+        $ stress -= 5
+        $ emily_friendship += 35
+        $ e.set_emotion('happy')
+        show expression e.image at right with dissolve
+        e "Great! Let's go have some fun and then we can study later"
+        hide expression e.image
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        m "Let's not stay too long, we still have to study for the project exam"
+        hide expression m.image
+        scene uniii at cover_screen(1100, 1380) with dissolve
+        n "You and Emily head to the party, and you are wondering if you made the right choice"
+
+
+        jump party_scene
+
+
+    hide expression jocks.image
+    hide expression rb.image
+
+
+#### party scene
+label party_scene:
+    scene bryan_house at cover_screen(1100, 1380)
+    with dissolve
+
+    if emily_friendship >= 56:
+         show screen notification("You are actually on group Emily paths ")
+         n "You and Emily arrive at the party, and the music is already blasting. The house is packed with students dancing, chatting, and having a great time."
+         hide screen notification
+         $ e.set_emotion('happy')
+         show expression e.image at right with dissolve
+         e "This party is kind of huge for an end of the year party, we should be watching the time as well. Text me if you want to leave."
+         $ m.set_emotion('neutral')
+         show expression m.image at middle with dissolve
+         m "Yeah, we should stay for a bit and then head back to study."
+         $ e.set_emotion('sad')
+         show expression e.image at right with dissolve
+         e "Is that Mr. Jackson arguing with some students over there? Looks bad. Try to avoid him, [player_name]."
+         hide expression e.image
+         $ t.set_emotion('sad')
+         show expression t.image at right with dissolve
+         t "Are you guys insane? You should be studying for the project exam, not getting drunk and doing fireworks illegally at an unsafe distance from the house!"
+         hide expression t.image
+         $ e.set_emotion('happy')
+         show expression e.image at right with dissolve
+         e "See you in a bit, [player_name]."
+         hide expression e.image
+         hide expression m.image
+    else:
+        n "You arrive at the party, and the music is already blasting. It seems Mr. Jackson is arguing with some students over there. What is the teacher doing at a student party?"
+        $ t.set_emotion('sad')
+        show expression t.image at right with dissolve
+        t "Are you guys insane? You should be studying for the project exam, not getting drunk and doing fireworks illegally at an unsafe distance from the house!"
+        hide expression t.image
+
+    $ jocks.set_emotion('neutral')
+    show expression jocks.image at left with dissolve
+    jocks "Sir, who invited you to the party?"
+    $ t.set_emotion('sad')
+    show expression t.image at right with dissolve
+    t "Bryan invited me to help him with the exam, and I'm walking into a party?????? But worse, I see some of my students drinking and doing fireworks in an unsafe distance from the house before the project exam?!?!"
+    hide expression t.image
+    $ ri.set_emotion('neutral')
+    show expression ri.image at right2 with dissolve
+    ri "Hey guys, that's Ms. Baker over there!"
+    jocks "Did Bryan invite the whole college to the party?"
+    hide expression ri.image
+    hide expression jocks.image
+    $ t2.set_emotion('sad')
+    show expression t2.image at right with dissolve
+    t2 "Is this how Gen-Z studies for exams?! Mr. Jackson, were you called for a 'project' emergency from Bryan too?"
+    hide expression t2.image
+
+    menu:
+        "Talk to Bryan":
+            jump talk_to_bryan
+        "Find Emily":
+            jump find_emily
+        "Join the Jocks":
+            jump join_the_jocks
+        "Avoid the teachers and blend in":
+            jump blend_in
+        "Leave the party":
+            jump leave_party
+
+label talk_to_bryan:
+    scene bryan_party with dissolve
+    $ b.set_emotion('happy')
+    show expression b.image at right with dissolve
+    b "Hey, [player_name]! Glad you could make it. Having fun yet?"
+    menu:
+        "Yeah, it's great!":
+            $ bryan_friendship += 5
+            $ popularity += 5
+            m "Yeah, it's great! Thanks for inviting me."
+            b "Anytime, buddy! Enjoy the party!"
+            jump party_continue
+        "I'm worried about the exam...":
+            $ bryan_friendship -= 5
+            $ stress += 5
+            m "I'm worried about the exam, though."
+            b "Relax, [player_name]! One night of fun won't hurt. We'll study tomorrow."
+            jump party_continue
+        "Why are the teachers here?":
+            $ bryan_friendship -= 5
+            $ stress += 5
+            m "Why are the teachers here, Bryan?"
+            b "I had to convince them to come to keep things under control. But now they're just ruining the vibe."
+            jump party_continue
+
+label find_emily:
+    scene emily_party with dissolve
+    $ e.set_emotion('neutral')
+    show expression e.image at right with dissolve
+    e "Hey, [player_name]. Everything okay?"
+    menu:
+        "Yeah, just checking in.":
+            $ emily_friendship += 5
+            m "Yeah, just checking in."
+            e "Thanks, [player_name]. Let's try to enjoy ourselves a bit."
+            jump party_continue
+        "I'm worried about the exam...":
+            $ emily_friendship += 10
+            $ stress += 5
+            m "I'm worried about the exam, Emily."
+            e "I understand. We'll get through it. Just don't let the stress get to you."
+            jump party_continue
+        "Have you seen Adam?":
+            $ emily_friendship += 5
+            m "Have you seen Adam?"
+            e "Not yet, but I think he's avoiding the party. Probably studying."
+            jump party_continue
+
+label join_the_jocks:
+    scene jocks_party with dissolve
+    $ jocks.set_emotion('neutral')
+    show expression jocks.image at right with dissolve
+    jocks "Hey, [player_name]! Glad you could join us!"
+    menu:
+        "Let's dance!":
+            $ popularity += 10
+            m "Let's dance!"
+            jocks "That's the spirit!"
+            jump party_continue
+        "I need a drink.":
+            $ popularity += 5
+            m "I need a drink."
+            jocks "Right this way!"
+            jump party_continue
+        "What's up with the teachers?":
+            $ popularity += 5
+            $ stress += 5
+            m "What's up with the teachers?"
+            jocks "Bryan invited them for some reason. Just ignore them."
+            jump party_continue
+
+label blend_in:
+    scene blend_in_party with dissolve
+    n "You decide to avoid the teachers and blend into the crowd, trying to enjoy the party without attracting attention."
+    $ popularity += 5
+    jump party_continue
+
+label leave_party:
+    scene leave_party with dissolve
+    n "You decide that the party isn't worth the risk and leave early. You head home to get some rest and maybe study a bit."
+    $ stress -= 5
+    $ skills += 5
+    jump next_day
+
+label party_continue:
+    scene party_continue with dissolve
+    n "The party continues, and you find yourself getting more involved. What do you want to do next?"
+    menu:
+        "Dance with Emily":
+            jump dance_with_emily
+        "Talk to random students":
+            jump talk_to_random_students
+        "Check on Bryan":
+            jump check_on_bryan
+        "Find a quiet spot to study":
+            jump quiet_spot
+
+label dance_with_emily:
+    scene dance_with_emily with dissolve
+    $ e.set_emotion('happy')
+    show expression e.image at right with dissolve
+    e "Hey, [player_name], want to dance?"
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Sure!"
+    n "You and Emily dance together, enjoying the music and the atmosphere. It's a great way to relieve some stress."
+    $ stress -= 5
+    $ emily_friendship += 10
+    jump party_end
+
+label talk_to_random_students:
+    scene talk_to_random_students with dissolve
+    $ rb.set_emotion('neutral')
+    show expression rb.image at right with dissolve
+    rb "Hey, [player_name]! Great party, right?"
+    menu:
+        "Yeah, it's awesome!":
+            $ popularity += 5
+            m "Yeah, it's awesome!"
+            rb "Glad you're having fun!"
+            jump party_end
+        "I'm worried about the exam...":
+            $ stress += 5
+            m "I'm worried about the exam, though."
+            rb "Don't stress too much. You'll do fine!"
+            jump party_end
+        "Seen any teachers around?":
+            $ stress += 5
+            m "Seen any teachers around?"
+            rb "Yeah, they're trying to keep an eye on us. Just avoid them."
+            jump party_end
+
+label check_on_bryan:
+    scene check_on_bryan with dissolve
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "Hey, [player_name]. Enjoying the party?"
+    menu:
+        "Yeah, it's great!":
+            $ bryan_friendship += 5
+            $ popularity += 5
+            m "Yeah, it's great!"
+            b "Awesome! Glad you could make it."
+            jump party_end
+        "I'm worried about the teachers...":
+            $ bryan_friendship -= 5
+            $ stress += 5
+            m "I'm worried about the teachers, though."
+            b "Don't let them ruin the fun. We'll deal with them later."
+            jump party_end
+
+label quiet_spot:
+    scene quiet_spot with dissolve
+    n "You find a quiet spot away from the party noise and try to study for a bit. It's not the best environment, but it's better than nothing."
+    $ skills += 5
+    $ stress -= 5
+    jump party_end
+
+label party_end:
+    n "As the night goes on, you start feeling tired. It's time to wrap up and head home."
+    jump next_day
+
+label next_day:
+    scene next_day_morning with dissolve
+    n "You wake up the next day, ready to tackle whatever comes next."
+    return
 
 
 
@@ -1016,8 +1352,6 @@ label after_study_group_choice:
                 jump choice_homework_assignment
             "I need help with both.":
                 jump choice_both
-
-
 
 
 

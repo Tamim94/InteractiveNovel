@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 943: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    jump emily_study_group
-    ^
+File "game/script.rpy", line 1110: expected statement.
+    ri.set_emotion('neutral')
+                             ^
+
+File "game/script.rpy", line 1117: expected statement.
+    ti.set_emotion('neutral')
+                             ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun Jul 21 00:16:18 2024
+Sun Jul 21 15:39:17 2024
