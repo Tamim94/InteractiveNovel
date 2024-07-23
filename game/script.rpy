@@ -1117,12 +1117,15 @@ label party_scene:
     show expression ri.image at right2 with dissolve
     ri "Hey guys, that's Ms. Baker over there!"
     jocks "Did Bryan invite the whole college to the party?"
+
     hide expression ri.image
     hide expression jocks.image
+
     $ t2.set_emotion('sad')
     show expression t2.image at right with dissolve
     t2 "Is this how Gen-Z studies for exams?! Mr. Jackson, were you called for a 'project' emergency from Bryan too?"
     hide expression t2.image
+
 
     menu:
         "Talk to Bryan":
@@ -1137,8 +1140,24 @@ label party_scene:
             jump leave_party
 
 label talk_to_bryan:
-    scene bryan_party with dissolve
-    $ b.set_emotion('happy')
+    scene bryan_dance_room at cover_screen(1100, 1380) with dissolve
+    if bryan_friendship <= 15:
+           n " Your relationship with Bryan is bad why the hell you wanna talk to him lol"
+           $ b.set_emotion('angry')
+           show expression b.image at right with dissolve
+           b "Hey i don't think i invited this loser to my party , if you regret being Adam bestie  wont give  a damn about your apologies"
+           $ ni.set_emotion('angry')
+           show expression ni.image at left with dissolve
+           ni "Yeah, [player_name], you're not welcome here. Go hang out with the nerd.Leave the party unless you want to be trouble with us"
+           hide expression ni.image
+           if brett_friendship >= 10:  # Brett defends the player
+              $ br.set_emotion('angry')
+              show expression br.image at right2 with dissolve
+              br "Hey, back off! [player_name] can be whoever they want. You're just jealous they're not following your bad influence."
+              hide expression br.image
+    else:
+        n " You walk over to Bryan, who is surrounded by students dancing and chatting."
+    $ b.set_emotion('neutral')
     show expression b.image at right with dissolve
     b "Hey, [player_name]! Glad you could make it. Having fun yet?"
     menu:
@@ -1162,7 +1181,7 @@ label talk_to_bryan:
             jump party_continue
 
 label find_emily:
-    scene emily_party with dissolve
+    scene bryan_chill_room at cover_screen(1100, 1380) with dissolve
     $ e.set_emotion('neutral')
     show expression e.image at right with dissolve
     e "Hey, [player_name]. Everything okay?"
