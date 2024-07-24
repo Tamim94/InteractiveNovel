@@ -126,7 +126,9 @@ default nico_friendship = 0
 default brett_friendship = 0
 default teacher2_friendship = 0
 default principal_friendship = 0
-
+default negative_academic_friendship = 0
+default jock = 0
+default nerd = 0
 
 
 
@@ -139,7 +141,7 @@ default adamproposition = False
 
 # Unrelated images (no character tags)
 image uni = "uniiii.png"
-image parisw = "parisweird.png"
+image parisw = "paris_weird.png"
 image creditt = "creditt.png"
 image uniii = "uniii.png"
 
@@ -166,7 +168,10 @@ image emily_room = "emily_room.png" # Emily's room
 image adam_room = "adam_room.png" # Adam's room
 image bryan_dance_room = "bryan_dance_room.png" # Bryan's dance room
 image bryan_chill_room = "bryan_chill_room.png" # Bryan's chill room
-
+image teacher_office_door = "teacher_office_door.png" # Teacher's office door
+image beach_evening = "beach_evening.png" # Beach
+image uni_classroom2 = "uni_classroom2.png" # Classroom 2
+image uni_mainhall2 = "uni_mainhall2.png" # University main hall 2
 
 
 #Notifications screen
@@ -267,6 +272,8 @@ label choice_boring:
 
 label choice_not_paying_attention:
     $ adam_friendship -= 5
+    $ bryan_friendship += 5
+    $ stress += 5
     $ m.set_emotion('sad')
     show expression m.image at middle
     m "I didn't pay attention..."
@@ -330,7 +337,7 @@ label continue_conversation:
     n "You have met Adam and Emily, two students at Estiam. Your interactions with them will affect your relationships and the story's outcome."
    ### hallway scene
     scene uni_hallway1 at cover_screen(1100, 1380)
-    n "As you walk through the hallway, you see Bryan, another student at Estiam."
+    n "As you walk through the hallway, you see Bryan, another student at InteractiveNovel."
 
     if bryan_friendship >= 5:
         $ b.set_emotion('neutral')
@@ -350,13 +357,151 @@ label continue_conversation:
         show expression ni.image at right2 with dissolve
         ni "Hey, [player_name], I heard you  are getting to friendly with the losers be careful!"
         hide expression ni.image
+    n "You see some student groups chatting and laughing."
+    $rb.set_emotion('neutral')
+    show expression rb.image at left2 with dissolve
+    rb "This year exam better be easy as last year's one"
+    $ ri.set_emotion('neutral2')
+    show expression ri.image at right with dissolve
+    ri"Wanna sneak up and listen to teacher conversation?"
+    hide expression rb.image
+    hide expression ri.image
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m"should i risk and follow them to listen to the teachers conversation or should i just go to the class?"
+    show screen notification("Upcoming choices will affect your skills , popularity,stress and  friendship .")
+    hide expression m.image
+    menu:
+        "Follow them and spy on the teachers":
+
+            jump follow_them
+        "Go to class":
+            jump go_to_class
+
+
+label follow_them:
+    hide screen notification
+    scene teacher_office_door at cover_screen(1100, 1380) with dissolve
+    $ popularity += 5
+    $ skills += 3
+    $ stress += 5
+
+    $ bryan_friendship += 2
+    $ nico_friendship += 2
+    $ t.set_emotion('neutral')
+    show expression t.image at right with dissolve
+    t"I think i will mainly focus the long end of the year project exam on quantum computing this year"
+    $ t2.set_emotion('neutral')
+    show expression t2.image at left with dissolve
+    t2 "No i believe only putting 1 subject in the exam is not fair for the students i think the other subjects should IT in general like last year "
+    t "No the principal said we should harden the exams to compete against other universities if we put the other subject then we should grade the IT subject way harder to make the student choose quantum computing "
+    $ t2.set_emotion('sad')
+    show expression t2.image at left with dissolve
+    t2 "I know the principal is focusing on the college reputation but i think the students should have a fair chance to pass the exam they already had a hard time with the pandemic the past few years"
+    hide expression t2.image
+    hide expression t.image
+    $ rb.set_emotion('neutral')
+    show expression rb.image at left2 with dissolve
+    rb "Ouch this doesn't sound let's get out of here and tell everyone about this"
+    $ ri.set_emotion('neutral2')
+    show expression ri.image at right with dissolve
+    ri "Yeah before we get caught let's go guys !"
+    hide expression rb.image
+    hide expression ri.image
+    menu:
+        "Leave aswell ":
+            jump go_to_class
+        "Stay and listen more (WARNING if your stress is high this will have a very bad impact on your paths)":
+                $ popularity += 5
+                $ skills += 3
+                $ stress += 5
+
+                $ bryan_friendship += 3
+                $ nico_friendship += 3
+
+
+
+    n "You stay and listen more to the teachers conversation "
+    $ t.set_emotion('sad')
+    show expression t.image at right with dissolve
+    t "If i don't harden the exam then the principal will put someone else in my place and i can't afford to lose my job while it's already impossible to find a job in this post pandemic economy"
+    $ t2.set_emotion('sad')
+    show expression t2.image at left with dissolve
+    t2"I understand but the students are already struggling with the post pandemic effect , we could negotiate with the principal to make the exam fair for the students"
+    t"Listen the principal is already mad at me for a lots of  students not being professional or having  bad grades so i don't think they even deserve a fair exam we getting some new students from another university that closed down because of the pandemic so we need to show them that we are a serious university in exams"
+    hide expression t2.image
+    if stress >= 15:
+        n "Oh man you're losing your cool  because of your stress level so you pop out of nowhere and start arguing'."
+        $ popularity = 10
+        $ skills -= 10
+        $ stress += 20
+        $ negative_academic_friendship += 5
+
+        $ bryan_friendship += 1
+        $ nico_friendship += 1
+        $ m.set_emotion('sad')
+        show expression m.image at middle with dissolve
+        m "This is not right sir , you should be fair to the students! Just because it's your job doesn't mean you should make the students suffer!"
+        $ t.set_emotion('sad')
+        show expression t.image at right with dissolve
+        t "Ok that's none of your business also what is a new student doing sneaking up on the teachers conversation? i will report you to the principal for this!"
+        hide expression t.image
+        show expression t2.image at right with dissolve
+        t2 "That's was a bad move young man please leave before it gets worse we can let it slide this time"
+
+        menu :
+            "Leave":
+                jump go_to_class
+            "Argue with the teacher":
+                $ popularity += 20
+                $ skills -= 10
+                $ stress += 20
+                $ negative_academic_friendship += 5
+                $ principal_friendship -= 5
+
+                $ bryan_friendship += 1
+                $ nico_friendship += 1
+                $ m.set_emotion('sad')
+                show expression m.image at middle with dissolve
+                m "No you're wrong sir! i don't care if you report me i didn't come to this university to study something that wasn't in the program last year why do i got it harder than the students of last year?"
+                $ t.set_emotion('sad')
+                show expression t.image at right with dissolve
+                t "Okay i'm gonna report you to the principal what is your name?"
+                hide expression t.image
+                menu :
+                    "Leave":
+                        show screen notification("On the jock path ")
+                        $ popularity += 10
+                        $ jock = 10
+                        m "I don't have to give my name to YOU"
+                        hide screen notification
+                        jump go_to_class
+                    "Give your name":
+                        $ popularity += 10
+                        $ skills += 2
+                        $ stress -=5
+                        m "My name is [player_name] and i'm new here but i am very  disappointed in this college."
+                        show expression t2.image at right with dissolve
+                        t2 "Please... "
+
+                        jump go_to_class
+    n "yikesss the teacher is coming out of the door it's to late for you to do anything now"
+    show expression m.image at middle with dissolve
+    m "I'm sorry i was listening but i was just curious and passing by"
+    $ t.set_emotion('happy')
+    $ teacher_friendship += 5
+    t "It's alright i appreciate your honesty but this is not a good thing to do especially if it was the principal"
+    if popularity >= 10:
+       t "[player_name] right ? i've been hearing a lots about you in the campus your reputation is already starting to grow"
+    t "You should be going to class now i will be coming to the class in a few minutes"
+
 
 
 
 
 
     # New Scene: Classroom
-
+label go_to_class:
     scene classroom at cover_screen(1100, 1380)
     with dissolve
     show screen notification("Warning: Upcoming choices will affect your skills , popularity,stress and  friendship .")
@@ -385,6 +530,95 @@ label continue_conversation:
     show expression jocks.image at right2 with dissolve
     jocks "Yeah, it's going to be epic! You should all come!"
     hide expression jocks.image
+    n"The teacher entering the classroom and the students start to get quiet."
+    if negative_academic_friendship >= 5:
+        n"The teacher glaring at you and the students notice it and start to whisper."
+
+        $ popularity += 10
+        $ skills -= 5
+        $ stress += 5
+        $ emily_friendship -= 3
+        $ jocks.set_emotion('neutral')
+        show expression jocks.image at right2 with dissolve
+        Jocks "ooooooooooooo [player_name] got in trouble with the teacher"
+        hide expression jocks.image
+        if adam_friendship >= 7:
+            $ adam_friendship -= 10
+            $ b.set_emotion('neutral')
+            show expression b.image at right with dissolve
+            b " I thought you were a nerd like adam but i was wrong hehe "
+            hide expression b.image
+            $ a.set_emotion('sad')
+            show expression a.image at right with dissolve
+            a "What did you do [player_name] to the teacher  ? i thought you were better than this "
+            hide expression a.image
+            $ ni.set_emotion('neutral')
+            show expression ni.image at right2 with dissolve
+            ni "Adam discovered that not everyone a hypocrite gold student like him haha"
+            $ m.set_emotion('sad')
+            show expression m.image at middle with dissolve
+            menu:
+                "I regret it i am sorry Adam":
+                   $ adam_friendship += 10
+                   $ bryan_friendship -= 5
+                   $ nico_friendship -= 5
+                   $ popularity -= 5
+                   $ b.set_emotion('neutral')
+                   show expression b.image at right with dissolve
+                   b "You don't have to be sorry [player_name] this is how we deal with the 'teachers' here hehe"
+                   hide expression b.image
+                   $ a.set_emotion('happy')
+                   show expression a.image at right with dissolve
+                   a "I'm glad you're sorry [player_name] i hope you learned your lesson"
+                   hide expression a.image
+                   $ ni.set_emotion('neutral')
+                   show expression ni.image at right2 with dissolve
+                   ni "blablabla gold student acting like everyone owe him something"
+
+                "I was just defending the students well being":
+                  $ popularity += 10
+                  $ skills += 4
+                  $ popularity += 10
+                  $ b.set_emotion('neutral')
+                  show expression b.image at right with dissolve
+                  b "You're right [player_name] we should all stand up for ourselves right adam ? hehe "
+                  hide expression b.image
+                  $ a.set_emotion('sad')
+                  show expression a.image at right with dissolve
+                  a "Im glad you are defending the students but when the teacher give us a hard time we should just stay silent"
+                  hide expression a.image
+                  $ ni.set_emotion('angry')
+                  show expression ni.image at right2 with dissolve
+                  ni "wE ShoulD StaY SiLenT aNd Do NoThiNg *sheep noises*"
+                  hide expression ni.image
+                  hide expression m.image
+
+
+
+
+                "I don't care this year is a mess already":
+                 $ popularity += 20
+                 $ jock += 10
+                 $ adam_friendship -= 5
+                 $ bryan_friendship += 10
+                 $ nico_friendship += 5
+                 $ m.set_emotion('happy')
+                 m"I don't care this year is a mess already and i don't really care about what you think adam we just met"
+                 show expression a.image at right with dissolve
+                 a "I was wrong about meeting you [player_name] you are just like the others"
+                 hide expression a.image
+                 show expression b.image at right with dissolve
+                 b " Nico [player_name] was never gonna be adam bff you lost the bet hehe "
+
+
+
+        $ b.set_emotion('neutral')
+        show expression b.image at right with dissolve
+        b "[player_name] is just like us hehe , Day 1 and already in trouble"
+        hide expression b.image
+        $ e.set_emotion('sad')
+        show expression e.image at right with dissolve
+        e "Is everything okay [player_name] ? what happened ? You can tell me later "
     $ t.set_emotion('neutral')
     show expression t.image at right with dissolve
     t "Be quiet, class! I need silence to see what's wrong with the projector."
@@ -420,7 +654,7 @@ label continue_conversation:
     hide expression a.image
     $ e.set_emotion('neutral')
     show expression e.image at right2 with dissolve
-    e "Did you really had to say that Adam? trying to heat up the situation?"
+    e "Did you really had to say that Adam? What are you trying to prove ?"
     hide expression e.image
     $ br.set_emotion('neutral')
     show expression br.image at right2 with dissolve
@@ -463,16 +697,35 @@ label continue_conversation:
             hide screen notification
             $ b.set_emotion('neutral')
             show expression b.image at right with dissolve
-            b "Hehe right ! [player_name] is a good cool guy you heard that Adam ? nobody like you in this class"
-            hide expression b.image
-            $ ni.set_emotion('neutral')
-            show expression ni.image at right2 with dissolve
-            ni "Maybe it's time to stop being a nerd and start having fun like [player_name] and brett"
+            if bryan_friendship >= 10:
+             b "Hehe right ! [player_name] is a good cool guy you heard that Adam ? nobody like you in this class"
+             hide expression b.image
+             $ ni.set_emotion('neutral')
+             show expression ni.image at right2 with dissolve
+             ni "Maybe it's time to stop being a nerd and start having fun like [player_name] and brett"
+            else:
+                b "Hehe right ! [player_name] is a strange guy but he can be nice too"
+                hide expression b.image
+                $ ni.set_emotion('neutral')
+                show expression ni.image at right2 with dissolve
+                ni "Maybe it's time to stop acting like mr always right and start having fun like [player_name] and brett"
+
             hide expression ni.image
             hide expression m.image
             $ t.set_emotion('neutral')
             show expression t.image at right with dissolve
-            t "I didn't expected you to talk [player_name] i am really dissapointed that you are not silent "
+            if jock < 0 :
+              t "I didn't expected you to talk [player_name] i am really disappointed that you are not silent "
+            if jock >= 5 :
+                t "You and me will have a real talk after so please for once shut it and focus on the lesson"
+                if bryan_friendship >= 10:
+                 show expression br.image at left with dissolve
+                 br "Wooo scary Mr jackson but you won't do anything to [player_name] "
+                 hide expression br.image
+                 show expression b.image at left with dissolve
+                 b "Yeah you heard that Mr jackson [player_name] is a cool guy"
+                 hide expression b.image
+                 t "Whatever you two say, i already reported you to the principal for being late and talking in class"
             n "The teacher finally manages to get the projector working and starts the lesson. A slide with complex diagrams appears on the screen."
             hide expression t.image
 
@@ -528,6 +781,7 @@ label continue_conversation:
             $ bryan_friendship += 0
             $ nico_friendship += 0
             $ teacher_friendship += 10
+            $ nerd += 10
             show screen notification("You gained 5 skills and 10 friendship points with the teacher, but lost 3 with Emily because she expected more from you ! Remember that.")
             $ e.set_emotion('sad')
             show expression e.image at right with dissolve
@@ -564,10 +818,12 @@ label continue_conversation:
             show expression e.image at right with dissolve
             e "Why did you back up Adam [player_name] ? i didn't think you could act like a arrogant student as well, im kind of dissapointed"
             hide expression e.image
-            if adam_friendship >= 15:
+            if adam_friendship >= 15 and bryan_friendship < 5 and nerd >= 10:
+                show screen notification("Nerd paths")
                 $ b.set_emotion('neutral')
                 show expression b.image at right with dissolve
                 b "Well, [player_name] so you are a nerd like Adam after all"
+                hide screen notification
                 hide expression b.image
                 $ ni.set_emotion('neutral')
                 show expression ni.image at right2 with dissolve
@@ -709,6 +965,10 @@ label continue_conversation:
         e "Pull yourself together [player_name]!!. This is important for the project exam!"
         hide expression e.image
         hide expression m.image
+        if negative_academic_friendship >= 2:
+            $ negative_academic_friendship += 5
+            $ jock += 5
+            t "New student ? I wonder if the reason your old college closed down is because of students like you who don't care about their studies"
         hide screen notification
 
     if stress >= 20 and popularity >= 20:
@@ -798,7 +1058,7 @@ label continue_conversation:
     hide expression b.image
 
     menu:
-      "Try to explain it to Bryan":
+      "Try to explain it to Bryan" if bryan_friendship >= 5 and jock < 5:
         n"I know it's annoying but adam is watching you and he is not happy that you are helping  bryan however you gaining skills because helping others also helps you understand the subject better"
         $ skills += 7
         $ popularity += 5
@@ -856,6 +1116,23 @@ label continue_conversation:
         show expression br.image at right2 with dissolve
         br "Hey player i get that your focused but don't ignore people like that everytime"
         hide expression br.image
+      "I dont understand a single stuff bro" if jock >= 5 and bryan_friendship >= 10 :
+        n "You gained skills and popularity because you are not the only one struggling and admitting it is a good thing"
+        $ skills += 0
+        $ popularity += 5
+        $ stress += 20
+        $ bryan_friendship += 3
+        $ teacher_friendship += 1
+        $ emily_friendship += 3
+        n "You admit to Bryan that you're completely lost, and he nods in understanding. You both share a look of confusion and try to follow along as best you can."
+        $ m.set_emotion('sad')
+        show expression m.image at middle with dissolve
+        m "I'm lost too, this is way over my head."
+        $ b.set_emotion('neutral')
+        show expression b.image at right with dissolve
+        b "I'm glad i'm not the only one lost here, this is really tough"
+        hide expression b.image
+        hide expression m.image
 
     show screen notification("You have [skills] skills, [popularity] popularity, and [stress] stress. teacher_friendship [teacher_friendship] ")
     t "And that brings us to the end of today's introduction to quantum computing. Remember, understanding these concepts is crucial for your upcoming project, where you'll be designing a basic quantum algorithm."

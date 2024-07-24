@@ -1,30 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1118, in script
-    show expression ti.image at right with dissolve
-  File "game/script.rpy", line 1118, in <module>
-    show expression ti.image at right with dissolve
-NameError: name 'ti' is not defined
+  File "game/script.rpy", line 709, in script
+    if jock < 0 :
+  File "game/script.rpy", line 709, in <module>
+    if jock < 0 :
+NameError: name 'jock' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 1118, in script
-    show expression ti.image at right with dissolve
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1113, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1069, in show_imspec
-    expression = renpy.python.py_eval(expression)
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1209, in py_eval
+  File "game/script.rpy", line 709, in script
+    if jock < 0 :
+  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\ast.py", line 1845, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1209, in py_eval
     return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+  File "C:\Users\tamim\Downloads\renpy-8.2.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1118, in <module>
-    show expression ti.image at right with dissolve
-NameError: name 'ti' is not defined
+  File "game/script.rpy", line 709, in <module>
+    if jock < 0 :
+NameError: name 'jock' is not defined
 
 Windows-10-10.0.22631 AMD64
-Ren'Py 8.2.1.24030407
+Ren'Py 8.2.3.24061702
 InteractiveNovel 1.0
-Sun Jul 21 15:40:20 2024
+Wed Jul 24 16:26:51 2024
