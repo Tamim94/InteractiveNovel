@@ -2,13 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1110: expected statement.
-    ri.set_emotion('neutral')
-                             ^
-
-File "game/script.rpy", line 1117: expected statement.
-    ti.set_emotion('neutral')
-                             ^
+File "game/script.rpy", line 1157: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun Jul 21 15:39:17 2024
+Tue Jul 23 22:08:13 2024
