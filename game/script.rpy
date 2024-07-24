@@ -179,12 +179,12 @@ screen notification(msg):
     frame:
         xalign 0.5
         yalign 0.1
-        background Frame("gui/thoughtbubble.png",)
+        background Frame("gui/main_menu.png",)
         text msg style "notification_text"
 
 style notification_text is default:
     size 22
-    color "#63ff69"
+    color "#ffffff"
 
 transform right:
     xalign 1.2 yalign 0.9
@@ -430,6 +430,7 @@ label follow_them:
     t2"I understand but the students are already struggling with the post pandemic effect , we could negotiate with the principal to make the exam fair for the students"
     t"Listen the principal is already mad at me for a lots of  students not being professional or having  bad grades so i don't think they even deserve a fair exam we getting some new students from another university that closed down because of the pandemic so we need to show them that we are a serious university in exams"
     hide expression t2.image
+    hide expression t.image
     if stress >= 15:
         n "Oh man you're losing your cool  because of your stress level so you pop out of nowhere and start arguing'."
         $ popularity = 10
@@ -488,7 +489,8 @@ label follow_them:
     n "yikesss the teacher is coming out of the door it's to late for you to do anything now"
     show expression m.image at middle with dissolve
     m "I'm sorry i was listening but i was just curious and passing by"
-    $ t.set_emotion('happy')
+    $ t.set_emotion('neutral')
+    show expression t.image at right with dissolve
     $ teacher_friendship += 5
     t "It's alright i appreciate your honesty but this is not a good thing to do especially if it was the principal"
     if popularity >= 10:
@@ -1077,7 +1079,7 @@ label go_to_class:
         hide expression b.image
         hide expression m.image
 
-      "Admit you're struggling too":
+      "Admit you're struggling too" if jock < 5:
         n"You gained skills too ? why? because admitting you are struggling is a good thing and you are not the only one struggling however Adam did not like that hes watching everybody huh"
         $ skills += 5
         $ bryan_friendship += 4
@@ -1117,7 +1119,7 @@ label go_to_class:
         br "Hey player i get that your focused but don't ignore people like that everytime"
         hide expression br.image
       "I dont understand a single stuff bro" if jock >= 5 and bryan_friendship >= 10 :
-        n "You gained skills and popularity because you are not the only one struggling and admitting it is a good thing"
+        n "ohhh yes the jock path choices looking nice right ? "
         $ skills += 0
         $ popularity += 5
         $ stress += 20
@@ -1127,10 +1129,10 @@ label go_to_class:
         n "You admit to Bryan that you're completely lost, and he nods in understanding. You both share a look of confusion and try to follow along as best you can."
         $ m.set_emotion('sad')
         show expression m.image at middle with dissolve
-        m "I'm lost too, this is way over my head."
+        m "I'm lost too,i dont understand a single stuff at the moment but the teacher made this harder on purpose"
         $ b.set_emotion('neutral')
         show expression b.image at right with dissolve
-        b "I'm glad i'm not the only one lost here, this is really tough"
+        b "I'm glad i'm not the only one lost here, this is really tough "
         hide expression b.image
         hide expression m.image
 
@@ -1170,7 +1172,22 @@ label go_to_class:
         $ t.set_emotion('sad')
         show expression t.image at right with dissolve
         t "[player_name] i see you are not paying attention and you are not taking this seriously , this is serious even if you pass the exam and graduate you will not be able to work without any knowledge, i am saying this because you seem to be the kind of student only want the degree and not the knowledge you need to look out for your future"
+    if jock >= 5 and popularity >= 20 and skills <= 6:
+        $ t.set_emotion('sad')
+        show expression t.image at right with dissolve
+        t" [player_name] i'm giving you a choice  to either give me an apologies or i will report you to the principal for this unnecessary provocations"
+        menu :
+            "Apologize":
+                $ t.set_emotion('neutral')
+                show expression t.image at right with dissolve
+                t "I appreciate your apology [player_name] but you need to focus on your studies and not on provoking other students"
+                hide expression t.image
 
+            "Refuse":
+                $ t.set_emotion('angry')
+                show expression t.image at right with dissolve
+                t "I will report you to the principal [player_name] for your provocations"
+                hide expression t.image
     hide expression t.image
     n"The bell rings, signaling the end of the class. Students start packing up their things, and you feel a mix of excitement and anxiety about the upcoming project and the vast new field you're just beginning to explore."
 
