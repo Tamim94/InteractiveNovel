@@ -1,5 +1,8 @@
 ﻿define n = Character('Narrator',color="#c8c8ff"  )
 init python:
+    ### trolling screen
+    def show_alien_notification():
+        renpy.notify("I wish that was true but adding an alien character would be too much work for tamim")
     def cover_screen(img_width, img_height):
         # Get the game's screen dimensions
         screen_width, screen_height = renpy.config.screen_width, renpy.config.screen_height
@@ -11,17 +14,31 @@ init python:
         return Transform(zoom=zoom_factor)
 
     class DynamicCharacter:
-       def __init__(self, name, emotions, **kwargs):
+       def __init__(self, name, emotions,male_emotions=None, female_emotions=None, **kwargs):
            self.name = name
            self.emotions = emotions
            self.current_emotion = 'neutral'
+           self.male_emotions = male_emotions or emotions
+           self.female_emotions = female_emotions or emotions
            self.color = kwargs.get('color', "#ffffff")
            self.position = kwargs.get('position', None)
-           self.character = Character(name, color=self.color)  # Create the Character object here
+           self.character = Character(name, color=self.color)
+           self.gender = None
            self.update_image()
 
+       #def update_image(self):
+           #self.image = self.emotions.get(self.current_emotion, self.emotions['neutral'])
        def update_image(self):
-           self.image = self.emotions.get(self.current_emotion, self.emotions['neutral'])
+           if self.gender == 'guy':
+               self.image = self.male_emotions.get(self.current_emotion, self.male_emotions['neutral'])
+           elif self.gender == 'girl':
+               self.image = self.female_emotions.get(self.current_emotion, self.female_emotions['neutral'])
+           else:
+               self.image = self.emotions.get(self.current_emotion, self.emotions['neutral'])
+
+       def set_gender(self, gender):
+           self.gender = gender
+           self.update_image()
 
        def set_emotion(self, emotion):
            if emotion in self.emotions:
@@ -44,6 +61,7 @@ define e = DynamicCharacter('Emily', emotions={
     'neutral': 'emily_normal2',
     'happy': 'emily-smiling3',
     'sad': 'emily_sad2',
+    'angry': 'emily_angry',
 }, color="#f71e66",)
 ### the good influence but overprotective and overeactive friend of the player he will be distant if the player is close to the bad influence or the other bad students . Also distant if the player very close to emily and doesnt
 define a = DynamicCharacter('Adam', emotions={
@@ -53,22 +71,41 @@ define a = DynamicCharacter('Adam', emotions={
 }, color="#04B486",)
 
 ### the player character he will have a skills and popularity and stress variables that will change depending on the choices he makes in the game
-define m = DynamicCharacter('Me', emotions={
+define m = DynamicCharacter('Me',
+emotions={
     'neutral': 'me_normal',
     'happy': 'me_smiling',
     'sad': 'me_sad',
-}, color="#c8c8ff", )
+    'angry': 'me_angry',
+
+},
+male_emotions={
+    'neutral': 'me_normal',
+    'happy': 'me_smiling',
+    'sad': 'me_sad',
+    'angry': 'me_angry',
+    },
+female_emotions={
+    'neutral': 'me_f_normal',
+    'happy': 'me_f_smiling',
+    'sad': 'me_f_sad',
+    'angry': 'me_f_angry',
+    },
+
+color="#c8c8ff", )
 
 ### the main teacher character that will give courses and he will keep an eyes on the students and will have small interactions with the player about his study's status
 define t = DynamicCharacter('Mr Jackson', emotions={
     'neutral': 'teacher1_normal',
     'sad': 'teacher1_sad',
+    'angry': 'teacher1_angry',
 }, color="#ffbdbd")
 
 ### the 2nd teacher character that will give courses and she will keep an eyes on the students and will have small interactions with the player about his study's status
 define t2 = DynamicCharacter('Ms Baker', emotions={
     'neutral': 'teacher2_normal',
     'sad': 'teacher2_sad',
+
 }, color="#ffbdbd")
 
 ### the principal of the college he hate troublemakers and will be angry if the player is close to the bad influence group
@@ -136,9 +173,10 @@ default nerd = 0
 default skills = 0 # skills of the player that will unlock some choices in the game
 default popularity = 0 # popularity of the player
 default stress = 0 # stress of the player that will affect the choices in the game
-# 1- Adam classroom
+# Locked values
 default adamproposition = False
-
+default emily_hate = False
+default bryan_group = False
 # Unrelated images (no character tags)
 image uni = "uniiii.png"
 image parisw = "paris_weird.png"
@@ -200,6 +238,9 @@ transform right2:
 transform right3:
     xalign 1.4 yalign 2.8
 
+transform rightp:
+    xalign 1.2 yalign 0.4
+
 transform left2:
     xalign -0.3 yalign 2.8
 
@@ -211,22 +252,57 @@ image popularity_icon = "popularity_icon.png"
 
 
 
+#Gender screen for the player
+screen gender_selection():
+
+    vbox :
+        xalign 0.5
+        yalign 0.5
+        spacing 20
+        text "You are"  style "window"
+        textbutton "A Guy" action [SetVariable("player_gender", "guy"), Return()] style "choice_button"
+        textbutton "A Girl" action [SetVariable("player_gender", "girl"), Return()] style "choice_button"
+        textbutton "Alien" action [Function(show_alien_notification),] style "choice_button"
+
 label start:
-    scene airport_field at cover_screen(1100, 1380)
+    $ player_gender = None
+    scene airport_field at cover_screen(1100, 1380) with dissolve
     n "This is a game made by the group InteractiveNovel in Estiam."
     n "For this project we were suppose to make a game that will be interactive and will have multiple choices that will affect the outcome of the game."
-    n "Members of the group are Tamim,  Ilyas [also Maxime but left us on April 2024]."
-    scene airport_inside at cover_screen(1100, 1380)
+    n "Members of the group are Tamim,  Ilyas (also Maxime but left us on April 2024)."
+    scene airport_inside at cover_screen(1100, 1380) with dissolve
     n "You are a student that is moving to New Paris to join a  university to finish your year because your old college closed down after the pandemic."
     n "All your choices will affect the outcome of the game.There are 4 endings and 3 paths you can take."
     n "Your relationship with other students will affect the ending but some choices  will be unlocked depending on your skills , stress , popularity and friendship with the other students. Choose wisely."
-    scene paris_weird at cover_screen(800, 800)
+    scene paris_weird at cover_screen(800, 800) with dissolve
     n "It's a new bachelor year for you , you are a student in the university (InteractiveNovel), you are discovering New Paris while going to the university. "
-    scene uni_park_day at cover_screen(1100, 1380)
+label character_creation:
+    n "First of all let's create your character."
+    n "What is  your character name ?"
+    show screen notification("Your name will be used throughout the game")
+    $ player_name = renpy.input("What is your name?")
+    $ player_name = player_name.strip() if player_name else "Me"
+    $ m.character = Character(player_name, color=m.color, image=m.image)
+    n "Okay ! Your name is [player_name] , now what gender you want your character to be ?"
+    show screen notification ("This choice will affect images and dialogues of your character throughout the game")
+    call screen gender_selection
+    $ m.set_gender(player_gender)
+    hide screen notification
+    n "Let me confirm this , your name is [player_name] and you are a [player_gender] yes ? "
+    menu:
+        "Yes":
+          "Nice [player_name] let's start the game !"
+        "No":
+            "Let's restart but i hope you are not trying to choose the alien option"
+            jump character_creation
+    scene uni_park_day at cover_screen(1100, 1380) with dissolve
+    n "You arrive at the university and see the park. Students are sitting on benches, chatting, one student is approaching you."
+    show screen notification("All the people you will meet will have different reactions to your choices and will affect the outcome of the game so yeah look out!")
     $ a.set_emotion('happy')
     show expression a.image at right with dissolve
     "Adam" "Hi there! You are a new student from the college that closed down after the pandemic right?"
     hide a
+    hide screen notification
 
     $ m.set_emotion('neutral')
     show expression m.image at middle with dissolve
@@ -240,6 +316,7 @@ label start:
     show expression a.image at right with dissolve
     "Adam" "How was your old college and it's courses?"
     hide a
+    hide expression m.image
 
     menu:
         "It was interesting! I learned a lot.":
@@ -266,6 +343,7 @@ label choice_boring:
     $ m.set_emotion('neutral')
     show expression m.image at middle with dissolve
     m "It was boring..."
+
     $ a.set_emotion('sad')
     show expression a.image at right with dissolve
     a "Oh, that's too bad. Maybe next time it'll be more engaging."
@@ -300,6 +378,7 @@ label continue_conversation:
     $ m.set_emotion('neutral')
     show expression m.image at middle with dissolve
     m "Well, I'm new around here."
+    hide expression b.image
 
 
     $ a.set_emotion('happy')
@@ -312,39 +391,220 @@ label continue_conversation:
     $ e.set_emotion('happy')
     show expression e.image at right with dissolve
 
-    e "Hey i'm pretty sure that you are new here ! What's your name?"
+    e "Hey i'm pretty sure that you are a new [player_gender] here ! My name is Emily ,what's your name?"
 
-    $ player_name = renpy.input("What is your name?")
-    $ player_name = player_name.strip() if player_name else "Me"
-    $ m.character = Character(player_name, color=m.color, image=m.image)
+
 
     $ m.set_emotion('neutral')
-    show expression m.image at middle
-    m "[player_name]"
-    hide expression m.image
+    show expression m.image at middle with dissolve
+    menu :
+     "I'm [player_name], nice to meet you!":
+        $ emily_friendship += 5
+        jump emily_conv1
+     "Please leave me alone i don't care who you are i want to get to class":
+        show screen notification("What a start ! You're so focused on your studies that you don't want to make friends . You gained nerd points!")
+        $ emily_friendship -= 5
+        $ nerd += 5
+        $ stress += 5
+        $ m.set_emotion('sad')
+        m "Please leave me alone i don't care who you are I want to get to class"
+        hide screen notification
+        $ e.set_emotion('neutral')
+        show expression e.image at right with dissolve
+        e "Uh oh sure okay bye then"
+        $ p.set_emotion('neutral')
+        hide expression e.image
+        show expression p.image at rightp with dissolve
+        p "Hello there i don't think i've seen you around here before are you new here?"
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        menu:
+         "Yes sir ! I'm new here.":
+             $ principal_friendship += 5
+             $ m.set_emotion('happy')
+             show expression m.image at middle with dissolve
+             m "Yes, I'm new here."
+             $ p.set_emotion('happy')
+             show expression p.image at rightp with dissolve
+             p "Well, welcome to InteractiveNovel! I hope you enjoy your time here."
+             hide expression p.image
+             jump hallway
+         "(Lie) No, I've been here for a while." :
+             $ principal_friendship -= 5
+             $ negative_academic_friendship += 1
+             $ m.set_emotion('sad')
+             show expression m.image at middle with dissolve
+             m "No, I've been here for a while."
+             $ p.set_emotion('sad')
+             show expression p.image at rightp with dissolve
+             p "Oh, sorry for not recognizing you. I hope you're enjoying your time here."
+             hide expression p.image
+             jump hallway
+         "Sorry sir im so much in a hurry i have to go to class to study" if nerd >= 1:
+             $ principal_friendship += 5
 
+
+             $ negative_academic_friendship += 5
+             $ m.set_emotion('angry')
+             show expression m.image at middle with dissolve
+             m "Sorry sir im so much in a hurry i have to go to class to study"
+             $ p.set_emotion('neutral')
+             show expression p.image at rightp with dissolve
+             p "Don't  worry im happy to see that you are so focused on your studies"
+             jump hallway
+
+         "I don't have to answer to you" if jock >= 1:
+             $ principal_friendship -= 5
+             $ negative_academic_friendship += 5
+             $ jock += 5
+             $ negative_academic_friendship += 5
+             $ m.set_emotion('angry')
+             show expression m.image at middle with dissolve
+             m "I don't have to answer to you"
+             $ p.set_emotion('angry')
+             show expression p.image at rightp with dissolve
+             p "You should be more respectful to your principal !"
+             jump hallway
+
+
+     "Get lost i talk only to people that are worth my time":
+        show screen notification("You are triggering the jock path ! You gained jock points!")
+        $ emily_friendship -= 5
+        $ jock += 5
+        $ stress += 5
+        $ emily_hate = True
+        $ m.set_emotion('sad')
+        m "Get lost i talk only to people that are worth my time"
+        hide screen notification
+        $ e.set_emotion('neutral')
+        show expression e.image at right with dissolve
+        e "Oh... cool then "
+        n "You are on your way to the main building but you notice the principal is coming your way."
+        $ p.set_emotion('neutral')
+        hide expression e.image
+        show expression p.image at rightp with dissolve
+        p "Hello there i don't think i've seen you around here before are you new here?"
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        menu:
+         "Yes, I'm new here.":
+             $ principal_friendship += 5
+             $ m.set_emotion('happy')
+             show expression m.image at middle with dissolve
+             m "Yes, I'm new here."
+             $ p.set_emotion('happy')
+             show expression p.image at rightp with dissolve
+             p "Well, welcome to InteractiveNovel! I hope you enjoy your time here."
+             hide expression p.image
+             jump hallway
+         "(Lie) No, I've been here for a while.":
+             $ principal_friendship -= 5
+             $ negative_academic_friendship += 1
+             $ m.set_emotion('sad')
+             show expression m.image at middle with dissolve
+             m "No, I've been here for a while."
+             $ p.set_emotion('sad')
+             show expression p.image at rightp with dissolve
+             p "Oh, sorry for not recognizing you. I hope you're enjoying your time here."
+             hide expression p.image
+             jump hallway
+         "I don't have to answer to you" if jock >= 1:
+             $ principal_friendship -= 5
+             $ negative_academic_friendship += 5
+             $ jock += 5
+             $ negative_academic_friendship += 5
+             $ m.set_emotion('angry')
+             show expression m.image at middle with dissolve
+             m "I don't have to answer to you"
+             $ p.set_emotion('angry')
+             show expression p.image at rightp with dissolve
+             p "You should be more respectful to your principal !"
+             jump hallway
+         "I am sorry sir but i really have to go to class" if nerd >= 1:
+             $ principal_friendship += 5
+             $ negative_academic_friendship += 5
+             $ m.set_emotion('neutral')
+             show expression m.image at middle with dissolve
+             m "I am sorry sir but i really have to go to class"
+             $ p.set_emotion('neutral')
+             show expression p.image at rightp with dissolve
+             p "Don't worry i understand you have to go to class"
+             jump hallway
+
+
+
+label emily_conv1 :
+    $ emily_friendship += 5
+    m "I'm [player_name], nice to meet you!"
     $ e.set_emotion('happy')
-    show expression e.image at right
+    show expression e.image at right with dissolve
     e "Well, [player_name],nice to meet you ! welcome to InteractiveNovel ! I hope you enjoy your time here."
-
     menu:
-        "I'm a bit nervous about being the new kid.":
-            $ m.set_emotion('sad')
-            show expression m.image at middle
-            m "I'm a bit nervous about being the new kid."
-            $ e.set_emotion('neutral')
-            show expression e.image at right
-            e "It's totally normal to feel that way. Just be yourself and you'll find your place."
-        "I'm excited to meet new people!":
+     "I'm a bit nervous about being the new kid.":
+       $ m.set_emotion('sad')
+       show expression m.image at middle   with dissolve
+       m "I'm a bit nervous about being the new kid."
+       $ e.set_emotion('neutral')
+       show expression e.image at right  with dissolve
+       e "It's totally normal to feel that way. Just be yourself and you'll find your place."
+     "I'm excited to meet new people!":
+       $ m.set_emotion('happy')
+       show expression m.image at middle with dissolve
+       m "I'm excited to meet new people!"
+       $ e.set_emotion('happy')
+       show expression e.image at right with dissolve
+       e "That's the spirit! There are lots of great people here."
+       hide expression m.image
+       hide expression e.image
+
+
+
+    $ p.set_emotion('neutral')
+    show expression p.image at rightp with dissolve
+    p "Hey i don't think i've seen you around here before are you new here?"
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    menu:
+        "Yes, I'm new here.":
+            $ principal_friendship += 5
             $ m.set_emotion('happy')
-            show expression m.image at middle
-            m "I'm excited to meet new people!"
-            $ e.set_emotion('happy')
-            show expression e.image at right
-            e "That's the spirit! There are lots of great people here."
+            show expression m.image at middle with dissolve
+            m "Yes, I'm new here."
+            $ p.set_emotion('happy')
+            show expression p.image at rightp with dissolve
+            p "Well, welcome to InteractiveNovel! I hope you enjoy your time here."
+            hide expression p.image
+        "(Lie)No, I've been here for a while.":
+            $ principal_friendship -= 5
+            $ m.set_emotion('sad')
+            show expression m.image at middle with dissolve
+            m "No, I've been here for a while."
+            $ p.set_emotion('sad')
+            show expression p.image at rightp with dissolve
+            p "Oh, sorry for not recognizing you. I hope you're enjoying your time here."
+            hide expression p.image
+        "I don't have to answer to you" if jock >= 1:
+            $ principal_friendship -= 5
+            $ jock += 5
+            $ negative_academic_friendship += 5
+            $ m.set_emotion('angry')
+            show expression m.image at middle with dissolve
+            m "I don't have to answer to you"
+            $ p.set_emotion('angry')
+            show expression p.image at rightp with dissolve
+            p "You should be more respectful to your principal !"
+        "I am sorry sir but i really have to go to class" if nerd >= 1:
+            $ principal_friendship += 5
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "I am sorry sir but i really have to go to class"
+            $ p.set_emotion('neutral')
+            show expression p.image at rightp with dissolve
+            p "Don't worry i understand you have to go to class"
 
     n "You have met Adam and Emily, two students at InteractiveNovel. Your interactions with them will affect your relationships and the story's outcome."
    ### hallway scene
+label hallway:
     scene uni_hallway1 at cover_screen(1100, 1380)
     n "As you walk through the hallway, you see Bryan, another student at InteractiveNovel."
 
@@ -551,7 +811,7 @@ label go_to_class:
         $ emily_friendship -= 3
         $ jocks.set_emotion('neutral')
         show expression jocks.image at right2 with dissolve
-        Jocks "ooooooooooooo [player_name] got in trouble with the teacher"
+        jocks "ooooooooooooo [player_name] got in trouble with the teacher"
         hide expression jocks.image
         if adam_friendship >= 7:
             $ adam_friendship -= 10
@@ -627,9 +887,13 @@ label go_to_class:
         show expression b.image at right with dissolve
         b "[player_name] is just like us hehe , Day 1 and already in trouble"
         hide expression b.image
-        $ e.set_emotion('sad')
-        show expression e.image at right with dissolve
-        e "Is everything okay [player_name] ? what happened ? You can tell me later "
+
+
+        if emily_hate == False:
+         $ e.set_emotion('sad')
+         show expression e.image at right with dissolve
+         e "Is everything okay [player_name] ? what happened ? You can tell me later "
+         hide expression e.image
     $ t.set_emotion('neutral')
     show expression t.image at right with dissolve
     t "Be quiet, class! I need silence to see what's wrong with the projector."
@@ -703,7 +967,7 @@ label go_to_class:
             show screen notification("You have [popularity] popularity , [stress] stress points and [skills] skills.")
             $ br.set_emotion('neutral')
             show expression br.image at right2 with dissolve
-            br "thank you new guy for backing me up i appreciate it your name is [player_name] right?"
+            br "thank you new [player_gender] for backing me up i appreciate it your name is [player_name] right?"
             hide expression br.image
             hide screen notification
             $ b.set_emotion('neutral')
@@ -715,7 +979,7 @@ label go_to_class:
              show expression ni.image at right2 with dissolve
              ni "Maybe it's time to stop being a nerd and start having fun like [player_name] and brett"
             else:
-                b "Hehe right ! [player_name] is a strange guy but he can be nice too"
+                b "Hehe right ! [player_name] is a strange [player_gender] but he can be nice too"
                 hide expression b.image
                 $ ni.set_emotion('neutral')
                 show expression ni.image at right2 with dissolve
@@ -734,7 +998,7 @@ label go_to_class:
                  br "Wooo scary Mr jackson but you won't do anything to [player_name] "
                  hide expression br.image
                  show expression b.image at left with dissolve
-                 b "Yeah you heard that Mr jackson [player_name] is a cool guy"
+                 b "Yeah you heard that Mr jackson [player_name] is a cool [player_gender]"
                  hide expression b.image
                  t "Whatever you two say, i already reported you to the principal for being late and talking in class"
             n "The teacher finally manages to get the projector working and starts the lesson. A slide with complex diagrams appears on the screen."
@@ -945,7 +1209,7 @@ label go_to_class:
         hide expression m.image
         hide screen notification
         n "dude you are a genius ! because i myself don't know what you the teacher is  talking about"
-       "Ask your neighbor what they know ":
+       "Ask your neighbor what they know " if emily_hate == False:
         $ popularity += 6
         $ skills += 4
         $ stress -= 3
@@ -971,18 +1235,53 @@ label go_to_class:
         $ m.set_emotion('neutral')
         show expression m.image at middle with dissolve
         m "I'm falling asleep, I can't focus on this."
-        $ e.set_emotion('neutral')
-        show expression e.image at right with dissolve
-        e "Pull yourself together [player_name]!!. This is important for the project exam!"
+
+        if emily_hate == False:
+         $ e.set_emotion('neutral')
+         show expression e.image at right with dissolve
+         e "Pull yourself together [player_name]!!. This is important for the project exam!"
+        else:
+            $ e.set_emotion('neutral')
+            show expression e.image at right with dissolve
+            e " Pfff typical bad [player_gender] behavior"
+            hide expression e.image
+            menu :
+             "I'm sorry Emily about earlier i didn't mean to be rude if that's the reason you're mad at me ":
+               $ emily_hate = False
+               $ e.set_emotion('happy')
+               e "It's alright maybe i had you wrong [player_name] i'm sorry too"
+               hide expression e.image
+             "Don't say anything":
+              n "You decide to stay silent strange you trying to figure out if you should apologize or not?"
+             "Please shut the hell up  Emily":
+                $ popularity += 10
+                $ skills -= 3
+                $ stress += 5
+                $ e.set_emotion('angry')
+                show expression e.image at right with dissolve
+                e "Whatever clown"
+             "You're just jealous girl that you are not the center of attention " if player_gender == "girl" :
+                $ popularity += 10
+                $ skills -= 3
+                $ stress += 5
+                $ e.set_emotion('angry')
+                show expression e.image at right with dissolve
+                e "Ah you wish [player_gender] ! i don't to become a Mcdonald cashier like you"
+
+
+
         hide expression e.image
         hide expression m.image
         if negative_academic_friendship >= 2:
             $ negative_academic_friendship += 5
             $ jock += 5
+            $ t.set_emotion('angry')
+            show expression t.image at right2 with dissolve
             t "New student ? I wonder if the reason your old college closed down is because of students like you who don't care about their studies"
         hide screen notification
 
     if stress >= 20 and popularity >= 20:
+        hide expression t.image
         $ bryan_friendship += 15
         $ m.set_emotion('sad')
         show expression m.image at middle with dissolve
@@ -1209,11 +1508,11 @@ label go_to_class:
                     $ b.set_emotion('neutral')
                     show expression b.image at right with dissolve
 
-                    b "hehe , sir he doesn't care about any consequences"
+                    b "hehe , sir [player_name] doesn't care about any consequences"
                     hide expression b.image
                     $ jocks.set_emotion('neutral')
                     show expression jocks.image at right2 with dissolve
-                    jocks "New guy is so cool"
+                    jocks "New [player_gender] is so cool"
                     hide expression jocks.image
 
 
@@ -1288,21 +1587,21 @@ label choice_unsure:
        show expression m.image at middle with dissolve
        m"Thanks for the offer guys, I appreciate it.I am still thinking about it"
        hide expression m.image
-    if bryan_friendship >= 15 and brett_friendship >= 5 and teacher_friendship >= 4:
+    if bryan_friendship >= 15 and brett_friendship >= 5 and teacher_friendship >= 4 and emily_hate == False:
       $ e.set_emotion('neutral')
       show expression e.image at right with dissolve
       e "Hey [player_name], i was wondering if you want to join my study , i know adam is a work machine and can get irritating  but i think we can make a great study group you and me , if adam get in the way we can just be a duo study group"
-    menu:
-        "I am still thinking about it":
-         $ m.set_emotion('neutral')
-         show expression m.image at middle with dissolve
-         m "I am still thinking about it"
-         e "Alright, let me know if you decide to join me i will be not far from here taking a coffee from the vending machine"
-         jump choice_unsure2
-        "Join Emily's study group":
-         e "Great! I'll just take a coffee from the vending machine and we can start studying"
-         jump emily_study_group
-    if jock >= 5 and emily_friendship >= 5:
+      menu:
+         "I am still thinking about it":
+           $ m.set_emotion('neutral')
+           show expression m.image at middle with dissolve
+           m "I am still thinking about it"
+           e "Alright, let me know if you decide to join me i will be not far from here taking a coffee from the vending machine"
+           jump choice_unsure2
+         "Join Emily's study group":
+           e "Great! I'll just take a coffee from the vending machine and we can start studying"
+           jump emily_study_group
+    if jock >= 5 and emily_hate == False:
         $ e.set_emotion('neutral')
         show expression e.image at right with dissolve
         e "Hey [player_name], are you alright? why you've been acting strange lately"
@@ -1330,16 +1629,23 @@ label choice_unsure2:
     m "i have to join a study group but i don't know who to join who should i join ?"
     menu:
         "Join Bryan's study group" if bryan_friendship >= 15:
-            jump after_study_group_choice2
+            jump bryan_study_group
         "Join Emily's study group" if emily_friendship >= 15:
             jump emily_study_group
         "Join Adam's study group" if adam_friendship >= 15:
             jump adam_study_group
-        "Study alone" :
+        "Study alone"   :
             jump study_alone
         "Who cares about studying, let's go to the party" if jock >= 5:
             jump party_scene
 
+
+
+
+
+label bryan_study_group:
+ scene uni_sunset at cover_screen(1100, 1380)
+ n "You decide to join Bryan's study group. You meet up with Bryan and Nico at the library after school."
 ### emily group choices
 hide screen notification
 label emily_study_group:
@@ -1475,14 +1781,18 @@ label party_scene:
     menu:
         "Talk to Bryan":
             jump talk_to_bryan
-        "Find Emily":
+        "Find Emily" if emily_friendship >= 15:
             jump find_emily
-        "Join the Jocks":
+        "Join the Jocks" if nerd < 4:
             jump join_the_jocks
         "Avoid the teachers and blend in":
             jump blend_in
         "Leave the party":
             jump leave_party
+        "Sneak up Throw drinks at the Mr Jackson" if jock >= 5 and teacher_friendship <= 5:
+          $ m.set_emotion('happy')
+          show expression m.image at middle with dissolve
+          m " Take this Mr Jackson !"
 
 label talk_to_bryan:
     scene bryan_dance_room at cover_screen(1100, 1380) with dissolve
@@ -1540,12 +1850,16 @@ label find_emily:
             $ emily_friendship += 10
             $ stress += 5
             m "I'm worried about the exam, Emily."
-            e "I understand. We'll get through it. Just don't let the stress get to you."
+            e "I understand. We'll get through it. I will leave the party early to study if you want to join me"
+            m "At the library right?"
+            e "Not if i leave alone , i rather study at the the coffee shop near the library"
+            m "Oh okay then enjoy the party"
+
             jump party_continue
         "Have you seen Adam?":
             $ emily_friendship += 5
             m "Have you seen Adam?"
-            e "Not yet, but I think he's avoiding the party. Probably studying."
+            e "Hmm i don't think adam is the party type, he's probably studying"
             jump party_continue
 
 label join_the_jocks:
@@ -1588,13 +1902,13 @@ label party_continue:
     scene party_continue with dissolve
     n "The party continues, and you find yourself getting more involved. What do you want to do next?"
     menu:
-        "Dance with Emily":
+        "Dance with Emily" if emily_friendship >= 60:
             jump dance_with_emily
         "Talk to random students":
             jump talk_to_random_students
-        "Check on Bryan":
+        "Check on Bryan" if bryan_friendship >= 25:
             jump check_on_bryan
-        "Find a quiet spot to study":
+        "Find a quiet spot to study" if jock < 5:
             jump quiet_spot
 
 label dance_with_emily:
@@ -1606,6 +1920,7 @@ label dance_with_emily:
     show expression m.image at middle with dissolve
     m "Sure!"
     n "You and Emily dance together, enjoying the music and the atmosphere. It's a great way to relieve some stress."
+
     $ stress -= 5
     $ emily_friendship += 10
     jump party_end
