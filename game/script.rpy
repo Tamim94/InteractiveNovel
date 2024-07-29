@@ -125,8 +125,13 @@ define ni = DynamicCharacter('Nico', emotions={
 ### group of random students that  will have different reactions
 define rg = DynamicCharacter('random_group',emotions={
     'neutral':'random_group_n', ## normal reactions group of rg random students
-    'shocked':'random_group_s',## shocked reactions group of rg random students
+    'shocked':'random_group_s',## shocked reactions group of rg random students shocked
     }, color="#ffbdbd")
+
+### group of shadow of random students dancing
+define rd = DynamicCharacter('Students dancing ' ,emotions={
+    'neutral':'random_dancer',
+},color="#ffbdbd")
 ### group of random students that  will have different reactions [those character images shadow mode]
 define rb = DynamicCharacter('random_students',emotions={
 'neutral':'random_student_b',# shadow of the random students
@@ -169,6 +174,7 @@ default nerd = 0
 
 
 
+
 # choices conséquences
 default skills = 0 # skills of the player that will unlock some choices in the game
 default popularity = 0 # popularity of the player
@@ -176,7 +182,7 @@ default stress = 0 # stress of the player that will affect the choices in the ga
 # Locked values
 default adamproposition = False
 default emily_hate = False
-default bryan_group = False
+default bryan_study_group = False
 # Unrelated images (no character tags)
 image uni = "uniiii.png"
 image parisw = "paris_weird.png"
@@ -395,7 +401,7 @@ label continue_conversation:
 
 
 
-    $ m.set_emotion('neutral')
+    $ m.set_emotion('smiling')
     show expression m.image at middle with dissolve
     menu :
      "I'm [player_name], nice to meet you!":
@@ -558,10 +564,10 @@ label emily_conv1 :
        hide expression e.image
 
 
-
+    hide expression e.image
     $ p.set_emotion('neutral')
     show expression p.image at rightp with dissolve
-    p "Hey i don't think i've seen you around here before are you new here?"
+    p "Hello , i don't think i've seen you around here before are you new here?"
     $ m.set_emotion('neutral')
     show expression m.image at middle with dissolve
     menu:
@@ -570,7 +576,7 @@ label emily_conv1 :
             $ m.set_emotion('happy')
             show expression m.image at middle with dissolve
             m "Yes, I'm new here."
-            $ p.set_emotion('happy')
+            $ p.set_emotion('neutral')
             show expression p.image at rightp with dissolve
             p "Well, welcome to InteractiveNovel! I hope you enjoy your time here."
             hide expression p.image
@@ -1656,6 +1662,7 @@ label bryan_study_group:
  $ b.set_emotion('neutral')
  show expression b.image at right with dissolve
  if jock < 5 :
+  $ bryan_study_group = True
   b "I was hoping you would join us [player_name]! We can help each other out and make studying more fun."
   hide expression b.image
   $ ni.set_emotion('neutral')
@@ -1663,6 +1670,7 @@ label bryan_study_group:
   ni "Maybe you can help us get better grades [player_name] "
   hide expression ni.image
  if jock >= 5:
+  $ bryan_study_group = True
   b "Hehe this year project is going to be a breeze with you in our group [player_name]!"
   hide expression b.image
   $ ni.set_emotion('neutral')
@@ -1754,7 +1762,10 @@ label emily_study_group:
 label party_scene:
     scene bryan_house at cover_screen(1100, 1380)
     with dissolve
-
+    if bryan_study_group == True:
+         show screen notification("You are actually on group Bryan paths ")
+         n "You , Bryan and Nico arrive at the party, and the music is already blasting. The house is packed with students dancing, chatting, and having a great time."
+         hide screen notification
     if emily_friendship >= 56:
          show screen notification("You are actually on group Emily paths ")
          n "You and Emily arrive at the party, and the music is already blasting. The house is packed with students dancing, chatting, and having a great time."
@@ -1778,6 +1789,7 @@ label party_scene:
          e "See you in a bit, [player_name]."
          hide expression e.image
          hide expression m.image
+
     else:
         n "You arrive at the party, and the music is already blasting. It seems Mr. Jackson is arguing with some students over there. What is the teacher doing at a student party?"
         $ t.set_emotion('sad')
