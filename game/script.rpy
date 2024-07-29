@@ -435,7 +435,7 @@ label continue_conversation:
              $ m.set_emotion('sad')
              show expression m.image at middle with dissolve
              m "No, I've been here for a while."
-             $ p.set_emotion('sad')
+             $ p.set_emotion('neutral')
              show expression p.image at rightp with dissolve
              p "Oh, sorry for not recognizing you. I hope you're enjoying your time here."
              hide expression p.image
@@ -492,7 +492,7 @@ label continue_conversation:
              $ m.set_emotion('happy')
              show expression m.image at middle with dissolve
              m "Yes, I'm new here."
-             $ p.set_emotion('happy')
+             $ p.set_emotion('neutral')
              show expression p.image at rightp with dissolve
              p "Well, welcome to InteractiveNovel! I hope you enjoy your time here."
              hide expression p.image
@@ -500,10 +500,10 @@ label continue_conversation:
          "(Lie) No, I've been here for a while.":
              $ principal_friendship -= 5
              $ negative_academic_friendship += 1
-             $ m.set_emotion('sad')
+             $ m.set_emotion('neutral')
              show expression m.image at middle with dissolve
              m "No, I've been here for a while."
-             $ p.set_emotion('sad')
+             $ p.set_emotion('neutral')
              show expression p.image at rightp with dissolve
              p "Oh, sorry for not recognizing you. I hope you're enjoying your time here."
              hide expression p.image
@@ -576,10 +576,10 @@ label emily_conv1 :
             hide expression p.image
         "(Lie)No, I've been here for a while.":
             $ principal_friendship -= 5
-            $ m.set_emotion('sad')
+            $ m.set_emotion('neutral')
             show expression m.image at middle with dissolve
             m "No, I've been here for a while."
-            $ p.set_emotion('sad')
+            $ p.set_emotion('neutral')
             show expression p.image at rightp with dissolve
             p "Oh, sorry for not recognizing you. I hope you're enjoying your time here."
             hide expression p.image
@@ -692,7 +692,7 @@ label follow_them:
 
     n "You stay and listen more to the teachers conversation "
     $ t.set_emotion('sad')
-    show expression t.image at right with dissolve
+    show expression t.image at right2 with dissolve
     t "If i don't harden the exam then the principal will put someone else in my place and i can't afford to lose my job while it's already impossible to find a job in this post pandemic economy"
     $ t2.set_emotion('sad')
     show expression t2.image at left with dissolve
@@ -713,16 +713,18 @@ label follow_them:
         show expression m.image at middle with dissolve
         m "This is not right sir , you should be fair to the students! Just because it's your job doesn't mean you should make the students suffer!"
         $ t.set_emotion('sad')
-        show expression t.image at right with dissolve
+        show expression t.image at right2 with dissolve
         t "Ok that's none of your business also what is a new student doing sneaking up on the teachers conversation? i will report you to the principal for this!"
         hide expression t.image
         show expression t2.image at right with dissolve
         t2 "That's was a bad move young man please leave before it gets worse we can let it slide this time"
 
+
         menu :
             "Leave":
                 jump go_to_class
             "Argue with the teacher":
+                hide expression t2.image
                 $ popularity += 20
                 $ skills -= 10
                 $ stress += 20
@@ -734,10 +736,10 @@ label follow_them:
                 $ m.set_emotion('sad')
                 show expression m.image at middle with dissolve
                 m "No you're wrong sir! i don't care if you report me i didn't come to this university to study something that wasn't in the program last year why do i got it harder than the students of last year?"
-                $ t.set_emotion('sad')
-                show expression t.image at right with dissolve
+                $ t.set_emotion('angry')
+                show expression t.image at right2 with dissolve
                 t "Okay i'm gonna report you to the principal what is your name?"
-                hide expression t.image
+                hide expression t.image with dissolve
                 menu :
                     "Leave":
                         show screen notification("On the jock path ")
@@ -915,7 +917,7 @@ label go_to_class:
     hide expression rb.image
 
     $ t.set_emotion('sad')
-    show expression t.image at right with dissolve
+    show expression t.image at right2 with dissolve
     t "i said  SILENCE ! Ms brett you are late again so do not have the odacity to speak out loud!I'm going to report you to the principal if you keep this up!now go sit down and be quiet"
     hide expression t.image
 
@@ -925,7 +927,7 @@ label go_to_class:
     hide expression br.image
     $ a.set_emotion('happy')
     show expression a.image at right
-    a "Maybe stopping the partying and start studying would be a good idea."
+    a "Maybe stopping  partying and start studying would be a good idea."
     hide expression a.image
     $ e.set_emotion('neutral')
     show expression e.image at right2 with dissolve
@@ -1315,6 +1317,7 @@ label go_to_class:
     t "Now, let's relate this back to programming. In classical programming, you might write an if-else statement like this:"
 
     n "The teacher types some code on the projector:"
+
     t """
     if (x == 1) {{
         do_something();
@@ -1642,14 +1645,39 @@ label choice_unsure2:
 
 
 
-
+### bryan group choices scenes
 label bryan_study_group:
+ hide screen notification
  scene uni_sunset at cover_screen(1100, 1380)
  n "You decide to join Bryan's study group. You meet up with Bryan and Nico at the library after school."
-### emily group choices
-hide screen notification
-label emily_study_group:
+ $ m.set_emotion('neutral')
+ show expression m.image at middle with dissolve
+ m "Hey guys i made up my mind i will join your study group"
+ $ b.set_emotion('neutral')
+ show expression b.image at right with dissolve
+ if jock < 5 :
+  b "I was hoping you would join us [player_name]! We can help each other out and make studying more fun."
+  hide expression b.image
+  $ ni.set_emotion('neutral')
+  show expression ni.image at right2 with dissolve
+  ni "Maybe you can help us get better grades [player_name] "
+  hide expression ni.image
+ if jock >= 5:
+  b "Hehe this year project is going to be a breeze with you in our group [player_name]!"
+  hide expression b.image
+  $ ni.set_emotion('neutral')
+  show expression ni.image at right2 with dissolve
+  ni "Yeah never mind the project it won't have to be perfect we can clutch it "
+  hide expression ni.image
+$ b.set_emotion('neutral')
+show expression b.image at right with dissolve
+b "Let's go the party hehe we can study later"
+jump party_scene
 
+
+### emily group choices
+label emily_study_group:
+    hide screen notification
     scene uni_hallway3  at cover_screen(1100, 1380)
     n "You walk over to Emily, who is waiting by the vending machine."
     $ e.set_emotion('happy')
