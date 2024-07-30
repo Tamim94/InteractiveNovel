@@ -218,7 +218,7 @@ image uni_classroom2 = "uni_classroom2.png" # Classroom 2
 image uni_mainhall2 = "uni_mainhall2.png" # University main hall 2
 image airport_inside = "airport_inside.png" # Airport inside
 image airport_field = "airport_field.png" # Airport field
-
+image dance_with_emily = "dance_with_emily.png" # Dance with Emily
 
 #Notifications screen
 screen notification(msg):
@@ -240,7 +240,8 @@ transform middle:
 
 transform right2:
     xalign 1.4 yalign 0.6
-
+transform left3 :
+    xalign 1 yalign 0.6
 transform right3:
     xalign 1.4 yalign 2.8
 
@@ -401,7 +402,7 @@ label continue_conversation:
 
 
 
-    $ m.set_emotion('smiling')
+    $ m.set_emotion('happy')
     show expression m.image at middle with dissolve
     menu :
      "I'm [player_name], nice to meet you!":
@@ -1939,11 +1940,11 @@ label leave_party:
     jump next_day
 
 label party_continue:
-    scene party_continue with dissolve
+    scene bryan_dance_room at cover_screen(1100, 1380) with dissolve
     n "The party continues, and you find yourself getting more involved. What do you want to do next?"
     menu:
-        "Dance with Emily" if emily_friendship >= 60:
-            jump dance_with_emily
+        "Stay with emily" if emily_friendship >= 60:
+            jump stay_with_emily
         "Talk to random students":
             jump talk_to_random_students
         "Check on Bryan" if bryan_friendship >= 25:
@@ -1951,15 +1952,54 @@ label party_continue:
         "Find a quiet spot to study" if jock < 5:
             jump quiet_spot
 
-label dance_with_emily:
-    scene dance_with_emily with dissolve
+label stay_with_emily:
+    scene bryan_chill_room at cover_screen(1100, 1380) with dissolve
+
+    $ m.set_emotion('happy')
+    show image m.image at middle with dissolve
+    m "Mind if i stay there Emily?"
     $ e.set_emotion('happy')
     show expression e.image at right with dissolve
-    e "Hey, [player_name], want to dance?"
-    $ m.set_emotion('happy')
-    show expression m.image at middle with dissolve
-    m "Sure!"
-    n "You and Emily dance together, enjoying the music and the atmosphere. It's a great way to relieve some stress."
+    e "Sure go ahead, [player_name] !"
+    hide expression m.image
+    hide expression e.image
+    n "You sit down next to Emily hearing the music and the people dancing in the background. You both start talking about the exam and the project, sharing your thoughts and concerns."
+    n "Somehow the music changes to a classical music"
+    $ ni.set_emotion('angry')
+    show expression ni.image at right2 with dissolve
+    ni " What the ? Since when we blasting some boomer music in a party !"
+    $ br.set_emotion('neutral')
+    show expression br.image at left3 with dissolve
+    br "Ohh Shut up Nico, i like the change of pace"
+    hide expression ni.image
+    hide expression br.image
+    $ jocks.set_emotion('neutral')
+    show expression jocks.image at left with dissolve
+    jocks "Adam would have loved this music!"
+    hide expression jocks.image
+    n "Everyone starts laughing and the party continues"
+
+    if player_gender == "girl":
+      $ e.set_emotion('happy')
+      e "Let's dance [player_name]!"
+      n "You and Emily hit the dance floor, laughing and enjoying the music. The energy is infectious, and you both let loose, forgetting about the upcoming exam for a while."
+      e "Ugh we've just met and we are already besties , i wish i could stay but i have to prepare for the exam wanna come with me ?"
+
+    $ e.set_emotion('neutral')
+    show e "I know it's fun but i think i want to leave the party now to study want to join [player_name] ?"
+    if emily_friendship >= 60 and emily_study_group == True and player_gender == "girl":
+
+
+    menu:
+        "Me too! It's great to let loose.":
+            $ emily_friendship += 10
+            $ stress -= 10
+            m "Me too! It's great to let loose."
+        "I'm still a bit worried about the exam...":
+            $ emily_friendship += 5
+            $ stress -= 5
+            m "I'm still a bit worried about the exam, though."
+            e "Don't worry, [player_name]. We'll study together tomorrow."
 
     $ stress -= 5
     $ emily_friendship += 10
@@ -1968,54 +2008,80 @@ label dance_with_emily:
 label talk_to_random_students:
     scene talk_to_random_students with dissolve
     $ rb.set_emotion('neutral')
-    show expression rb.image at right with dissolve
-    rb "Hey, [player_name]! Great party, right?"
+    show rb "Hey, [player_name]! Great party, right?"
     menu:
         "Yeah, it's awesome!":
             $ popularity += 5
             m "Yeah, it's awesome!"
-            rb "Glad you're having fun!"
+            rb "Glad you're having fun! Heard any good gossip?"
+            menu:
+                "Tell them about the overheard conversation.":
+                    $ popularity += 10
+                    m "Actually, I overheard the teachers talking about making the exam harder this year..."
+                    rb "What?! Seriously? That's not fair!"
+                    $ stress += 5 # Increased stress due to the news
+                "Shrug it off.":
+                    m "Not really. Just trying to enjoy the night."
             jump party_end
         "I'm worried about the exam...":
             $ stress += 5
             m "I'm worried about the exam, though."
-            rb "Don't stress too much. You'll do fine!"
+            rb "Don't worry, you'll ace it! Hey, wanna play a drinking game?"
+            menu:
+                "Sure, why not?":
+                    $ popularity += 5
+                    $ stress -= 5
+                    m "Sure, why not?"
+                "I should probably study...":
+                    $ skills += 5
+                    m "I should probably study..."
+                    rb "Suit yourself! But you're missing out on the fun!"
             jump party_end
         "Seen any teachers around?":
             $ stress += 5
             m "Seen any teachers around?"
-            rb "Yeah, they're trying to keep an eye on us. Just avoid them."
+            rb "Yeah, they're lurking around like buzzkills. Just ignore them and have fun!"
             jump party_end
 
 label check_on_bryan:
     scene check_on_bryan with dissolve
     $ b.set_emotion('neutral')
-    show expression b.image at right with dissolve
-    b "Hey, [player_name]. Enjoying the party?"
+    show b "Hey, [player_name]. Enjoying the party?"
     menu:
         "Yeah, it's great!":
             $ bryan_friendship += 5
             $ popularity += 5
             m "Yeah, it's great!"
-            b "Awesome! Glad you could make it."
+            b "Awesome! Glad you're part of the crew. Wanna try some of this... special punch?"
+            menu:
+                "Sure, sounds interesting.":
+                    $ popularity += 5
+                    $ stress += 10  # Increased stress due to the unknown punch
+                    m "Sure, sounds interesting."
+                "No thanks, I'm good.":
+                    m "No thanks, I'm good."
             jump party_end
         "I'm worried about the teachers...":
             $ bryan_friendship -= 5
             $ stress += 5
             m "I'm worried about the teachers, though."
-            b "Don't let them ruin the fun. We'll deal with them later."
+            b "Relax, [player_name]. They can't spoil our fun. Just ignore them."
+            jump party_end
+        "What's the plan for studying?":
+            $ skills += 5
+            $ stress -= 5
+            m "What's the plan for studying?"
+            b "We'll figure it out tomorrow. Tonight is for partying!"
             jump party_end
 
 label quiet_spot:
     scene quiet_spot with dissolve
-    n "You find a quiet spot away from the party noise and try to study for a bit. It's not the best environment, but it's better than nothing."
+    n "You find a quiet spot away from the party noise and try to study for a bit. It's not the best environment, but it's better than nothing. You manage to review some key concepts and feel slightly less anxious about the exam."
+
     $ skills += 5
     $ stress -= 5
     jump party_end
 
-label party_end:
-    n "As the night goes on, you start feeling tired. It's time to wrap up and head home."
-    jump next_day
 
 label next_day:
     scene next_day_morning with dissolve
