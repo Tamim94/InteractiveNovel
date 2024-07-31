@@ -183,6 +183,7 @@ default stress = 0 # stress of the player that will affect the choices in the ga
 default adamproposition = False
 default emily_hate = False
 default bryan_study_group = False
+default group_alone = False
 default choice_talk_to_random_students_used = False
 default choice_check_on_bryan_used = False
 default choice_quiet_spot_used = False
@@ -2115,9 +2116,11 @@ label next_day:
 
 label after_study_group_choice2:
 
+### library scenes
 label after_study_group_choice:
     show uni_library_empty at cover_screen(1100, 1380)
     with dissolve
+
     if adamproposition == True:
         $ adam_friendship += 5
         $ a.set_emotion('happy')
@@ -2126,76 +2129,150 @@ label after_study_group_choice:
         menu:
             "Yes, let's get started.":
                 $ emily_friendship -= 3
-
+                jump choice_start_without_emily
             "No, let's wait for Emily.":
                 jump choice_wait_for_emily
 
-        label choice_wait_for_emily:
-            $ emily_friendship += 5
+label choice_start_without_emily:
+    $ adam_friendship += 5
+    $ a.set_emotion('neutral')
+    show expression a.image at right with dissolve
+    a "Alright, let's dive into the material. We have a lot to cover, and every minute counts."
+    n "You and Adam open your textbooks and start going through the key points of the project. Adam explains some of the more complex concepts with clarity, making sure you understand each step."
+    $ a.set_emotion('happy')
+    show expression a.image at right with dissolve
+    a "I'm glad we're able to start without any distractions. This project is really important for our final grade."
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "I agree. It's nice to focus without interruptions."
 
-            $ a.set_emotion('sad')
-            show expression a.image at right with dissolve
-            a "It's been 2 hours  i hate waiting to start studying or we will miss the highest grade"
-            hide expression a.image
+label choice_wait_for_emily:
+    $ emily_friendship += 5
+    $ a.set_emotion('sad')
+    show expression a.image at right with dissolve
+    a "It's been 2 hours. I hate waiting to start studying. We might miss the chance to get the highest grade."
+    hide expression a.image
+    $ e.set_emotion('sad')
+    show expression e.image at right with dissolve
+    e "I heard that, Adam. Sorry I'm late, guys. What are we studying today?"
+    $ a.set_emotion('angry')
+    show expression a.image at left with dissolve
+    a "You dare to be late and ask what we're studying today? I'm guessing you were at Bryan's party. Do us a favor and leave our group. I'm sure [player_name] will agree with me."
+    menu:
+        "I agree with Adam":
+            $ emily_friendship -= 5
+            $ adam_friendship += 5
             $ e.set_emotion('sad')
             show expression e.image at right with dissolve
-            e "I heard that adam , sorry i'm late guys, what are we studying today?"
-            show expression a.image at at left with dissolve
-            a "You dare to be late and ask what are we studying today? I'm guessing you were in Bryan party , so do us a favor and leave our group im sure [player_name] will agree with me"
-            menu:
-                "I agree with Adam":
-                    $ emily_friendship -= 5
-                    $ adam_friendship += 5
-                    $ e.set_emotion('sad')
-                    show expression e.image at right with dissolve
-                    e "You seriously are talking to me like this after all the time i defended you and been nice to you this year ?  I'm sorry [player_name] i will leave you guys to study"
-                    hide expression e.image
-
-                "I disagree with Adam":
-                    $ emily_friendship += 5
-                    $ adam_friendship -= 5
-                    $ e.set_emotion('happy')
-                    show expression e.image at right with dissolve
-                    e "Thanks for backing me up [player_name] but i will leave you guys to study i can't stand Adam's attitude i am sorry "
-                    hide expression e.image
+            e "You seriously are talking to me like this after all the times I've defended you and been nice to you this year? I'm sorry, [player_name], I will leave you guys to study."
+            hide expression e.image
             $ a.set_emotion('happy')
             show expression a.image at right with dissolve
-            a "I'm glad atleast that you are  with me [player_name] , let's start studying"
+            a "I'm glad at least that you're with me, [player_name]. Let's start studying."
+            hide expression a.image
+
+        "I disagree with Adam":
+            $ emily_friendship += 5
+            $ adam_friendship -= 5
+            $ e.set_emotion('happy')
+            show expression e.image at right with dissolve
+            e "Thanks for backing me up, [player_name]. But I will leave you guys to study. I can't stand Adam's attitude. I am sorry."
+            hide expression e.image
+            $ a.set_emotion('sad')
+            show expression a.image at right with dissolve
+            a "I can't believe you're taking her side. This is just great. Let's just get this over with."
+            hide expression a.image
 
 
+label studying_without_emily:
+    n "With Emily gone, you and Adam dive deep into the study material. Adam's frustration fades as he focuses on explaining the key points."
+    $ a.set_emotion('neutral')
+    show expression a.image at right with dissolve
+    a "Let's break down the first part of the project. We need to understand the core concepts before moving on to the practical applications."
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Agreed. Let's start with the main theories."
+    n "Hours pass as you and Adam work through the textbooks, solving problems and discussing theories. Despite the initial tension, you make significant progress."
+    $ stress -= 10
+    $ skills += 10
+    jump end_study_session
+
+label studying_with_emily:
+    n "After Emily leaves, you and Adam reluctantly start studying. Despite the tension, you manage to focus on the material."
+    $ a.set_emotion('neutral')
+    show expression a.image at right with dissolve
+    a "Alright, let's get through this. We'll start with the first chapter and make sure we cover everything thoroughly."
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "Sounds good. Let's make the most of the time we have."
+    n "You and Adam spend the next few hours immersed in your books, taking notes and discussing the key concepts. The library is quiet, allowing you to concentrate fully."
+    $ stress -= 5
+    $ skills += 200
 
 
+=
+    n "After a long study session, you and Adam decide to call it a day. Despite the rocky start, you've covered a lot of ground."
+    $ a.set_emotion('happy')
+    show expression a.image at right with dissolve
+    a "Good job today, [player_name]. We made some solid progress."
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Thanks, Adam. Let's keep this momentum going for the next session."
+    n "You pack up your things and head out of the library, feeling a bit more prepared for the upcoming exam."
+    jump go_home
 
 
-    else:
-        $ adam_friendship += 2
-        $ emily_friendship += 5
-        $ bryan_friendship -= 3
+else:
+    ### player and Emily coming from the party
+    $ adam_friendship += 2
+    $ emily_friendship += 5
+    $ bryan_friendship -= 3
+    $ a.set_emotion('sad')
+    show expression a.image at right with dissolve
+    a "So now you decide to join, Emily and [player_name]? I thought you were joining Bryan or studying alone. What do you need help with?"
+    hide expression a.image
+    $ e.set_emotion('angry')
+    show expression e.image at left with dissolve
+    e "So what, Adam? This is how you welcome me after all the times I've defended you and been nice to you this year?"
+    if emily_study_group:
         $ a.set_emotion('sad')
         show expression a.image at right with dissolve
-        a "So now you decide to join Emily and [player_name]? I thought you were joining Bryan or studying alone. What do you need help with?"
-        hide expression a.image
+        a "I thought you were a serious student, Emily. That's why I joined your group. I rather do the project exam alone at this point."
         $ e.set_emotion('angry')
         show expression e.image at left with dissolve
-        e "So what if we did ?why are you in such a bad mood, Adam? Sorry [player_name] I was late aswell. What do you need help with?"
-         if emily_study_group:
-             $ a.set_emotion('sad')
-             show expression a.image at right with dissolve
-             a "I thought you were a serious student Emily that's why i joined your group ,i rather do the project exam alone at this point "
-             e "Okay if you wanna argue then just leave , i dont need your annoying IM PERFECT attitude , no kidding why was i even nice to you in the first place"
-             hide expression a.image
-             hide expression e.image
-             n "After arguing Adam goes in another table in the library and you and Emily start studying"
-             $ e.set_emotion('happy')
-             show expression e.image at right with dissolve
-             e "Sorry about that [player_name] , Adam is just being Adam , let's start studying"
-             if player_gender == "girl" :
-              e"I didn't want Adam to ruin the vibes , especially because we've  got a  great chemistry. "
-              $ m.set_emotion('happy')
-              show expression m.image at middle with dissolve
-              m "Yeah don't worry about it and you are right i feel like we've been friends for a long time"
-
-
+        e "Okay, if you wanna argue, then just leave. I don't need your annoying 'I'm perfect' attitude. No kidding, why was I even nice to you in the first place?"
+        hide expression a.image
+        hide expression e.image
+        n "After arguing, Adam goes to another table in the library, and you and Emily start studying."
+        $ e.set_emotion('happy')
+        show expression e.image at right with dissolve
+        e "Sorry about that, [player_name]. Adam is just being Adam. Let's start studying."
+        if player_gender == "girl":
+            e "I didn't want Adam to ruin the vibes, especially because we've got great chemistry."
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "Yeah, don't worry about it. You're right, I feel like we've been friends for a long time."
+label studying_with_emily:
+    n "You and Emily settle down and start going through the study material. Emily's insights and explanations help you grasp difficult concepts."
+    $ e.set_emotion('neutral')
+    show expression e.image at right with dissolve
+    e "Let's focus on the main points first. We need to understand the theory before we move on to the practical part."
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "Good idea. I'll take notes while you explain."
+    n "Emily begins to explain the core concepts in detail, breaking down complex ideas into simpler terms. You find her explanations clear and easy to understand."
+    $ e.set_emotion('happy')
+    show expression e.image at right with dissolve
+    e "This part here is crucial for our project. If we don't get this right, the whole thing falls apart."
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Got it. I'll make sure to write it down properly."
+    n "The hours pass by quickly as you and Emily work through the material, discussing and solving problems together. Her enthusiasm for the subject is contagious, making the study session enjoyable despite the initial tension with Adam."
+    $ stress -= 10
+    $ skills += 200
+    $ emily_friendship += 5
+    e "I think we've atleast done 60% of the project. Well that was one hell of a day partying then studying ugh i'm tired"
+    m "Right ? i think we should head home and do the rest next t
 
 
 
