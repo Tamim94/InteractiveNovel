@@ -182,12 +182,16 @@ default stress = 0 # stress of the player that will affect the choices in the ga
 # Locked values choices
 default adamproposition = False
 default emily_hate = False
+default bryan_hate = False
+default emily_study_group = False
 default bryan_study_group = False
 default group_alone = False
 default choice_talk_to_random_students_used = False
 default choice_check_on_bryan_used = False
 default choice_quiet_spot_used = False
 default choice_stay_with_emily_used = False
+default choice_rip_mr_jackson_used = False
+default choice_bryan_party = False
 # Unrelated images (no character tags)
 image uni = "uniiii.png"
 image parisw = "paris_weird.png"
@@ -224,7 +228,10 @@ image uni_mainhall2 = "uni_mainhall2.png" # University main hall 2
 image airport_inside = "airport_inside.png" # Airport inside
 image airport_field = "airport_field.png" # Airport field
 image dance_with_emily = "dance_with_emily.png" # Dance with Emily
-
+image player_house_room_day = "player_house_room_day.png" # Player's house room during the day
+image player_house_room_night = "player_house_room_night.png" # Player's house room during the night
+image uni_library2_night = "uni_library2_night.png" # University library 2 during the night
+image uni_library_outside = "uni_library_outside.png" # University library outside
 #Notifications screen
 screen notification(msg):
     frame:
@@ -1545,14 +1552,20 @@ label go_to_class:
 if adam_friendship >= 15 or skills >= 10:
         $ a.set_emotion('happy')
         show expression a.image at right
-        a "So, [player_name], what do you think about joining our study group?"
+        a "So, [player_name], what do you think about joining my study group?"
         hide expression a.image
         menu:
            "Sure, that sounds great!":
              $ a.set_emotion('happy')
              show expression a.image at right with dissolve
              a "Awesome! We'll meet at the library after school. I'm sure we can help each other out."
+             $ adamproposition = True
              jump group_study
+           "Sure but i will join you later":
+             $ a.set_emotion('neutral')
+             show expression a.image at right with dissolve
+             a "No problem, just let me know when you're ready to join us."
+             jump choice_unsure
            "I'm not sure, I need to catch up on the material first.":
              $ a.set_emotion('neutral')
              show expression a.image at right with dissolve
@@ -1588,7 +1601,7 @@ if adam_friendship >= 15 or skills >= 10:
 label choice_unsure:
     scene uni_hallway3 at cover_screen(1100, 1380)
     n "You walk out of the classroom and find yourself in the hallway thinking about the study group offer. You see Bryan and Nico chatting near the lockers."
-    if  bryan_friendship >= 15:
+    if  bryan_friendship >= 15 and adamproposition == False:
 
        $ b.set_emotion('neutral')
        show expression b.image at right with dissolve
@@ -1602,10 +1615,16 @@ label choice_unsure:
        show expression m.image at middle with dissolve
        m"Thanks for the offer guys, I appreciate it.I am still thinking about it"
        hide expression m.image
-    if bryan_friendship >= 15 and brett_friendship >= 5 and teacher_friendship >= 4 and emily_hate == False:
+    if adamproposition == True:
+        $ b.set_emotion('neutral')
+        show expression b.image at right with dissolve
+        b "Oh look at the new [player_gender] not sure if adam is the right choice hehe "
+        hide expression b.image
+
+    if jock < 5  and emily_hate == False:
       $ e.set_emotion('neutral')
       show expression e.image at right with dissolve
-      e "Hey [player_name], i was wondering if you want to join my study , i know adam is a work machine and can get irritating  but i think we can make a great study group you and me , if adam get in the way we can just be a duo study group"
+      e "Hey [player_name], i was wondering if you want to join my project group , i know adam is a work machine and can get irritating  but i think we can make a great study group you and me , if adam get in the way we can just be a duo study group"
       menu:
          "I am still thinking about it":
            $ m.set_emotion('neutral')
@@ -1626,6 +1645,8 @@ label choice_unsure:
            $ e.set_emotion('sad')
            show expression e.image at right with dissolve
            e"You are lying aren't you ? I didn't thought you were this kind of guy"
+           $ emily_hate = True
+           jump choice_unsure2
 
            hide expression e.image
           "I don't know i feel like i'm becoming a different person and i don't like it ":
@@ -1633,6 +1654,7 @@ label choice_unsure:
            show expression e.image at right with dissolve
            e "You can talk to me you know that ?"
            e" I actually wanted to ask you if you wanted to join my study group but your change in attitude is making me think twice..."
+           jump choice_unsure2
 
 
 
@@ -1643,14 +1665,17 @@ label choice_unsure2:
     show screen notification("This is your last chance to join a study group, choose wisely.it will affect your skills and friendship most importantly the ending")
     m "i have to join a study group but i don't know who to join who should i join ?"
     menu:
-        "Join Bryan's study group" if bryan_friendship >= 15:
+        "Join Bryan's study group" if bryan_friendship >= 15 and adamproposition == False:
+            $ bryan_study_group = True
             jump bryan_study_group
-        "Join Emily's study group" if emily_friendship >= 15:
+        "Join Emily's study group" if emily_friendship >= 15 or emily_hate == False:
+            $ emily_study_group = True
             jump emily_study_group
         "Join Adam's study group" if adam_friendship >= 15:
             jump adam_study_group
-        "Study alone"   :
-            jump study_alone
+        "Go to the party (On Adam path)" if adamproposition == True:
+            $ choice_bryan_party = True
+            jump party_scene
         "Who cares about studying, let's go to the party" if jock >= 5:
             jump party_scene
 
@@ -1831,14 +1856,9 @@ label party_scene:
             jump find_emily
         "Join the Jocks" if nerd < 4:
             jump join_the_jocks
-        "Avoid the teachers and blend in":
-            jump blend_in
-        "Leave the party":
-            jump leave_party
-        "Sneak up Throw drinks at the Mr Jackson" if jock >= 5 and teacher_friendship <= 5:
-          $ m.set_emotion('happy')
-          show expression m.image at middle with dissolve
-          m " Take this Mr Jackson !"
+
+
+
 
 label talk_to_bryan:
     scene bryan_dance_room at cover_screen(1100, 1380) with dissolve
@@ -1851,11 +1871,12 @@ label talk_to_bryan:
            show expression ni.image at left with dissolve
            ni "Yeah, [player_name], you're not welcome here. Go hang out with the nerd.Leave the party unless you want to be trouble with us"
            hide expression ni.image
-           if brett_friendship >= 10:  # Brett defends the player
+           if brett_friendship >= 10:
               $ br.set_emotion('angry')
               show expression br.image at right2 with dissolve
               br "Hey, back off! [player_name] can be whoever they want. He was cool earlier so leave him alone"
               hide expression br.image
+              ni "Okay okay chill out [player_name] you can stay but don't cause any trouble else you will really regret it"
     else:
         n " You walk over to Bryan, who is surrounded by students dancing and chatting."
     $ b.set_emotion('neutral')
@@ -1890,15 +1911,15 @@ label find_emily:
         "Yeah, just checking in.":
             $ emily_friendship += 5
             m "Yeah, just checking in."
-            e "Thanks, [player_name]. Let's try to enjoy ourselves a bit."
+            e "Thanks, [player_name]. Try to enjoy the party a bit."
             jump party_continue
-        "I'm worried about the exam...":
+        "I'm worried about the exam..." if emily_study_group == True:
             $ emily_friendship += 10
             $ stress += 5
             m "I'm worried about the exam, Emily."
             e "I understand. We'll get through it. I will leave the party early to study if you want to join me"
             m "At the library right?"
-            e "Not if i leave alone , i rather study at the the coffee shop near the library"
+            e "Not without you , i rather study at the the coffee shop near the library if im alone"
             m "Oh okay then enjoy the party"
 
             jump party_continue
@@ -1906,6 +1927,8 @@ label find_emily:
             $ emily_friendship += 5
             m "Have you seen Adam?"
             e "Hmm i don't think adam is the party type, he's probably studying"
+            if adamproposition == True:
+                e "He consider me to be in his group but i have not checked on him yet however you are his friend you should be aware of his whereabouts"
             jump party_continue
 
 
@@ -1932,37 +1955,64 @@ label join_the_jocks:
             jocks "Bryan invited them for some reason. Just ignore them."
             jump party_continue
 
-label blend_in:
-    scene blend_in_party with dissolve
-    n "You decide to avoid the teachers and blend into the crowd, trying to enjoy the party without attracting attention."
-    $ popularity += 5
-    jump party_continue
 
-label leave_party:
-    scene leave_party with dissolve
-    n "You decide that the party isn't worth the risk and leave early. You head home to get some rest and maybe study a bit."
-    $ stress -= 5
-    $ skills += 5
-    jump next_day
+
+
 
 label party_continue:
     scene bryan_dance_room at cover_screen(1100, 1380) with dissolve
     n "The party continues, and you find yourself getting more involved. What do you want to do next?"
     menu:
-        "Stay with emily" if emily_friendship >= 60 and if not choice_stay_with_emily_used:
+        "Stay with emily" if emily_friendship >= 60 and  not choice_stay_with_emily_used:
             $ choice_stay_with_emily_used = True
             jump stay_with_emily
         "Talk to random students" if not choice_talk_to_random_students_used:
             $ choice_talk_to_random_students_used = True
             jump talk_to_random_students
-        "Check on Bryan" if bryan_friendship >= 25 and if not choice_check_on_bryan_used:
+        "Check on Bryan" if bryan_friendship >= 25 and not choice_check_on_bryan_used:
             $ choice_check_on_bryan_used = True
             jump check_on_bryan
-        "Find a quiet spot to study" if jock < 5 and if not choice_find_quiet_spot_used:
-            $ choice_find_quiet_spot_used = True
-            jump quiet_spot
+
+        "Throw coffee at Mr Jackson" if jock >= 5 and teacher_friendship <= 5:
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "Take this Mr Jackson !"
+            jump rip_mr_jackson
         "Leave the party" if choice_stay_with_emily_used == True and choice_talk_to_random_students_used == True and choice_check_on_bryan_used == True and choice_find_quiet_spot_used == True:
-            jump party_end
+            jump leave_party
+        "Gather proof of bad behavior and objects for the principal " if adamproposition == True :
+            $ bryan_proofs = True
+            scene bryan_house at cover_screen(1100, 1380) with dissolve
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            n "You start to search bryan house to find anything to use against him and his friends"
+            m "Hmmm that's a lots of things adam will love it i will just have to leave the party now and show everything"
+            jump after_study_group_choice
+
+label leave_party:
+    n "You are going home without studying ooof"
+    jump go_home
+label rip_mr_jackson:
+    scene bryan_house at cover_screen(1100, 1380) with dissolve
+    $ negative_academic_friendship += 10
+    n "You sneak up in the crowwd to Mr Jackson and throw coffee at him and run away"
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Take this Mr Loser !"
+    hide expression m.image
+    $ rg.set_emotion('shocked')
+    show expression rg.image at left3 with dissolve
+
+    $ t.set_emotion('angry')
+    show expression t.image at rightp with dissolve
+    t "What the hell ?! which immature kid did that I'm gonna report this incident to the principal"
+    n "Everybody is laughing but you see bryan and nico knows it was you"
+    hide expression rg.image
+    hide expression t.image
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "hehe [player_name] you are a legend !"
+    jump party_continue
 
 label stay_with_emily:
     scene bryan_chill_room at cover_screen(1100, 1380) with dissolve
@@ -1993,6 +2043,7 @@ label stay_with_emily:
 
     if player_gender == "girl":
       $ e.set_emotion('happy')
+      show expression e.image at right with dissolve
       e "Let's dance [player_name]!"
       n "You and Emily hit the dance floor, laughing and enjoying the music. The energy is infectious, and you both let loose, forgetting about the upcoming exam for a while."
       e "Ugh we've just met and we are already besties , i wish i could stay but i have to prepare for the exam wanna come with me  ?"
@@ -2002,12 +2053,14 @@ label stay_with_emily:
                 $ stress -= 5
                 m "Sure let's go i was getting tired of the party anyway"
                 e "Great! Let's head out to the library."
+                jump after_study_group_choice_e
           "I'm having fun, I'll stay a bit longer":
                 $ popularity += 5
                 $ stress += 5
                 m "I'm having fun, I'll stay a bit longer"
                 e "Sure  [player_name].But don't get carried away okay ? "
                 n "You and emily hug goodbye she leaves and you continue to enjoy the party"
+                jump party_continue
 
 
     $ e.set_emotion('neutral')
@@ -2030,9 +2083,10 @@ label stay_with_emily:
 
 
 label talk_to_random_students:
-    scene talk_to_random_students with dissolve
+    scene bryan_dance_room at cover_screen(1100, 1380) with dissolve
     $ rb.set_emotion('neutral')
-    show rb "Hey, [player_name]! Great party, right?"
+    show expression rb.image at left with dissolve
+    rb "Hey, [player_name]! Great party, right?"
     menu:
         "Yeah, it's awesome!":
             $ popularity += 5
@@ -2046,7 +2100,7 @@ label talk_to_random_students:
                     $ stress += 5 # Increased stress due to the news
                 "Shrug it off.":
                     m "Not really. Just trying to enjoy the night."
-            jump party_end
+            jump party_continue
         "I'm worried about the exam...":
             $ stress += 5
             m "I'm worried about the exam, though."
@@ -2060,17 +2114,18 @@ label talk_to_random_students:
                     $ skills += 5
                     m "I should probably study..."
                     rb "Suit yourself! But you're missing out on the fun!"
-            jump party_end
+            jump party_continue
         "Seen any teachers around?":
             $ stress += 5
             m "Seen any teachers around?"
             rb "Yeah, they're lurking around like buzzkills. Just ignore them and have fun!"
-            jump party_end
+            jump party_continue
 
 label check_on_bryan:
-    scene check_on_bryan with dissolve
+    scene bryan_dance_room at cover_screen(1100, 1380) with dissolve
     $ b.set_emotion('neutral')
-    show b "Hey, [player_name]. Enjoying the party?"
+    show expression b.image at right with dissolve
+    b "Hey, [player_name]. Enjoying the party?"
     menu:
         "Yeah, it's great!":
             $ bryan_friendship += 5
@@ -2080,7 +2135,7 @@ label check_on_bryan:
             menu:
                 "Sure, sounds interesting.":
                     $ popularity += 5
-                    $ stress += 10  # Increased stress due to the unknown punch
+                    $ stress += 10
                     m "Sure, sounds interesting."
                 "No thanks, I'm good.":
                     m "No thanks, I'm good."
@@ -2118,10 +2173,34 @@ label after_study_group_choice2:
 
 ### library scenes
 label after_study_group_choice:
-    show uni_library_empty at cover_screen(1100, 1380)
+    scene uni_library_empty at cover_screen(1100, 1380)
     with dissolve
+    if adamproposition == True and choice_bryan_party == True:
+        scene uni_library2_night at cover_screen(1100, 1380)
+        $ adam_friendship += 5
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "Where were you ? I've been waiting for you for like an hour now"
+        hide expression a.image
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        if bryan_proofs == True:
+            $ bryan_hate = True
+            m "I was looking for proof to show to the principal about Bryan and his friends"
+            $ a.set_emotion('happy')
+            show expression a.image at right with dissolve
+            a "You did what ?! that's amazing [player_name] give them to me i will show them to the principal  !"
+        else:
+            m "I was at the party, sorry about that"
+        a "Alright, let's get started. Emily will probably be late as usual. Shall we start without her?"
+        menu:
+            "Yes, let's get started.":
+                $ emily_friendship -= 3
+                jump choice_start_without_emily
+            "No, let's wait for Emily.":
+                jump choice_wait_for_emily
 
-    if adamproposition == True:
+    if adamproposition == True and choice_bryan_party == False:
         $ adam_friendship += 5
         $ a.set_emotion('happy')
         show expression a.image at right with dissolve
@@ -2195,9 +2274,16 @@ label studying_without_emily:
     n "Hours pass as you and Adam work through the textbooks, solving problems and discussing theories. Despite the initial tension, you make significant progress."
     $ stress -= 10
     $ skills += 10
-    jump end_study_session
+    show expression a.image at right with dissolve
+    a "Good job today, [player_name]. We made some solid progress."
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Thanks, Adam. Let's keep this momentum going for the next session."
+    n "You pack up your things and head out of the library, feeling a bit more prepared for the upcoming exam."
+    jump go_home
 
-label studying_with_emily:
+
+label studying_with_emily2:
     n "After Emily leaves, you and Adam reluctantly start studying. Despite the tension, you manage to focus on the material."
     $ a.set_emotion('neutral')
     show expression a.image at right with dissolve
@@ -2208,9 +2294,6 @@ label studying_with_emily:
     n "You and Adam spend the next few hours immersed in your books, taking notes and discussing the key concepts. The library is quiet, allowing you to concentrate fully."
     $ stress -= 5
     $ skills += 200
-
-
-=
     n "After a long study session, you and Adam decide to call it a day. Despite the rocky start, you've covered a lot of ground."
     $ a.set_emotion('happy')
     show expression a.image at right with dissolve
@@ -2222,8 +2305,9 @@ label studying_with_emily:
     jump go_home
 
 
-else:
+label after_study_group_choice_e:
     ### player and Emily coming from the party
+    scene uni_library2_night at cover_screen(1100, 1380)
     $ adam_friendship += 2
     $ emily_friendship += 5
     $ bryan_friendship -= 3
@@ -2232,9 +2316,9 @@ else:
     a "So now you decide to join, Emily and [player_name]? I thought you were joining Bryan or studying alone. What do you need help with?"
     hide expression a.image
     $ e.set_emotion('angry')
-    show expression e.image at left with dissolve
+    show expression e.image at left3 with dissolve
     e "So what, Adam? This is how you welcome me after all the times I've defended you and been nice to you this year?"
-    if emily_study_group:
+    if emily_study_group == True:
         $ a.set_emotion('sad')
         show expression a.image at right with dissolve
         a "I thought you were a serious student, Emily. That's why I joined your group. I rather do the project exam alone at this point."
@@ -2271,10 +2355,43 @@ label studying_with_emily:
     $ stress -= 10
     $ skills += 200
     $ emily_friendship += 5
-    e "I think we've atleast done 60% of the project. Well that was one hell of a day partying then studying ugh i'm tired"
-    m "Right ? i think we should head home and do the rest next t
+    e "I think we've atleast done 3/4 of the project. Well that was one hell of a day partying then studying ugh i'm tired"
+    m "Right ? i think we should head home and do the rest next time"
+    e" Yeah let's go"
+    hide expression e.image
+    hide expression m.image
+    scene uni_library_outside at cover_screen(1100, 1380) with dissolve
+    if player_gender == "girl":
+        $ e.set_emotion('happy')
+        show expression e.image at right with dissolve
+        e "Let's finish the project  at the coffee shop near the library tomorrow [player_name] so that we get the weekend off to prepare for the presentation next monday okay ? Have a good night"
+        e "Sleep well because i want us to have fun the weekend in a park nearby before the presentation !"
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "Ha im up for sure ! Good night Emily !"
+        n "You and emily hug goodbye and you head home"
+        jump go_home
+
+    $ e.set_emotion('neutral')
+    show expression e.image at right with dissolve
+    e "Let's finish the project  at the coffee shop near the library tomorrow [player_name] so that we get the weekend off to prepare for the presentation next monday okay ? Have a good night"
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "Sure thing Emily ! Good night"
+    n "You and emily say goodbye and you head home"
+    jump go_home
 
 
+
+
+
+label go_home:
+    scene player_house_room_night at cover_screen(1100, 1380) with dissolve
+    n "You arrive home, feeling exhausted but accomplished. The day was a rollercoaster of emotions, but you managed to make the best of it."
+    $ stress -= 5
+    $ skills += 5
+    n "You head to bed, ready to face whatever challenges tomorrow brings."
+    jump next_day
 
 
 label choice_last_lecture:

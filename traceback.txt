@@ -1,28 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1764, in script
-    if bryan_study_group == True:
-  File "game/script.rpy", line 1764, in <module>
-    if bryan_study_group == True:
-NameError: name 'bryan_study_group' is not defined
+  File "game/script.rpy", line 2354, in script
+    e "I think we've atleast done 60% of the project. Well that was one hell of a day partying then studying ugh i'm tired"
+TypeError: %o format: an integer is required, not TagQuotingDict
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 1764, in script
-    if bryan_study_group == True:
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1842, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1764, in <module>
-    if bryan_study_group == True:
-NameError: name 'bryan_study_group' is not defined
+  File "game/script.rpy", line 2354, in script
+    e "I think we've atleast done 60% of the project. Well that was one hell of a day partying then studying ugh i'm tired"
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 2557, in execute
+    Say.execute(self)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 615, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\exports.py", line 1482, in say
+    what = what % tag_quoting_dict
+TypeError: %o format: an integer is required, not TagQuotingDict
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.1.24030407
 InteractiveNovel 1.0
-Mon Jul 29 21:53:21 2024
+Wed Jul 31 22:50:49 2024

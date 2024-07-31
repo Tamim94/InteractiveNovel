@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 1593: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    menu:
+File "game/script.rpy", line 2390: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    n "You arrive home, feeling exhausted but accomplished. The day was a rollercoaster of emotions, but you managed to make the best of it."
     ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Sun Jul 28 16:58:47 2024
+Wed Jul 31 23:01:21 2024

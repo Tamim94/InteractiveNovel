@@ -1,37 +1,24 @@
-2024-07-29 19:45:02 UTC
+2024-07-31 20:21:14 UTC
 Windows-10-10.0.22631
 Ren'Py 8.2.1.24030407
 
-Early init took 0.12s
-Loading error handling took 0.11s
-Loading script took 2.32s
-Loading save slot metadata took 0.10s
+Early init took 0.07s
+Loading error handling took 0.04s
+Loading script took 0.37s
+Loading save slot metadata took 0.05s
 Loading persistent took 0.00s
-Running init code took 0.37s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.21s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.06s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.03s
+
+File "game/script.rpy", line 2011: expected statement.
+    party_continue
+                  ^
+
+File "game/script.rpy", line 2298: expected statement.
+    else:
+        ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.30s
-Cleaning stores took 0.00s
-Init translation took 0.03s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.03s
-Running _start took 0.00s
-Interface start took 0.25s
+Interface start took 0.51s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
@@ -44,57 +31,115 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 213.02s
-Loading error handling took 0.03s
-Loading script took 0.33s
-Loading save slot metadata took 0.03s
+Early init took 65.90s
+Loading error handling took 0.02s
+Loading script took 0.25s
+Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-Running init code took 0.02s
+
+File "game/script.rpy", line 2298: expected statement.
+    else:
+        ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.45s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 66.82s
+Loading error handling took 0.02s
+Loading script took 0.21s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 2298: expected statement.
+    else:
+        ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.44s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 88.88s
+Loading error handling took 0.02s
+Loading script took 0.11s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 2298: Indentation mismatch.
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.52s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 364.35s
+Loading error handling took 0.02s
+Loading script took 0.39s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+The label studying_with_emily is defined twice, at File "game/script.rpy", line 2278:
+label studying_with_emily:
+and File "game/script.rpy", line 2330:
+label studying_with_emily:
+
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.57s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 461.90s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.02s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc took 0.04s
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.24s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Interface start took 0.24s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 546.92'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 236.09s
-Loading error handling took 0.02s
-Loading script took 0.36s
-Loading save slot metadata took 0.03s
-Loading persistent took 0.00s
-Running init code took 0.04s
-Loading analysis data took 0.02s
-Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.02s
+Reloading save slot metadata took 0.11s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
 Dump and make backups took 0.04s
@@ -112,7 +157,7 @@ Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
 Prepare screens took 0.05s
-Save pyanalysis. took 0.00s
+Save pyanalysis. took 0.01s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Interface start took 0.26s
@@ -129,33 +174,33 @@ Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 
 Full traceback:
-  File "game/script.rpy", line 578, in script
-    $ p.set_emotion('happy')
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 823, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 578, in <module>
-    $ p.set_emotion('happy')
-  File "game/script.rpy", line 47, in set_emotion
-    raise ValueError(f"Emotion '{emotion}' not found for character {self.name}")
-ValueError: Emotion 'happy' not found for character Principal Stan
+  File "game/script.rpy", line 1959, in script
+    menu:
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1618, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\exports.py", line 1075, in menu
+    condition = renpy.python.py_eval(condition)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1207, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1144, in py_compile
+    raise e
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1081, in py_compile
+    raise orig_e
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1073, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/script.rpy, line 1960)
 
 While running game code:
-  File "game/script.rpy", line 578, in script
-    $ p.set_emotion('happy')
-  File "game/script.rpy", line 578, in <module>
-    $ p.set_emotion('happy')
-  File "game/script.rpy", line 47, in set_emotion
-    raise ValueError(f"Emotion '{emotion}' not found for character {self.name}")
-ValueError: Emotion 'happy' not found for character Principal Stan
+  File "game/script.rpy", line 1959, in script
+    menu:
+SyntaxError: invalid syntax (game/script.rpy, line 1960)
 Resetting cache.
-Early init took 272.92s
+Early init took 902.12s
 Loading error handling took 0.02s
-Loading script took 0.34s
+Loading script took 0.36s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-Running init code took 0.03s
+Running init code took 0.02s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
@@ -164,11 +209,11 @@ Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\In
 Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc took 0.07s
+Initial gc took 0.04s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.28s
+Creating interface object took 0.22s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
@@ -193,28 +238,114 @@ Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 
 Full traceback:
-  File "game/script.rpy", line 1764, in script
-    if bryan_study_group == True:
-  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1842, in execute
-    if renpy.python.py_eval(condition):
+  File "game/script.rpy", line 1959, in script
+    menu:
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1618, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\exports.py", line 1075, in menu
+    condition = renpy.python.py_eval(condition)
   File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1209, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 1764, in <module>
-    if bryan_study_group == True:
-NameError: name 'bryan_study_group' is not defined
+  File "game/script.rpy", line 1969, in <module>
+    "Find a quiet spot to study" if jock < 5 and  not choice_find_quiet_spot_used:
+NameError: name 'choice_find_quiet_spot_used' is not defined
 
 While running game code:
-  File "game/script.rpy", line 1764, in script
-    if bryan_study_group == True:
-  File "game/script.rpy", line 1764, in <module>
-    if bryan_study_group == True:
-NameError: name 'bryan_study_group' is not defined
+  File "game/script.rpy", line 1959, in script
+    menu:
+  File "game/script.rpy", line 1969, in <module>
+    "Find a quiet spot to study" if jock < 5 and  not choice_find_quiet_spot_used:
+NameError: name 'choice_find_quiet_spot_used' is not defined
 Resetting cache.
-Early init took 596.40s
+Early init took 926.80s
 Loading error handling took 0.02s
 Loading script took 0.34s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 1059.50s
+Loading error handling took 0.02s
+Loading script took 0.41s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 1120.94s
+Loading error handling took 0.02s
+Loading script took 0.52s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
 Running init code took 0.03s
@@ -223,7 +354,175 @@ Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
-Dump and make backups took 0.05s
+Dump and make backups took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.06s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 1273.09s
+Loading error handling took 0.02s
+Loading script took 0.39s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.28s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.22s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 1361.58s
+Loading error handling took 0.02s
+Loading script took 0.41s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.23s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 1424.15s
+Loading error handling took 0.02s
+Loading script took 0.36s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 1442.66s
+Loading error handling took 0.02s
+Loading script took 0.44s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.06s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.04s
@@ -237,11 +536,428 @@ Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.27s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 2314, in script
+    if emily_study_group:
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1842, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 2314, in <module>
+    if emily_study_group:
+NameError: name 'emily_study_group' is not defined
+
+While running game code:
+  File "game/script.rpy", line 2314, in script
+    if emily_study_group:
+  File "game/script.rpy", line 2314, in <module>
+    if emily_study_group:
+NameError: name 'emily_study_group' is not defined
+Resetting cache.
+Early init took 1474.91s
+Loading error handling took 0.02s
+Loading script took 0.47s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 2314, in script
+    if emily_study_group == True:
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 1842, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 2314, in <module>
+    if emily_study_group == True:
+NameError: name 'emily_study_group' is not defined
+
+While running game code:
+  File "game/script.rpy", line 2314, in script
+    if emily_study_group == True:
+  File "game/script.rpy", line 2314, in <module>
+    if emily_study_group == True:
+NameError: name 'emily_study_group' is not defined
+Resetting cache.
+Early init took 1759.04s
+Loading error handling took 0.02s
+Loading script took 0.39s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.23s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
 Prepare screens took 0.05s
 Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.24s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 2354, in script
+    e "I think we've atleast done 60% of the project. Well that was one hell of a day partying then studying ugh i'm tired"
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 2557, in execute
+    Say.execute(self)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\ast.py", line 615, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\tamim\Downloads\renpy-8.2.1-sdk\renpy\exports.py", line 1482, in say
+    what = what % tag_quoting_dict
+TypeError: %o format: an integer is required, not TagQuotingDict
+
+While running game code:
+  File "game/script.rpy", line 2354, in script
+    e "I think we've atleast done 60% of the project. Well that was one hell of a day partying then studying ugh i'm tired"
+TypeError: %o format: an integer is required, not TagQuotingDict
+Resetting cache.
+Early init took 1818.68s
+Loading error handling took 0.02s
+Loading script took 0.40s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.07s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 2071.77s
+Loading error handling took 0.02s
+Loading script took 0.51s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.22s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.02s
 Save bytecode. took 0.03s
 Running _start took 0.00s
+Interface start took 0.24s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 2146.18s
+Loading error handling took 0.02s
+Loading script took 0.41s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 2326.66s
+Loading error handling took 0.02s
+Loading script took 0.39s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.24s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 2383.34s
+Loading error handling took 0.02s
+Loading script took 0.34s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.06s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.22s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
 Interface start took 0.22s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 2406.44s
+Loading error handling took 0.02s
+Loading script took 0.28s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 2390: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    n "You arrive home, feeling exhausted but accomplished. The day was a rollercoaster of emotions, but you managed to make the best of it."
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.50s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 2423.18s
+Loading error handling took 0.02s
+Loading script took 0.54s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.06s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.25s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
