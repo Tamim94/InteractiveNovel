@@ -192,6 +192,7 @@ default choice_quiet_spot_used = False
 default choice_stay_with_emily_used = False
 default choice_rip_mr_jackson_used = False
 default choice_bryan_party = False
+default choices_leave_with_emily = False
 # Unrelated images (no character tags)
 image uni = "uniiii.png"
 image parisw = "paris_weird.png"
@@ -232,6 +233,8 @@ image player_house_room_day = "player_house_room_day.png" # Player's house room 
 image player_house_room_night = "player_house_room_night.png" # Player's house room during the night
 image uni_library2_night = "uni_library2_night.png" # University library 2 during the night
 image uni_library_outside = "uni_library_outside.png" # University library outside
+image building_rooftop = "building_rooftop.png" # Building rooftop
+image uni_mainhall3 = "uni_mainhall3.png" # University main hall 3
 #Notifications screen
 screen notification(msg):
     frame:
@@ -1988,6 +1991,38 @@ label party_continue:
             n "You start to search bryan house to find anything to use against him and his friends"
             m "Hmmm that's a lots of things adam will love it i will just have to leave the party now and show everything"
             jump after_study_group_choice
+        "Ask bryan to leave the party to do the project" if bryan_study_group == True and jock < 5:
+                scene bryan_chill_room at cover_screen(1100, 1380) with dissolve
+                $ m.set_emotion('neutral')
+                show expression m.image at middle with dissolve
+                m "Hey bryan i know the party is fun but we should leave now to study for the project we have to finish it before monday"
+                $ b.set_emotion('neutral')
+                show expression b.image at right with dissolve
+                b "Let's try to stay a bit longer [player_name] we can always study later hehe"
+                hide expression b.image
+                $ br.set_emotion('neutral')
+                show expression br.image at right2 with dissolve
+                "Come on bryan , we have to finish the project before monday we can't afford to fail this project especially with [player_name] in our group he's a good team player"
+                hide expression br.image
+                $ ni.set_emotion('neutral')
+                show expression ni.image at right2 with dissolve
+                ni "Never thought i would say this but i agree with brett we  work on our project now ,[player_name] will give us a chance we can't afford to miss"
+                hide expression ni.image
+                $ b.set_emotion('neutral')
+                show expression b.image at right with dissolve
+                b "Alright [player_name] i owe you one for helping me earlier in class let me announce that i am leaving the party"
+                b "**megaphone** GUYS  i have to leave the party to work on the project with my new cool friend [player_name] i will see you guys later"
+                hide expression b.image
+                $ rg.set_emotion('neutral')
+                show expression rg.image at left3 with dissolve
+                rg "Bryan is about to leave a party for a project ? Did [player_name] use some kind of magic on him ?"
+                hide expression rg.image
+                $ t.set_emotion('neutral')
+                show expression t.image at rightp with dissolve
+                t "You should all take notes from this , a party is not more important than your future even a bad student like bryan knows that"
+                jump after_study_group_choice2
+
+
 
 label leave_party:
     n "You are going home without studying ooof"
@@ -2053,6 +2088,7 @@ label stay_with_emily:
                 $ stress -= 5
                 m "Sure let's go i was getting tired of the party anyway"
                 e "Great! Let's head out to the library."
+                $ choices_leave_with_emily = True
                 jump after_study_group_choice_e
           "I'm having fun, I'll stay a bit longer":
                 $ popularity += 5
@@ -2100,7 +2136,7 @@ label talk_to_random_students:
                     $ stress += 5 # Increased stress due to the news
                 "Shrug it off.":
                     m "Not really. Just trying to enjoy the night."
-            jump party_continue
+                    jump party_continue
         "I'm worried about the exam...":
             $ stress += 5
             m "I'm worried about the exam, though."
@@ -2153,25 +2189,234 @@ label check_on_bryan:
             b "We'll figure it out tomorrow. Tonight is for partying!"
             jump party_continue
 
-label quiet_spot:
-    scene quiet_spot with dissolve
-    n "You find a quiet spot away from the party noise and try to study for a bit. It's not the best environment, but it's better than nothing. You manage to review some key concepts and feel slightly less anxious about the exam."
-
-    $ skills += 5
-    $ stress -= 5
-    jump party_end
-
-
-label next_day:
-    scene next_day_morning with dissolve
-    n "You wake up the next day, ready to tackle whatever comes next."
-    return
 
 
 
+### scene of bryan study group
 label after_study_group_choice2:
+   scene uni_library_empty at cover_screen(1100, 1380) with dissolve
+   n"You and Bryan and Nico and brett arrive at the library, and the atmosphere is tense until you see Adam noticing you and he is in shock"
+   $ a.set_emotion('shocked')
+   show expression a.image at right with dissolve
+   a "What the hell are you guys doing here ? I don't want to be bothered"
+   $ b.set_emotion('neutral')
+   show expression b.image at left with dissolve
+   b "Nobody care about you loser , we are here to work on the project with our cool friend [player_name] hehe"
+   hide expression b.image
+   hide expression a.image
+   $ ni.set_emotion('neutral')
+   show expression ni.image at left2 with dissolve
+   ni "Yeah don't cry because we are doing the same thing you are doing but better haha"
+   hide expression ni.image
+   $ br.set_emotion('neutral')
+   show expression br.image at left3 with dissolve
+   br "Guys let's not waste our time with him let's go in another place like our favorite rooftop"
+   show uni_library_outside at cover_screen(1100, 1380) with dissolve
+   n "You and Bryan and Nico and brett leave the library and go to a rooftop int the city  to study"
 
-### library scenes
+   $ e.set_emotion('neutral')
+   show expression e.image at right with dissolve
+   e "Hey you guys were in the library ? i just left it because adam was being an douche because i went to the party"
+   $ br.set_emotion('neutral')
+   show expression br.image at left3 with dissolve
+   br "Yeahh right it just happened to us , i am guessing adam got a personal issue with us duh "
+   hide expression e.image
+   hide expression br.image
+   $ ni.set_emotion('neutral')
+   show expression ni.image at left2 with dissolve
+   ni "I'm telling you bryan this guy is gonna plot something against us i can feel it"
+   hide expression ni.image
+   $ b.set_emotion('neutral')
+   show expression b.image at right with dissolve
+   b "You really think adam is that though hehe and don't worry about it guys we have [player_name] with us we can't fail this project"
+   hide expression b.image
+   $ br.set_emotion('neutral')
+   show expression br.image at left3 with dissolve
+   br "Right ! emily you can come with us in the rooftop if you need a nice space "
+   if emily_hate == True:
+       show screen notification("Emily hate you and she don't want to be near you")
+       hide expression br.image
+       $ e.set_emotion ('sad')
+       show expression e.image at right with dissolve
+       e"Thanks for the offer but i rather do it at home , i will see you guys later"
+       br "Alright see you later ,let's go to the cool rooftop guys !"
+       jump building_rooftop
+   $ e.set_emotion('happy')
+   show expression e.image at right with dissolve
+   e "Sure ! I will come with you guys , i need a quiet place to do the project"
+   br "Alright let's go to that cool rooftop guys !"
+
+
+ ### scene building_rooftop
+label building_rooftop:
+    scene uni_night at cover_screen(1100, 1380)
+    with dissolve
+
+    n "You find yourself on the rooftop of one of the university buildings, the city lights twinkling below. It's a surprisingly peaceful spot amidst the bustling campus."
+
+    $ b.set_emotion('neutral')
+    show expression b.image at left with dissolve
+    b "Not bad, huh? This is where we usually hang out when we need a break from the chaos."
+
+    $ ni.set_emotion('neutral')
+    show expression ni.image at middle with dissolve
+    ni "Yeah, it's got a great view. And it's far away from all the nerds cramming in the library."
+
+    $ br.set_emotion('neutral')
+    show expression br.image at right with dissolve
+    br "Plus, we can blast our music without anyone complaining."
+
+    menu:
+        "It's amazing!":
+            $ popularity += 3
+            $ bryan_friendship += 2
+            $ nico_friendship += 2
+            $ brett_friendship += 2
+            m "It's amazing! I had no idea this place existed."
+            $ b.set_emotion('happy')
+            show expression b.image at left with dissolve
+            b "See? Told you it was cool. Now, let's get down to business."
+            $ ni.set_emotion('happy')
+            show expression ni.image at middle with dissolve
+            ni "Glad you like it. This spot is our little secret, so feel special!"
+            $ br.set_emotion('happy')
+            show expression br.image at right with dissolve
+            br "Alright, enough chit-chat. Time to focus."
+
+        "It's a bit too... exposed.":
+            $ stress += 2
+            m "It's a bit too... exposed."
+            $ ni.set_emotion('smug')
+            show expression ni.image at middle with dissolve
+            ni "Come on, [player_name], live a little! Don't be such a worrywart."
+            $ br.set_emotion('smug')
+            show expression br.image at right with dissolve
+            br "Yeah, loosen up. We're not gonna fall off."
+            $ b.set_emotion('neutral')
+            show expression b.image at left with dissolve
+            b "You'll get used to it. Just focus on the view and relax."
+
+        "I prefer the library.":
+            $ skills += 2
+            $ bryan_friendship -= 2
+            $ nico_friendship -= 2
+            $ brett_friendship -= 2
+            m "I prefer the library, to be honest."
+            $ b.set_emotion('annoyed')
+            show expression b.image at left with dissolve
+            b "Suit yourself, nerd. But don't come crying to us when you fail the exam."
+            $ ni.set_emotion('annoyed')
+            show expression ni.image at middle with dissolve
+            ni "Yeah, good luck trying to focus with all those bookworms around."
+            $ br.set_emotion('neutral')
+            show expression br.image at right with dissolve
+            br "Let's just get started."
+
+    n "The group spreads out, textbooks and laptops scattered across a blanket. The atmosphere is relaxed, but there's an underlying sense of determination."
+
+    $ b.set_emotion('neutral')
+    show expression b.image at left with dissolve
+    b "Alright, let's tackle this quantum computing monster. Who wants to start?"
+
+    $ ni.set_emotion('neutral')
+    show expression ni.image at middle with dissolve
+    ni "I'm still struggling with the whole superposition thing. It's like, how can something be in two places at once?"
+
+    $ br.set_emotion('neutral')
+    show expression br.image at right with dissolve
+    br "Yeah, and don't even get me started on entanglement. It's like quantum voodoo."
+
+    menu:
+        "Offer to explain superposition.":
+            $ skills += 5
+            $ bryan_friendship += 3
+            $ nico_friendship += 3
+            $ brett_friendship += 3
+            m "I think I get superposition. It's like... imagine a coin spinning in the air. It's both heads and tails until you catch it."
+            $ b.set_emotion('impressed')
+            show expression b.image at left with dissolve
+            b "Whoa, that actually makes sense! You're a natural teacher, [player_name]."
+            $ ni.set_emotion('surprised')
+            show expression ni.image at middle with dissolve
+            ni "Yeah, not bad. Maybe you're not so bad after all."
+            $ br.set_emotion('happy')
+            show expression br.image at right with dissolve
+            br "Thanks for that explanation. It definitely helps."
+
+        "Admit you're also confused.":
+            $ stress += 3
+            m "Honestly, I'm still wrapping my head around it too. It's pretty mind-bending."
+            $ br.set_emotion('frustrated')
+            show expression br.image at right with dissolve
+            br "See? Even [player_name] is struggling. Maybe this stuff is just too advanced for us."
+            $ b.set_emotion('determined')
+            show expression b.image at left with dissolve
+            b "Nah, we can do this. We just need to put in the effort."
+            $ ni.set_emotion('neutral')
+            show expression ni.image at middle with dissolve
+            ni "Let's keep trying. We'll get it eventually."
+
+        "Suggest focusing on the Qiskit code first.":
+            $ skills += 3
+            m "Maybe we should start with the Qiskit code. Once we understand how to implement the concepts, it might make more sense."
+            $ ni.set_emotion('agreeable')
+            show expression ni.image at middle with dissolve
+            ni "Good idea. Let's see if we can at least get the simulator to do something cool."
+            $ b.set_emotion('neutral')
+            show expression b.image at left with dissolve
+            b "Alright, let's boot up our laptops and dive into the code."
+            $ br.set_emotion('neutral')
+            show expression br.image at right with dissolve
+            br "Sounds like a plan. Let's make some magic happen."
+
+    n "The group dives into the project, discussing concepts, writing code, and occasionally laughing at their own mistakes. The city lights continue to twinkle below, a reminder of the world outside their rooftop haven."
+
+
+    if skills >= 15:
+        menu:
+            "Explain a complex concept clearly.":
+                $ skills += 5
+                $ bryan_friendship += 5
+                $ nico_friendship += 5
+                $ brett_friendship += 5
+                m "Okay, so entanglement is like... imagine you have two dice. When you roll them, they always come up with the same number, no matter how far apart they are."
+                $ b.set_emotion('amazed')
+                show expression b.image at left with dissolve
+                b "Wow, [player_name], you're a genius! I finally get it!"
+                $ ni.set_emotion('happy')
+                show expression ni.image at middle with dissolve
+                ni "That's a great analogy. Thanks for breaking it down for us."
+                $ br.set_emotion('impressed')
+                show expression br.image at right with dissolve
+                br "You're really good at this, [player_name]. Thanks."
+
+
+
+    n "As the night deepens, the group starts to wind down. They've made significant progress on the project and feel a sense of accomplishment."
+
+    $ b.set_emotion('happy')
+    show expression b.image at left with dissolve
+    b "Alright, guys, I think that's enough for tonight. We crushed it!"
+
+    $ ni.set_emotion('neutral')
+    show expression ni.image at middle with dissolve
+    ni "Yeah, we actually made some headway. Thanks for joining us, [player_name]."
+
+    $ br.set_emotion('neutral')
+    show expression br.image at right with dissolve
+    br "Definitely. We'll ace this exam, no problem."
+
+    n "You leave the rooftop, the city lights still twinkling below. You feel a mix of exhaustion and satisfaction. Despite the challenges, you're starting to find your place in this new world."
+    $ b.set_emotion('neutral')
+    show expression b.image at left with dissolve
+    b "See you guys tomorrow. We'll finish this project in no time with [player_name] on our gaaang."
+    jump go_home
+
+
+
+
+
+### library scenes with adam or emily
 label after_study_group_choice:
     scene uni_library_empty at cover_screen(1100, 1380)
     with dissolve
@@ -2385,34 +2630,201 @@ label studying_with_emily:
 
 
 
+
 label go_home:
     scene player_house_room_night at cover_screen(1100, 1380) with dissolve
     n "You arrive home, feeling exhausted but accomplished. The day was a rollercoaster of emotions, but you managed to make the best of it."
-    $ stress -= 5
-    $ skills += 5
+
+    # Reflect on Party Choices
+    if choice_bryan_party:
+        if bryan_proofs:
+            m "I can't believe I gathered all that evidence against Bryan. Adam's going to flip when he sees this."
+            $ stress += 2  # Slight stress from the potential fallout
+        else:
+            if stress > 10:
+                m "That party was wild... maybe a little too wild.  I hope I didn't overdo it."
+            else:
+                m "That was a blast! I needed a night like that to unwind."
+
+    # Reflect on Study Group Choices
+    if emily_study_group:
+        if player_gender == "girl":
+            m "Emily's awesome.  I can't wait to hang out with her again tomorrow... and hopefully get some studying done too!"
+        else:
+            m "Studying with Emily tomorrow should be interesting. I hope we can actually focus."
+    elif bryan_study_group:
+        if jock < 5:
+            m "I hope I can handle Bryan and Nico during our study sessions.  They don't seem too motivated..."
+        else:
+            m "That study session with Bryan and the gang is gonna be legendary!  We'll get work done... eventually."
+    elif adamproposition:
+        m "I'm glad I chose to study with Adam.  He's intense, but he really knows his stuff."
+
+    # Relationship Hints
+    if emily_friendship >= 20:
+        n "You smile, remembering Emily's laugh. You're starting to think she might become a good friend."
+    if bryan_friendship >= 20:
+        n "You wonder if Bryan's all talk or if he's serious about acing this exam.  Either way, he's definitely an interesting character."
+    if adam_friendship >= 10:
+        n "Adam might be a bit uptight, but you can tell he's a good guy deep down."
+
+
+
+    if skills >= 15:
+        $ skills += 5  # Bonus for ending the day on a positive note
+        n "You feel good about what you learned today. You're starting to get the hang of this whole quantum computing thing."
+
+    # Setting the Mood
     n "You head to bed, ready to face whatever challenges tomorrow brings."
     jump next_day
 
-
-label choice_last_lecture:
-    # Continue your story from here
-
-label choice_homework_assignment:
-    # Continue your story from here
-
-label choice_both:
-    # Continue your story from here
-    # Later in the game, you can check the friendship level:
-    if adam_friendship >= 20:
-        "Adam" "Hey, you're becoming a great friend!"
-    elif adam_friendship <= -10:
-        "Adam" "Look, I don't think we're compatible as friends."
+label next_day:
+    scene player_house_room_day at cover_screen(1100, 1380) with dissolve
+    n "It's 5AM wakee uppppp !"
+    if negative_academic_friendship > 10 or jock > 5:
+        $ m.set_emotion('angry')
+        show expression m.image at middle with dissolve
+        m "RRRRRRRRRRRRRRRRRRRRRAAAAAAAA ! DAMN THIS I WANTED TO SLEEP"
     else:
-        "Adam" "We should hang out sometime!"
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "I'm still a bit tired of yesterday but i'm ready to face the day !"
+    menu:
+            "Get up and start the day":
+                jump start_day
+            "Snooze for 5 more minutes":
+                $ stress += 20
+                m "Just 5 more minutes..."
+                jump start_day
 
-    if emily_friendship >= 20:
-        "Emily" "Hey, you're becoming a great friend!"
-    elif emily_friendship <= -10:
-        "Emily" "Look, I don't think we're compatible as friends."
+label start_day:
+    scene uni_park_evening at cover_screen(1100, 1380) with dissolve
+    n "You arrive at the university, the sun shining brightly overhead. But the students seem to be in a frenzy, talking and whispering to each other."
+    $ ri.set_emotion('neutral')
+    show expression ri.image at left with dissolve
+    ri "Guys have you heard Adam has exposed last night party to the principal and apparently he has proof that Bryan and his friends were involved in illegal activities"
+    $ rg.set_emotion('shocked')
+    show expression rg.image at right2 with dissolve
+    rg "What ?! I can't believe this this dude is always ruining everything"
+    hide expression ri.image
+    hide expression rg.image
+    n "Every student is going to the main hall to see what's happening"
+    scene uni_mainhall3 at cover_screen(1100, 1380) with dissolve
+    $ p.set_emotion('neutral')
+    show expression p.image at left3 with dissolve
+    p "EVERYONE SILENCE ! i have an annoucement to make"
+    p "I have received a report that some students were involved in illegal activities last night at the party"
+    if adamproposition == True and bryan_proofs == True :
+        p "Thanks to our bright student [player_name] and Adam that are doing everything to protect our university reputation  "
+    if adamproposition == True and bryan_proofs == False :
+        p "Thanks to our bright student Adam who is doing everything to protect our university reputation  "
+    if adamproposition == False:
+        p "Thanks to our bright student Adam who is doing everything to protect our university reputation  "
+
+    if jock > 5 :
+        p " I am also aware that some student has thrown hot coffees to Mr Jackson and i will not tolerate this kind of uneducated behavior in my university"
+    p "I am asking the students involved in this to come forward and confess their actions else i will have to believe Adam's proof and take the necessary actions"
+    $ b.set_emotion('angry')
+    show expression b.image at right with dissolve
+    if bryan_proofs == True:
+        b "So the losers are trying to frame us for imaginary illegal activities huh ?"
+        b "You and Adam are going to regret this especially you [player_name] looking through my house like a creep"
     else:
-        "Emily" "We should hang out sometime!"
+        b "This loser of Adam is trying to frame us for shits we didn't do !"
+        b "He is just jealous that almost everybody went to the party while his poor self was crying alone in the library"
+    $ p.set_emotion('angry')
+    hide expression b.image
+    p "Enough ! I know you are a famous troublemaker but im asking you to have some respectful language in my university"
+    if bryan_study_group == True or emily_study_group == True:
+        p "Adam also told me that one of the new student [player_name] was the number one troublemaker in the party"
+    if emily_study_group == True and jock < 5 or bryan_study_group and jock < 5:
+        $ e.set_emotion('angry')
+        show expression e.image at left3 with dissolve
+        if player_gender == "girl":
+            e "No way ! [player_name] was with me the whole night she didn't do anything ! Adam is just trying to frame her"
+        else:
+            e "No way ! [player_name] was with me the whole night he didn't do anything ! Adam is just trying to frame him"
+        $ br.set_emotion('angry')
+        show expression br.image at right3 with dissolve
+        br "Yeah i can confirm that [player_name] didn't do anything wrong last night this loser of adam is probably just jealous of [player_name] popularity among all the students"
+        hide expression e.image
+        hide expression br.image
+        $ b.set_emotion('angry')
+        show expression b.image at right with dissolve
+        b "Adam you're just done for trying to frame us and [player_name] for things we didn't do !"
+        hide expression b.image
+        $ ni.set_emotion('angry')
+        show expression ni.image at left3 with dissolve
+        ni " Yeah everyone knows that [player_name] is a good student and a good person this just shows adam is just a snake scared of losing his perfect student spot !"
+        hide expression ni.image
+        n "All students are shouting at Adam and he is trying to defend himself"
+        $ p.set_emotion('angry')
+        show expression p.image at left3 with dissolve
+        p "Okay i will investigate this situation it seems maybe adam side of the story isn't adding up "
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "Sir give me a chance to prove that i am right i have the proof that they were involved in illegal activities"
+        p "Enough is enough we've wasted enough time now everybody go to your classes and i will investigate this situation"
+        scene uni_hallway3
+        n"You are going to your first class of the day but you see bryan group"
+        menu:
+            "Ignore them and go to your class":
+                $ e.set_emotion('happy')
+                show expression e.image at right with dissolve
+                e "Let's go to class [player_name]"
+                jump classroom2
+            "Thanks them for defending you":
+                $ bryan_friendship += 30
+                m "Thanks for defending me guys"
+                $ b.set_emotion('neutral')
+                show expression b.image at right with dissolve
+                b "No problem [player_name] we know you are a good student and a good person"
+                hide expression b.image
+                $ e.set_emotion('happy')
+                show expression e.image at right with dissolve
+                e "Let's go to class [player_name]"
+                jump classroom2
+
+    if bryan_study_group == True and jock > 10:
+        $ b.set_emotion('angry')
+        show expression b.image at right with dissolve
+        b "I can't believe this loser of Adam is trying to frame us for things we didn't do !"
+        b "He is just jealous that almost everybody went to the party while his poor self was crying alone in the library"
+        $ p.set_emotion('angry')
+        hide expression b.image
+        p "Enough ! I know you are a famous troublemaker but im asking you to have some respectful language in my university"
+        $ e.set_emotion('angry')
+        show expression e.image at left3 with dissolve
+        e " Adam is just trying to frame [player_name] i don't think he is genuine in his accusations"
+        hide expression e.image
+        $ m.set_emotion('angry')
+        show expression m.image at middle with dissolve
+        m "So what if we did ? Adam is salty because he didn't have any fun last night"
+        $ p.set_emotion('angry')
+        hide expression m.image
+        p "I will investigate this situation this sarcastic isn't helping to believe those accusations"
+        n "All students are shouting at Adam and he is trying to defend himself"
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "Sir you see how he is talking to me ?"
+        p "Enough is enough we've wasted enough time now everybody go to your classes and i will investigate this situation"
+        scene uni_hallway3
+        n"You are going to your first class of the day but you see emily "
+        menu:
+            "Ignore her and go to your class":
+             $ b.set_emotion('neutral')
+             show expression b.image at right with dissolve
+             b "Let's go to class [player_name]"
+             jump classroom2
+            "Thank her for defending you":
+                 $ emily_friendship += 30
+                 m "Thanks for defending me Emily"
+                 $ e.set_emotion('neutral')
+                 show expression e.image at right with dissolve
+                 e "No problem [player_name] i don't think adam is genuine in his accusations but good luck"
+                 hide expression e.image
+                 $ b.set_emotion('neutral')
+                 show expression b.image at right with dissolve
+                 b "Let's go to class [player_name]"
+                 jump classroom2
+
