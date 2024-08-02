@@ -1,40 +1,37 @@
-2024-08-01 15:24:41 UTC
+2024-08-02 13:07:56 UTC
 Windows-10-10.0.22631
 Ren'Py 8.2.1.24030407
 
 Early init took 0.07s
 Loading error handling took 0.04s
-Loading script took 0.45s
-Loading save slot metadata took 0.09s
+Loading script took 0.60s
+Loading save slot metadata took 0.08s
 Loading persistent took 0.00s
-
-File "game/script.rpy", line 1996: Line is indented, but the preceding scene statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    $ m.set_emotion('neutral')
-    ^
-
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
-    ^
-
-File "game/script.rpy", line 2243: expected 'label_name' not found.
-    jump
-        ^
-
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
-
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
-
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
-                         ^
+Running init code took 0.18s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.15s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Interface start took 0.54s
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.35s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
@@ -47,34 +44,538 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 57.93s
-Loading error handling took 0.02s
-Loading script took 0.27s
+Early init took 6543.21s
+Loading error handling took 0.03s
+Loading script took 0.28s
 Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2020: expected statement.
-    t.set_emotion('neutral')
-                            ^
+File "game/script.rpy", line 3096: expected statement.
+    "I'm stuck in my thought but i need to focus" if jock < 5:
+                                                  ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
 
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
-    ^
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 6568.93s
+Loading error handling took 0.04s
+Loading script took 0.46s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.23s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.24s
 
-File "game/script.rpy", line 2243: expected 'label_name' not found.
-    jump
-        ^
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 7026.88s
+Loading error handling took 0.03s
+Loading script took 0.38s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
 
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
+File "game/script.rpy", line 3162: reached end of line when expecting ':'.
+    if emily_study_group
+                        ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.55s
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 7293.33s
+Loading error handling took 0.03s
+Loading script took 0.44s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.23s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.23s
 
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 7766.21s
+Loading error handling took 0.03s
+Loading script took 0.49s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8011.92s
+Loading error handling took 0.02s
+Loading script took 0.45s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8310.42s
+Loading error handling took 0.02s
+Loading script took 0.47s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.06s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.28s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 8814.78s
+Loading error handling took 0.02s
+Loading script took 0.53s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.08s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.27s
+Cleaning stores took 0.00s
+Init translation took 0.07s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.30s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 13916.78s
+Loading error handling took 0.02s
+Loading script took 0.49s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.33s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 14917.76s
+Loading error handling took 0.02s
+Loading script took 0.30s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3435: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.50s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 15185.28s
+Loading error handling took 0.02s
+Loading script took 0.30s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3435: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 15229.07s
+Loading error handling took 0.02s
+Loading script took 0.58s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.03s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.19s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 15779.04s
+Loading error handling took 0.03s
+Loading script took 0.52s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 16921.55s
+Loading error handling took 0.03s
+Loading script took 0.50s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.23s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.29s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 17869.64s
+Loading error handling took 0.02s
+Loading script took 0.30s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+
+File "game/script.rpy", line 3538: expected statement.
+    elif adamproposition == True:
                          ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
@@ -92,34 +593,18 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 59.49s
+Early init took 19443.99s
 Loading error handling took 0.02s
-Loading script took 0.24s
-Loading save slot metadata took 0.02s
+Loading script took 0.35s
+Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2020: expected statement.
-    t.set_emotion('neutral')
-                            ^
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
 
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
-    ^
-
-File "game/script.rpy", line 2243: expected 'label_name' not found.
-    jump
-        ^
-
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
-
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
-
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
+File "game/script.rpy", line 3538: expected statement.
+    elif adamproposition == True:
                          ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
@@ -137,35 +622,215 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 62.17s
+Early init took 20043.07s
 Loading error handling took 0.02s
-Loading script took 0.26s
+Loading script took 0.35s
+Loading save slot metadata took 0.04s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+
+File "game/script.rpy", line 3538: expected statement.
+    elif adamproposition == True:
+                         ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.58s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21250.49s
+Loading error handling took 0.02s
+Loading script took 0.35s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2020: expected statement.
-    t.set_emotion('neutral')
-                            ^
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
 
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21274.71s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
     ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.47s
 
-File "game/script.rpy", line 2243: expected 'label_name' not found.
-    jump
-        ^
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21309.47s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
 
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
+File "game/script.rpy", line 3524: Indentation mismatch.
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21342.75s
+Loading error handling took 0.02s
+Loading script took 0.37s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
 
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
-                         ^
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.47s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21353.45s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.44s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21369.55s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21381.75s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3524: Indentation mismatch.
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.44s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21386.39s
+Loading error handling took 0.02s
+Loading script took 0.34s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -182,35 +847,19 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 83.76s
+Early init took 21398.55s
 Loading error handling took 0.02s
-Loading script took 0.24s
+Loading script took 0.34s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
     ^
-
-File "game/script.rpy", line 2243: expected 'label_name' not found.
-    jump
-        ^
-
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
-
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
-
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
-                         ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Interface start took 0.48s
+Interface start took 0.44s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
@@ -223,30 +872,18 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 189.30s
+Early init took 21428.80s
 Loading error handling took 0.02s
-Loading script took 0.25s
+Loading script took 0.32s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
     ^
 
-File "game/script.rpy", line 2243: expected 'label_name' not found.
-    jump
-        ^
-
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
-
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
-
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
+File "game/script.rpy", line 3538: expected statement.
+    elif adamproposition == True:
                          ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
@@ -264,30 +901,47 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 190.25s
-Loading error handling took 0.02s
-Loading script took 0.24s
+Early init took 21477.10s
+Loading error handling took 0.03s
+Loading script took 0.33s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
     ^
 
-File "game/script.rpy", line 2243: expected 'label_name' not found.
-    jump
-        ^
+File "game/script.rpy", line 3538: expected statement.
+    elif adamproposition == True:
+                         ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
 
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21480.69s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
 
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
+File "game/script.rpy", line 3538: expected statement.
+    elif adamproposition == True:
                          ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
@@ -305,27 +959,38 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 214.75s
-Loading error handling took 0.03s
-Loading script took 0.25s
+Early init took 21498.88s
+Loading error handling took 0.02s
+Loading script took 0.33s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2238: Line is indented, but the preceding show screen statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    hide expression br.image
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
     ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
 
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21523.13s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
-
-File "game/script.rpy", line 2830: reached end of line when expecting ':'.
-    if adamproposition ==
-                         ^
+File "game/script.rpy", line 3538: Indentation mismatch.
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -342,23 +1007,19 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 237.44s
+Early init took 21526.29s
 Loading error handling took 0.02s
-Loading script took 0.24s
-Loading save slot metadata took 0.02s
+Loading script took 0.36s
+Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
-
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Interface start took 0.49s
+Interface start took 0.47s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
@@ -371,44 +1032,15 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 238.41s
+Early init took 21544.52s
 Loading error handling took 0.02s
-Loading script took 0.24s
-Loading save slot metadata took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.03s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2738: reached end of line when expecting ':'.
-    if bryan_study_group == True or emily_study_group == True
-                                                             ^
-
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
-DPI scale factor: 1.500000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start took 0.44s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 546.92'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
-Maximum texture size: 4096x4096
-Resetting cache.
-Early init took 251.59s
-Loading error handling took 0.03s
-Loading script took 0.26s
-Loading save slot metadata took 0.02s
-Loading persistent took 0.00s
-
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -425,15 +1057,15 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 298.42s
+Early init took 21552.10s
 Loading error handling took 0.02s
-Loading script took 0.27s
+Loading script took 0.32s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -450,15 +1082,165 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 299.43s
+Early init took 21553.07s
 Loading error handling took 0.02s
-Loading script took 0.24s
+Loading script took 0.33s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.42s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21554.15s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.42s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21561.79s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.50s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21563.50s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21697.62s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.55s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21699.45s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21700.54s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -475,15 +1257,140 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 300.52s
+Early init took 21701.68s
 Loading error handling took 0.02s
-Loading script took 0.25s
+Loading script took 0.31s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.43s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21767.00s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.49s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21792.20s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21793.34s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21794.34s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.49s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21865.18s
+Loading error handling took 0.02s
+Loading script took 0.39s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -500,21 +1407,876 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
 Maximum texture size: 4096x4096
 Resetting cache.
-Early init took 325.27s
+Early init took 21868.12s
 Loading error handling took 0.02s
-Loading script took 0.45s
+Loading script took 0.32s
 Loading save slot metadata took 0.02s
 Loading persistent took 0.00s
-Running init code took 0.08s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21909.71s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.49s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21910.81s
+Loading error handling took 0.03s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.44s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21932.00s
+Loading error handling took 0.02s
+Loading script took 0.35s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.52s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21933.28s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.45s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21998.16s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.47s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 21999.29s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22019.02s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.50s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22020.83s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22022.59s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22079.90s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22083.05s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.47s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22084.06s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.45s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22100.78s
+Loading error handling took 0.02s
+Loading script took 0.34s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    elif bryan_study_group == True:
+    ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.49s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22182.23s
+Loading error handling took 0.02s
+Loading script took 0.16s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3538: Indentation mismatch.
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.47s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22185.55s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3538: Indentation mismatch.
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.44s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22199.21s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.45s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22246.04s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22250.96s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.47s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22297.75s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.48s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22299.84s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.42s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22300.88s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.42s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22368.26s
+Loading error handling took 0.02s
+Loading script took 0.31s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3509: expected statement.
+    elif bryan_study_group == True:
+                           ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.45s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22377.39s
+Loading error handling took 0.02s
+Loading script took 0.64s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.04s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
-Reloading save slot metadata took 0.11s
+Reloading save slot metadata took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
 Dump and make backups took 0.04s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc took 0.03s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.22s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22416.98s
+Loading error handling took 0.03s
+Loading script took 0.52s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 22494.66s
+Loading error handling took 0.02s
+Loading script took 0.55s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.27s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 23077.40s
+Loading error handling took 0.02s
+Loading script took 0.54s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.23s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.32s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 23093.09s
+Loading error handling took 0.02s
+Loading script took 0.12s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.19s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.00s
+Running _start took 0.00s
+Interface start took 0.23s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 23604.94s
+Loading error handling took 0.02s
+Loading script took 0.32s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3856: expected statement.
+    go_home2
+            ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.49s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 23645.74s
+Loading error handling took 0.02s
+Loading script took 0.34s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3856: expected statement.
+    go_home2
+            ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.46s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 24347.11s
+Loading error handling took 0.02s
+Loading script took 0.33s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+
+File "game/script.rpy", line 3856: expected statement.
+    go_home2
+            ^
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start took 0.47s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 24366.86s
+Loading error handling took 0.02s
+Loading script took 0.65s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.04s
 DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
@@ -526,10 +2288,346 @@ Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
 Prepare screens took 0.05s
-Save pyanalysis. took 0.02s
+Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
+Interface start took 0.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 24415.57s
+Loading error handling took 0.03s
+Loading script took 0.61s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.03s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
 Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 24592.93s
+Loading error handling took 0.02s
+Loading script took 0.66s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 24936.70s
+Loading error handling took 0.03s
+Loading script took 0.65s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+Running init code took 0.04s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.06s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.07s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.27s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 25195.79s
+Loading error handling took 0.02s
+Loading script took 0.71s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.06s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.07s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Interface start took 0.25s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 25338.45s
+Loading error handling took 0.03s
+Loading script took 0.57s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.27s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 25688.27s
+Loading error handling took 0.02s
+Loading script took 0.80s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.05s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Interface start took 0.26s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 26136.76s
+Loading error handling took 0.03s
+Loading script took 0.65s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.05s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.21s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.04s
+Running _start took 0.00s
+Interface start took 0.28s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 4090 Laptop GPU/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 546.92'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1770, 996) drawable=(1770, 996)
+Maximum texture size: 4096x4096
+Resetting cache.
+Early init took 26593.89s
+Loading error handling took 0.02s
+Loading script took 0.60s
+Loading save slot metadata took 0.02s
+Loading persistent took 0.00s
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Reloading save slot metadata took 0.02s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\tamim\\AppData\\Roaming/RenPy/backups\\InteractiveNovel':
+Dump and make backups took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.06s
+DPI scale factor: 1.500000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.20s
+Cleaning stores took 0.00s
+Init translation took 0.04s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Interface start took 0.26s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)

@@ -235,6 +235,9 @@ image uni_library2_night = "uni_library2_night.png" # University library 2 durin
 image uni_library_outside = "uni_library_outside.png" # University library outside
 image building_rooftop = "building_rooftop.png" # Building rooftop
 image uni_mainhall3 = "uni_mainhall3.png" # University main hall 3
+image nightclub2 = "nightclub2.png" # Nightclub 2
+image cozy_restaurant = "cozy_restaurant.png" # Cozy restaurant
+image attraction_park_fullofpeoples = "attraction_park_fullofpeoples.png" # Attraction park full of people
 #Notifications screen
 screen notification(msg):
     frame:
@@ -2404,12 +2407,15 @@ label building_rooftop:
 
     $ br.set_emotion('neutral')
     show expression br.image at right with dissolve
+    $ skills += 270
     br "Definitely. We'll ace this exam, no problem."
-
+    show screen notification("You have completed some task of the project in bryan path ! He is definitely becoming a different person because of you you have [skills] skills now")
     n "You leave the rooftop, the city lights still twinkling below. You feel a mix of exhaustion and satisfaction. Despite the challenges, you're starting to find your place in this new world."
+
     $ b.set_emotion('neutral')
     show expression b.image at left with dissolve
     b "See you guys tomorrow. We'll finish this project in no time with [player_name] on our gaaang."
+    hide screen notification
     jump go_home
 
 
@@ -2484,6 +2490,7 @@ label choice_wait_for_emily:
     a "You dare to be late and ask what we're studying today? I'm guessing you were at Bryan's party. Do us a favor and leave our group. I'm sure [player_name] will agree with me."
     menu:
         "I agree with Adam":
+            $ emily_hate = True
             $ emily_friendship -= 5
             $ adam_friendship += 5
             $ e.set_emotion('sad')
@@ -2496,6 +2503,7 @@ label choice_wait_for_emily:
             hide expression a.image
 
         "I disagree with Adam":
+            $ emily_hate = False
             $ emily_friendship += 5
             $ adam_friendship -= 5
             $ e.set_emotion('happy')
@@ -2518,12 +2526,14 @@ label studying_without_emily:
     m "Agreed. Let's start with the main theories."
     n "Hours pass as you and Adam work through the textbooks, solving problems and discussing theories. Despite the initial tension, you make significant progress."
     $ stress -= 10
-    $ skills += 10
+    $ skills += 430
+    show screen notification("You have gained [skills] skills adam path gives the highest skills of any study group")
     show expression a.image at right with dissolve
     a "Good job today, [player_name]. We made some solid progress."
     $ m.set_emotion('happy')
     show expression m.image at middle with dissolve
     m "Thanks, Adam. Let's keep this momentum going for the next session."
+    hide screen notification
     n "You pack up your things and head out of the library, feeling a bit more prepared for the upcoming exam."
     jump go_home
 
@@ -2538,11 +2548,13 @@ label studying_with_emily2:
     m "Sounds good. Let's make the most of the time we have."
     n "You and Adam spend the next few hours immersed in your books, taking notes and discussing the key concepts. The library is quiet, allowing you to concentrate fully."
     $ stress -= 5
-    $ skills += 200
+    $ skills += 430
+    show screen notification("You have gained [skills] skills adam path gives the highest skills of any study group")
     n "After a long study session, you and Adam decide to call it a day. Despite the rocky start, you've covered a lot of ground."
     $ a.set_emotion('happy')
     show expression a.image at right with dissolve
     a "Good job today, [player_name]. We made some solid progress."
+    hide screen notification
     $ m.set_emotion('happy')
     show expression m.image at middle with dissolve
     m "Thanks, Adam. Let's keep this momentum going for the next session."
@@ -2598,10 +2610,11 @@ label studying_with_emily:
     m "Got it. I'll make sure to write it down properly."
     n "The hours pass by quickly as you and Emily work through the material, discussing and solving problems together. Her enthusiasm for the subject is contagious, making the study session enjoyable despite the initial tension with Adam."
     $ stress -= 10
-    $ skills += 200
+    $ skills += 350
     $ emily_friendship += 5
     e "I think we've atleast done 3/4 of the project. Well that was one hell of a day partying then studying ugh i'm tired"
     m "Right ? i think we should head home and do the rest next time"
+    show screen notification("You have completed 3/4 of the project you have [skills] skills")
     e" Yeah let's go"
     hide expression e.image
     hide expression m.image
@@ -2625,6 +2638,7 @@ label studying_with_emily:
     m "Sure thing Emily ! Good night"
     n "You and emily say goodbye and you head home"
     jump go_home
+
 
 
 
@@ -2670,21 +2684,27 @@ label go_home:
 
 
 
-    if skills >= 15:
-        $ skills += 5  # Bonus for ending the day on a positive note
-        n "You feel good about what you learned today. You're starting to get the hang of this whole quantum computing thing."
+    if skills >= 300:
 
+        $ skills += 100  # Bonus for ending the day on a positive note
+        $ stress -= 200
+
+        n "You feel good about what you learned today. You're starting to get the hang of this whole quantum computing thing."
+        n "Because your skills is higher than 300 you have gained a bonus of 100 skills and you have lost 200 stress now you have [skills] skills and remember skills will affect the grade of the exam!"
+    if skill < 300:
+        n" You feel so gooood about the day you had and you are ready to face the next day !"
+        n" You have [skills] skills and remember skills will affect the grade of the exam!"
     # Setting the Mood
     n "You head to bed, ready to face whatever challenges tomorrow brings."
     jump next_day
-
+## Wake up scene
 label next_day:
     scene player_house_room_day at cover_screen(1100, 1380) with dissolve
     n "It's 5AM wakee uppppp !"
     if negative_academic_friendship > 10 or jock > 5:
         $ m.set_emotion('angry')
         show expression m.image at middle with dissolve
-        m "RRRRRRRRRRRRRRRRRRRRRAAAAAAAA ! DAMN THIS I WANTED TO SLEEP"
+        m "RRRRRRRRRRRRRRRRRRRRRAAAAAAAA ! DAMN THIS I WANTED MORE SLEEP"
     else:
         $ m.set_emotion('happy')
         show expression m.image at middle with dissolve
@@ -2697,6 +2717,7 @@ label next_day:
                 m "Just 5 more minutes..."
                 jump start_day
 
+### New day start
 label start_day:
     scene uni_park_evening at cover_screen(1100, 1380) with dissolve
     n "You arrive at the university, the sun shining brightly overhead. But the students seem to be in a frenzy, talking and whispering to each other."
@@ -2728,7 +2749,7 @@ label start_day:
     show expression b.image at right with dissolve
     if bryan_proofs == True:
         b "So the losers are trying to frame us for imaginary illegal activities huh ?"
-        b "You and Adam are going to regret this especially you [player_name] looking through my house like a creep"
+        b "You and Adam are going to regret this especially you [player_name] looking through my house like a creep while i warned you to leave the party !"
     else:
         b "This loser of Adam is trying to frame us for shits we didn't do !"
         b "He is just jealous that almost everybody went to the party while his poor self was crying alone in the library"
@@ -2827,4 +2848,1356 @@ label start_day:
                  show expression b.image at right with dissolve
                  b "Let's go to class [player_name]"
                  jump classroom2
+    if adamproposition == True :
+        $ m.set_emotion('angry')
+        show expression m.image at middle with dissolve
+        m "Sir we are trusted by the teachers you can see the proof that we have against Bryan and his friends"
+        n "The crowd seems to not like you and Adam and they are shouting at you probably because Adam is a good student but he is selfish and arrogant"
+        hide expression m.image
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "They are all against us because we are the only one that are for the new exams changes this year !"
+        $ ri.set_emotion('neutral')
+        show expression ri.image at left with dissolve
+        ri "No we just hate you Adam not because you are better than us but you never help anyone and always act like you are the best that does everything alone !"
+        hide expression a.image
+        hide expression ri.image
+        $ p.set_emotion('angry')
+        show expression p.image at left3 with dissolve
+        p "Enough ! I will investigate this situation and i will take the necessary actions"
+        p "Everybody go to your classes and i will investigate this situation"
+        scene uni_hallway3 at cover_screen(1100, 1380) with dissolve
+        n "You are going to your first class of the day but you see bryan group and emily in your way"
+        if bryan_proofs == True:
+            $ b.set_emotion('angry')
+            show expression b.image at right with dissolve
+            b "If the principal call me his office you two are done for"
+            hide expression b.image
+        if bryan_proofs == False:
+            $ b.set_emotion('angry')
+            show expression b.image at right with dissolve
+            b " If the principal call me into his office Adam you are done !"
+            hide expression b.image
+        if emily_hate == True:
+            $ e.set_emotion('angry')
+            show expression e.image at left3 with dissolve
+            e "I don't know what you two are doing but im grateful to not be in your group anymore"
 
+        if emily_hate == False:
+            $ e.set_emotion('neutral')
+            show expression e.image at left3 with dissolve
+            e "[player_name] be careful with Adam if he can backstab other students he can do the same to you"
+            $ a.set_emotion('sad')
+            show expression a.image at right with dissolve
+            a "Don't listen to her [player_name] you are the only one i trust in this university"
+            jump classroom2
+            hide expression b.image
+
+### Classroom2 scene
+label classroom2:
+    scene uni_classroom2 at cover_screen(1100, 1380) with dissolve
+    n "You enter the classroom, and Ms. Baker greets you with a warm smile."
+    if bryan_study_group == True:
+        n " You sit next to Bryan "
+        $ b.set_emotion('neutral')
+        show expression b.image at left with dissolve
+        b "Whats up [player_name] ?"
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        if player_gender == 'girl':
+            m "Hey bro !"
+            hide expression m.image
+            hide expression b.image
+        else:
+            m "Hey bryan !"
+            hide expression m.image
+            hide expression b.image
+    if emily_study_group == True:
+        n " You sit next to Emily "
+        $ e.set_emotion('happy')
+        show expression e.image at left with dissolve
+        e "Hi you !"
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        if player_gender == 'girl':
+            m "Hiiiiii Emily !"
+            hide expression m.image
+            hide expression e.image
+        else:
+            m "Hey Emily !"
+            hide expression m.image
+            hide expression e.image
+    if adamproposition == True:
+        n "You sit next to Adam"
+        $ a.set_emotion('neutral')
+        show expression a.image at left with dissolve
+        a "Hello [player_name] "
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        m "Hello Adam..."
+        n "I know right Adam has no emotion at all"
+        hide expression m.image
+        hide expression a.image
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "Good morning, class! I hope you're all ready for an exciting lesson on quantum algorithms."
+    hide expression t2.image
+    n "You take your seat, noticing the familiar faces of your classmates.  The atmosphere is a bit more subdued than usual, perhaps due to the morning's events."
+
+    # Student chatter about the Adam/Bryan situation
+    $ rb.set_emotion('neutral')
+    show expression rb.image at left2 with dissolve
+    rb "Did you guys hear about what happened in the main hall? Adam tried to get Bryan and his friends expelled!"
+    $ rg.set_emotion('neutral')
+    show expression rg.image at right2 with dissolve
+    rg "Yeah, I can't believe he would do that.  It's so messed up."
+    hide expression rb.image
+    hide expression rg.image
+    $ ri.set_emotion('neutral2')
+    show expression ri.image at right with dissolve
+    ri "I heard the principal is investigating the whole thing.  Who knows what's gonna happen?"
+    hide expression ri.image
+
+    # Reactions based on study group choices
+    if bryan_study_group == True:
+        $ b.set_emotion('angry')
+        show expression b.image at left3 with dissolve
+        b "Adam is dead meat, that's what's gonna happen!  He's gonna regret messing with us."
+        hide expression b.image
+        $ ni.set_emotion('angry')
+        show expression ni.image at right3 with dissolve
+        ni "Yeah, we're gonna make sure he pays for this."
+        hide expression ni.image
+
+    if adamproposition == True:
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "They'll see.  I have proof, and the principal will believe me. They're just trying to intimidate me."
+        hide expression a.image
+
+    # Ms. Baker starts the lesson
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "Okay, everyone, let's settle down and focus on the lesson.  Today, we're going to explore the fascinating world of quantum algorithms."
+    hide expression t2.image
+    n "Ms. Baker begins her lecture, explaining how quantum algorithms utilize the principles of superposition and entanglement to solve problems that are impossible for classical computers."
+
+    #  Explaining Shor's Algorithm
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "One famous example is Shor's algorithm, which can factor large numbers exponentially faster than any known classical algorithm. This has huge implications for cryptography, as many current encryption methods rely on the difficulty of factoring large numbers."
+    hide expression t2.image
+
+    n "You listen intently, trying to absorb the complex information. The implications of this technology are both exciting and daunting.  Ms. Baker continues, delving deeper into the intricacies of Shor's algorithm."
+
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "Imagine trying to find the prime factors of a really large number - say, one with hundreds of digits.  A classical computer would take an incredibly long time, possibly longer than the age of the universe!  But Shor's algorithm, running on a powerful enough quantum computer, could theoretically do it in a much shorter time frame."
+    hide expression t2.image
+
+    $ rg.set_emotion('shocked')
+    show expression rg.image at right2 with dissolve
+    rg "Wow, that's mind-blowing! So, it could crack all our passwords and security codes?"
+    hide expression rg.image
+
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "That's a simplification, but yes, Shor's algorithm does pose a potential threat to current encryption methods. That's why researchers are actively working on post-quantum cryptography - new encryption schemes that are resistant to attacks from quantum computers."
+    hide expression t2.image
+
+    # Choice menu to interact with the lesson
+    menu:
+        "Ask a question about Shor's algorithm.":
+            $ skills += 5
+            $ teacher2_friendship += 3
+            m "Ms. Baker, can you explain in more detail how Shor's algorithm actually uses quantum phenomena to factor numbers?"
+            $ t2.set_emotion('happy')
+            show expression t2.image at right with dissolve
+            t2 "Excellent question, [player_name]!  Shor's algorithm leverages the principles of quantum superposition and quantum Fourier transform to manipulate qubits in a way that allows for efficient period finding, which is the key to factoring. It's a complex topic, but we can delve into it further after class if you'd like."
+            hide expression t2.image
+        "Share your thoughts on the ethical implications.":
+            $ popularity += 3
+            $ stress += 2
+            m "This is all incredible, but it also seems a bit scary. What if this technology gets into the wrong hands?  Could it be used for malicious purposes, like mass surveillance or disrupting critical infrastructure?"
+            $ t2.set_emotion('neutral')
+            show expression t2.image at right with dissolve
+            t2 "You raise a valid and important point, [player_name].  The ethical implications of quantum computing are profound.  It's crucial that we, as a society, engage in open dialogue about these issues and establish guidelines for the responsible development and use of this technology.  It's not just about the technical advancements, but also about how we use them and the impact they have on our lives and the world."
+            hide expression t2.image
+        "Try to relate the concepts to your project.":
+            $ skills += 3
+            m "I'm trying to wrap my head around how we can apply these complex concepts to our quantum algorithm project.  It's a tough challenge, but also incredibly fascinating."
+            $ t2.set_emotion('happy')
+            show expression t2.image at right with dissolve
+            t2 "That's a great approach, [player_name]!  Keep trying to draw connections between the theoretical concepts we're discussing and the practical application in your project.  It's through that process that you'll deepen your understanding. And remember, don't hesitate to come to me with any questions you have about your project."
+            hide expression t2.image
+
+    # Emily's Interaction (Only if in Emily's Study Group)
+    if emily_study_group == True:
+        $ e.set_emotion('neutral')
+        show expression e.image at right2 with dissolve
+        e "[player_name], this is amazing, right?  Imagine the possibilities if we could harness this power!"
+        if player_gender == "girl":
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "I know, right?  It's kind of scary, but also super exciting!  I can't wait to see what we can accomplish with our project."
+            hide expression m.image
+            $ e.set_emotion('happy')
+            show expression e.image at right2 with dissolve
+            e "Me too!  We're gonna rock this project.  Let's definitely get together later today to brainstorm some more."
+            hide expression e.image
+        else:
+            menu:
+                "Agree enthusiastically":
+                    $ emily_friendship += 5
+                    $ m.set_emotion('happy')
+                    show expression m.image at middle with dissolve
+                    m "Totally!  It's mind-blowing.  I think we could come up with some really cool ideas for our project."
+                    hide expression m.image
+                    $ e.set_emotion('happy')
+                    show expression e.image at right2 with dissolve
+                    e "I'm glad you're excited too!  Let's definitely make time to work on the project together later. Maybe we can head to that coffee shop near the library again?"
+                    hide expression e.image
+                "Be cautious but positive":
+                    $ emily_friendship += 3
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "Yeah, it's pretty amazing.  But it's also a lot to take in. I'm still trying to wrap my head around it all."
+                    hide expression m.image
+                    $ e.set_emotion('neutral')
+                    show expression e.image at right2 with dissolve
+                    e "I get it, it's definitely complex stuff.  But don't worry, we'll figure it out together.  Let's try to meet up later to go over some things, okay?"
+                    hide expression e.image
+                "Downplay the excitement":
+                    $ emily_friendship -= 2
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "It's interesting, I guess.  But I'm not sure how much of this will actually be useful for our project."
+                    hide expression m.image
+                    $ e.set_emotion('sad')
+                    show expression e.image at right2 with dissolve
+                    e "Oh, okay.  Well, I still think it's important to understand the broader context.  But sure, we can focus more on the practical aspects later if you want."
+                    hide expression e.image
+
+    # More Applications and Quantum Supremacy
+    n "The lesson continues, exploring various quantum algorithms and their potential applications in fields like medicine, materials science, and artificial intelligence."
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "Quantum computers are still in their early stages of development, but they hold immense promise.  Some experts believe we're on the verge of achieving 'quantum supremacy' - the point at which quantum computers can outperform classical computers for certain tasks."
+    hide expression t2.image
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "Imagine being able to design new drugs and materials at an unprecedented speed, or simulate complex systems like the human brain with incredible accuracy.  The possibilities are truly revolutionary."
+    hide expression t2.image
+    if bryan_study_group == True :
+        menu:
+         "Listen to the class so that you get enough knowledge to complete the project to graduate":
+            $ skills += 50
+            m "Okay i gotta focus a bit more so we can get this project done !"
+         "Who care about this i just wanna have fun" if jock > 5:
+            m "zzzzzzzzzzzzzzzzzzzzzzzzzzz"
+            jump hallway_scene_after_class2
+         "I'm stuck in my thought but i need to focus" if jock < 5:
+            $ skills += 20
+            m "I'm stuck in my thought but i need to focus"
+
+    $ a.set_emotion('happy')
+    show expression a.image at right with dissolve
+    a "Ms. Baker, what kind of breakthroughs could we see in medicine with quantum computers?"
+    hide expression a.image
+
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "That's an excellent question, Adam.  Quantum computers could revolutionize drug discovery by enabling us to simulate molecular interactions with a level of precision that's simply not possible with classical computers. This could lead to the development of new treatments for diseases like cancer, Alzheimer's, and HIV."
+    hide expression t2.image
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "They could also help us understand the complex processes involved in protein folding, which is crucial for developing new therapies for genetic disorders.  And personalized medicine could take a giant leap forward, with quantum computers allowing for the analysis of individual genetic profiles to tailor treatments to specific patients."
+    hide expression t2.image
+
+    $ e.set_emotion('neutral')
+    show expression e.image at right2 with dissolve
+    e "What about materials science?  I read something about quantum computers helping to create super-efficient solar panels."
+    hide expression e.image
+
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "That's another exciting area, Emily.  Quantum computers could lead to the development of new materials with incredible properties.  Imagine materials that are lighter yet stronger than anything we have today, or superconductors that operate at room temperature.  This could revolutionize industries like aerospace, energy, and electronics."
+    hide expression t2.image
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "And you're right, Emily, quantum simulations could help us design much more efficient solar panels, leading to a cleaner and more sustainable energy future.  They could also aid in developing better batteries for electric vehicles, and even in creating new catalysts for carbon capture, helping to address climate change."
+    hide expression t2.image
+
+    $ ri.set_emotion('neutral2')
+    show expression ri.image at right with dissolve
+    ri "What about artificial intelligence? Will quantum computers make AI super smart?"
+    hide expression ri.image
+
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "The potential for quantum computing in AI is immense.  Quantum algorithms could significantly speed up machine learning processes, allowing AI systems to learn from data much faster and more efficiently. This could lead to breakthroughs in areas like natural language processing, image recognition, and robotics."
+    hide expression t2.image
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "However, we need to be mindful of the potential risks.  More powerful AI also means we need to be even more careful about designing AI systems that are aligned with human values and goals, and that don't pose a threat to our safety and well-being."
+    hide expression t2.image
+
+    # Potential Concerns and Responsible Development
+    $ br.set_emotion('neutral')
+    show expression br.image at right2 with dissolve
+    br "This all sounds amazing, but it also kind of makes me nervous. What about job displacement? Will quantum computers take over our jobs?"
+    hide expression br.image
+
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "That's a valid concern, Brett.  It's likely that quantum computing will automate some tasks that are currently done by humans. But it's also important to remember that new technologies often create new jobs and opportunities.  The key is to prepare ourselves for the future by developing the skills and knowledge that will be in demand in a quantum-powered world."
+    hide expression t2.image
+
+    $ t2.set_emotion('neutral')
+    show expression t2.image at right with dissolve
+    t2 "Just like with any powerful technology, there are potential risks and challenges associated with quantum computing.  But by approaching its development and deployment responsibly, ethically, and with a focus on human well-being, we can harness its incredible power to create a better future for all."
+    hide expression t2.image
+
+    n "The bell rings, signaling the end of class.  You gather your things, your mind buzzing with possibilities.  You're eager to continue exploring this fascinating field, but also aware of the challenges and ethical considerations that lie ahead."
+
+    jump hallway_scene_after_class2
+
+label hallway_scene_after_class2:
+    scene uni_hallway3 at cover_screen(1100, 1380) with dissolve
+    if emily_study_group == True:
+        $ e.set_emotion('happy')
+        show expression e.image at right with dissolve
+        e "That was an amazing class, [player_name]! Even though I barely understood anything, let's go to the college cafeteria and talk about the project."
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "Yeah, let's go to the college cafeteria and talk about the project."
+        jump uni_cafeteria_scene
+    if bryan_study_group == True and jock < 5:
+        $ b.set_emotion('neutral')
+        show expression b.image at right with dissolve
+        b "That was a good class [player_name]. Let's go to the college cafeteria, I heard there is a hugeee burger on the menu today."
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        m "Yeah, let's go to the college cafeteria and talk about the project as well."
+        jump uni_cafeteria_scene
+    if bryan_study_group == True and jock > 5 and negative_academic_friendship > 1:
+        $ b.set_emotion('neutral')
+        show expression b.image at right with dissolve
+        b "What a trashy class! Let's go to the college cafeteria and have some funnn!"
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "Yeah, let's go to the college cafeteria. I am bored of studying."
+        jump uni_cafeteria_scene
+    if adamproposition == True:
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "I can't believe this class is over. I was so into it!"
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        m "Yeah, I was enjoying it so much, but let's go to the college cafeteria and talk about the project."
+        jump uni_cafeteria_scene
+
+
+
+
+label uni_cafeteria_scene:
+    scene uni_cafeteria at cover_screen(1100, 1380) with dissolve
+    n "The cafeteria is buzzing with students grabbing lunch and chatting about their classes. You find a table with your chosen study group and settle in."
+
+    # Group-Specific Interactions:
+    if emily_study_group == True:
+        $ e.set_emotion('happy')
+        show expression e.image at right with dissolve
+        e "Okay, [player_name], let's brainstorm some ideas for our project. I was thinking maybe we could focus on exploring quantum teleportation. It's a mind-blowing concept where information is transmitted instantly between two entangled qubits, regardless of distance! Imagine the possibilities!"
+        hide expression e.image
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "That sounds incredibly cool, Emily! But how would we even begin to demonstrate that in our project?"
+        hide expression m.image
+        $ e.set_emotion('neutral')
+        show expression e.image at right with dissolve
+        e "Well, we could use Qiskit to simulate the process.  We'd need to create a circuit that entangles two qubits, then apply specific gates to teleport the state of one qubit to the other.  It'll be challenging, but I think we can do it!"
+        hide expression e.image
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "Alright, let's give it a shot!  I'm ready to dive into Qiskit and start experimenting."
+        hide expression m.image
+
+    elif bryan_study_group == True:
+        if jock < 5:
+            $ b.set_emotion('neutral')
+            show expression b.image at right with dissolve
+            b "Alright, guys, let's try to focus for a bit.  [player_name], you seem to have a good grasp on this stuff. What do you think we should focus on for our project?  Maybe something related to quantum cryptography? I heard that's how they keep secrets safe from hackers."
+            hide expression b.image
+            $ ni.set_emotion('neutral')
+            show expression ni.image at right2 with dissolve
+            ni "Yeah, quantum cryptography sounds cool.  Like, unbreakable codes! That'd be useful for keeping our online gaming accounts secure, right?"
+            hide expression ni.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Quantum cryptography is definitely an interesting area, but it might be a bit complex for our project.  We could start with something simpler, like designing a quantum random number generator.  It's a good way to understand superposition and measurement."
+            hide expression m.image
+
+        else:
+            $ b.set_emotion('neutral')
+            show expression b.image at right with dissolve
+            b "Man, that burger was epic!  Alright, [player_name], what's the plan for this project?  We gotta make sure we don't totally flunk it. Maybe we can do something easy, like a quantum game or something? I bet we could make a killer quantum version of 'Rock, Paper, Scissors!'"
+            hide expression b.image
+            $ ni.set_emotion('neutral')
+            show expression ni.image at right2 with dissolve
+            ni "Yeah, a quantum game sounds fun!  We could code it in Qiskit and then challenge other students to play."
+            hide expression ni.image
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "A quantum game could be cool, but let's not get ahead of ourselves.  We need to make sure our project demonstrates a solid understanding of quantum principles.  How about we focus on building a simple quantum circuit that showcases superposition and entanglement?"
+            hide expression m.image
+
+    elif adamproposition == True:
+        $ a.set_emotion('happy')
+        show expression a.image at right with dissolve
+        a "Okay, [player_name], I've been doing some research on potential quantum algorithms we could implement.  I think the most promising one is Grover's algorithm.  It's a search algorithm that can find a specific item in an unsorted database much faster than classical algorithms. Imagine searching through a massive library in seconds!"
+        hide expression a.image
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        m "Grover's algorithm sounds fascinating, Adam.  But wouldn't implementing it require a lot of qubits and complex gates?  I'm not sure if we can handle that level of complexity for our project."
+        hide expression m.image
+        $ a.set_emotion('neutral')
+        show expression a.image at right with dissolve
+        a "You're right, it might be ambitious.  But I believe we can simplify it for our project.  We could focus on a smaller search space and use a reduced number of qubits.  The key is to demonstrate the core principles of the algorithm."
+        hide expression a.image
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "Okay, I'm willing to give it a try.  Let's see if we can make Grover's algorithm work for us."
+        hide expression m.image
+
+    # Principal Enters and Calls for Bryan
+    n "Suddenly, the cafeteria doors swing open, and Principal Stan strides in, his expression grim. He scans the room, his gaze lingering for a moment on your table before he fixes his attention on Bryan."
+    $ p.set_emotion('neutral')
+    show expression p.image at left3 with dissolve
+    p "Bryan, a word in my office. Now."
+    hide expression p.image
+    n "A hush falls over the cafeteria as everyone watches Bryan nervously get up and follow the principal out.  You can practically feel the weight of every eye in the room on Bryan's back.  There's a palpable tension in the air. You glance over at Adam and see a smug look of satisfaction on his face."
+
+    # Group-Specific Reactions and Confrontation:
+    if emily_study_group == True:
+        $ e.set_emotion('neutral')
+        show expression e.image at right with dissolve
+        e "Oh, no.  I hope Bryan's okay. This is probably about Adam's accusations."
+        hide expression e.image
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        m "Yeah, this doesn't look good. Adam, do you really think Bryan and his friends did something illegal?  Was it really necessary to report them to the principal? This seems a bit extreme."
+        hide expression m.image
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "I just presented the evidence I found. It's up to the principal to decide. And what are you even implying, [player_name]? Are you defending them? Are you on their side now?  I thought you were serious about your studies and this project."
+        hide expression a.image
+        menu:
+            "I'm just concerned about Bryan. This whole situation seems blown out of proportion.":
+                $ emily_friendship += 3
+                $ adam_friendship -= 2
+                $ m.set_emotion('neutral')
+                show expression m.image at middle with dissolve
+                m "Look, Adam, I understand that you're trying to uphold the university's standards. But Bryan's a good guy, and I don't think he'd do anything truly harmful. This whole thing just feels like a witch hunt."
+                hide expression m.image
+                $ e.set_emotion('happy')
+                show expression e.image at right with dissolve
+                e "I agree, [player_name].  Adam's being a bit too self-righteous.  Let's not jump to conclusions before we know all the facts."
+                hide expression e.image
+            "Maybe you're right, Adam. Bryan and his friends do seem like troublemakers.":
+                $ emily_friendship -= 2
+                $ adam_friendship += 3
+                $ m.set_emotion('neutral')
+                show expression m.image at middle with dissolve
+                m "You know, Adam, you might have a point.  I've seen Bryan and his friends acting a bit recklessly. Maybe they did cross the line at the party."
+                hide expression m.image
+                $ a.set_emotion('happy')
+                show expression a.image at right with dissolve
+                a "I'm glad you're seeing things clearly, [player_name].  It's important to hold people accountable for their actions, even if they're popular."
+                hide expression e.image
+            "This isn't any of our business. Let's focus on our project.":
+                $ stress -= 2
+                $ m.set_emotion('neutral')
+                show expression m.image at middle with dissolve
+                m "Look, I don't want to get involved in this drama.  It's between Bryan and the principal.  Let's just focus on our project."
+                hide expression m.image
+                $ e.set_emotion('neutral')
+                show expression e.image at right with dissolve
+                e "Yeah, you're right.  This isn't our fight.  Let's just try to stay out of it."
+                hide expression e.image
+
+    elif bryan_study_group == True:
+        if jock < 5:
+            $ b.set_emotion('sad')
+            show expression b.image at left3 with dissolve
+            b "[player_name], this is all my fault.  I should never have invited them to the party.  Adam's gonna get us all in trouble.  I just wanted to have some fun, and now it's all going to blow up in my face."
+            hide expression b.image
+            $ ni.set_emotion('angry')
+            show expression ni.image at right3 with dissolve
+            ni "Don't worry, Bryan. We'll figure this out.  Adam's a lying snake, and we'll expose him. He's just trying to make himself look good and ruin our reputation."
+            hide expression ni.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Hey, guys, calm down.  We don't know what the principal's going to say yet.  Bryan, just try to stay calm and explain your side of the story.  Don't let Adam get to you."
+            hide expression m.image
+        else:
+            $ b.set_emotion('angry')
+            show expression b.image at left3 with dissolve
+            b "This is such BS! Adam's trying to ruin my life because he's jealous.  He wants to be the star student, so he's trying to take me down.  [player_name], you saw what happened, right? You'll back me up, won't you?"
+            hide expression b.image
+            $ ni.set_emotion('angry')
+            show expression ni.image at right3 with dissolve
+            ni "Yeah, [player_name], you were there. You know Adam's making a big deal out of nothing! Tell everyone the truth!"
+            hide expression ni.image
+            menu:
+                "Defend Bryan":
+                    $ bryan_friendship += 5
+                    $ adam_friendship -= 5
+                    $ popularity += 3
+                    $ m.set_emotion('angry')
+                    show expression m.image at middle with dissolve
+                    m "Yeah, I was at the party, and Adam's exaggerating everything.  Bryan wasn't doing anything illegal!  Adam's just trying to stir up trouble because he's got a stick up his..."
+                    hide expression m.image
+                "Stay neutral":
+                    $ stress += 3
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "Guys, I don't want to get involved in this.  Let's just wait and see what the principal decides."
+                    hide expression m.image
+                "Side with Adam":
+                    $ bryan_friendship -= 5
+                    $ adam_friendship += 5
+                    $ popularity -= 3
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "Sorry, Bryan, but I can't lie for you.  Adam might have a point.  You guys were being pretty wild at the party."
+                    hide expression m.image
+
+    elif adamproposition == True:
+        $ a.set_emotion('neutral')
+        show expression a.image at right with dissolve
+        a "I told you they were trouble. The principal will see the truth now.  It's about time someone stood up to those bullies.  I'm just doing what's right for the university."
+        hide expression a.image
+        menu:
+            "I'm not sure about this, Adam. Maybe you went too far.":
+                $ adam_friendship -= 3
+                $ m.set_emotion('neutral')
+                show expression m.image at middle with dissolve
+                m "Adam, I appreciate you trying to keep things in order, but this seems a bit harsh.  Maybe you could have talked to Bryan directly instead of going straight to the principal."
+                hide expression m.image
+            "You did the right thing, Adam. Someone had to put them in their place.":
+                $ adam_friendship += 3
+                $ m.set_emotion('happy')
+                show expression m.image at middle with dissolve
+                m "I totally agree, Adam.  Bryan and his friends needed a wake-up call. They can't just get away with breaking the rules."
+                hide expression m.image
+            "Let's not talk about this, Adam. I'm trying to eat.":
+                $ stress -= 2
+                $ m.set_emotion('neutral')
+                show expression m.image at middle with dissolve
+                m "Look, I'm not interested in discussing this right now.  I'm trying to enjoy my lunch.  Can we talk about the project instead?"
+                hide expression m.image
+
+
+    #  Cafeteria Reactions
+    n "Murmurs ripple through the cafeteria as students whisper about the situation. Some students shoot you and your group curious glances, while others seem to relish the drama unfolding before them.  A few students even start taking pictures with their phones, eager to capture the spectacle."
+    $ rg.set_emotion('shocked')
+    show expression rg.image at left2 with dissolve
+    rg "Whoa, this is intense!  It's like a real-life soap opera!"
+    hide expression rg.image
+    $ rb.set_emotion('neutral')
+    show expression rb.image at right2 with dissolve
+    rb "I can't believe this is happening.  I wonder what the principal will do? Do you think Bryan will get expelled?"
+    hide expression rb.image
+    $ ri.set_emotion('neutral')
+    show expression ri.image at left with dissolve
+    ri "This is insane!  I wonder what Adam's proof is. Maybe there's video evidence from the party?"
+    hide expression ri.image
+
+
+
+    n "You can't help but feel a knot of anxiety in your stomach.  You try to focus on your food, but it's hard to swallow with all the tension hanging in the air. The situation is spiraling, and you're caught right in the middle of it.  What will happen to Bryan?  And what about your own reputation and future at the university?"
+    if emily_study_group == True:
+        $ e.set_emotion('happy')
+        show expression e.image at right with dissolve
+        e " [player_name] let's go to the coffee shop near the library to finish the project then we will have the whole weekend to relax and have fun"
+        if player_gender == 'girl' :
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "Suree girl let's finish this project so that we go to that park we talked about"
+            hide expression m.image
+            hide expression e.image
+        else:
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Alright let's finish this project so that we get the whole weekend to relax"
+            hide expression m.image
+            hide expression e.image
+            jump emily_coffee_scene
+     ### suit of the uni_cafeteria_scene
+    elif bryan_study_group == True:
+            if jock < 5:
+                 $ b.set_emotion('neutral')
+                 show expression b.image at right with dissolve
+                 b "I'm sorry guys, I don't know what's gonna happen.  I hope I didn't mess things up too much.  Thanks for sticking by me, [player_name]."
+                 $ m.set_emotion('neutral')
+                 $ ni.set_emotion('neutral')
+                 show expression ni.image at right2 with dissolve
+                 ni "We are never afraid of anything Bryan, i noticed that you've become more aware of your actions since [player_name] joined the group i am not saying it's a bad thing but you gotta keep your head up"
+                 hide expression ni.image
+                 hide expression b.image
+                 $ br.set_emotion('neutral')
+                 show expression br.image at right2 with dissolve
+                 br "I like the way you guys are supporting each other, i've never seen this before [player_name] joined the group. And i do like you for that [player_name]"
+                 show expression m.image at middle with dissolve
+                 m "Don't worry, Bryan.  We'll figure this out together.  Let's focus on our project and try to stay positive. "
+                 hide expression m.image
+                 hide expression b.image
+                 jump hallway_scene_after_cafeteria
+            else:
+
+                $ b.set_emotion('angry')
+                show expression b.image at right with dissolve
+                b "This snake gonna pay for what he did. I am not gonna let him ruin my life. [player_name] you saw what happened at the party, you know i didn't do anything wrong"
+                $ m.set_emotion('neutral')
+                show expression m.image at middle with dissolve
+                m "This nerd gonna regret it we will make sure he don't pass the project"
+                hide expression m.image
+                hide expression b.image
+                $ ni.set_emotion('angry')
+                show expression ni.image at right2 with dissolve
+                ni "[player_name] right we gonna destroy his project and make sure he don't pass the project"
+                hide expression ni.image
+                $ br.set_emotion('neutral')
+                show expression br.image at right2 with dissolve
+                br "I am sorry guys but i think i will join emily's group i don't want to be part of this especially that i am not sure if i am gonna pass the project"
+                hide expression br.image
+                $ b.set_emotion('sad')
+                show expression b.image at right with dissolve
+                b "It's alright Brett i understand, good luck never im gonna let this nerd ruin my life so im gonna ruin his"
+
+                hide expression ni.image
+                jump hallway_scene_after_cafeteria
+
+    elif adamproposition == True:
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "I hope Bryan learns his lesson.  He can't just get away with breaking the rules.  I'm glad I did the right thing by reporting him."
+        $ m.set_emotion('neutral')
+        show expression m.image at middle with dissolve
+        m "I hope this all gets resolved soon.  Let's focus on our project and try to stay out of the drama."
+        hide expression m.image
+        hide expression a.image
+        jump hallway_scene_after_cafeteria
+
+
+
+label hallway_scene_after_cafeteria:
+    scene uni_principaloffice at cover_screen(1100, 1380) with dissolve
+    n "You and your study group decide to leave the cafeteria, the atmosphere now thick with tension. As you walk down the hallway, you see a cluster of students huddled near the principal's office, whispering amongst themselves."
+
+    # Curiosity and Tension
+    $ rb.set_emotion('neutral')
+    show expression rb.image at left2 with dissolve
+    rb "Did you hear? Bryan's still in there with the principal. I wonder what's going on?"
+    hide expression rb.image
+
+    $ ri.set_emotion('neutral2')
+    show expression ri.image at right with dissolve
+    ri "I heard Adam's in there too. Maybe they're confronting each other! This is going to be epic!"
+    hide expression ri.image
+
+
+
+    if bryan_study_group == True:
+        if jock < 5:
+            $ b.set_emotion('sad')
+            show expression b.image at right with dissolve
+            b "I'm really scared, guys. What if I get expelled? My parents are going to kill me."
+            hide expression b.image
+            $ ni.set_emotion('angry')
+            show expression ni.image at right2 with dissolve
+            ni "Don't worry, Bryan. We won't let that happen. We'll stick by you, no matter what."
+            hide expression ni.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Yeah, Bryan, we're here for you. Just stay strong."
+            hide expression m.image
+
+        else:
+            $ b.set_emotion('angry')
+            show expression b.image at right with dissolve
+            b "That little snitch is in there trying to get me in trouble. I swear, if I get expelled because of him..."
+            hide expression b.image
+            $ ni.set_emotion('angry')
+            show expression ni.image at right2 with dissolve
+            ni "We'll make him pay, Bryan. Don't you worry."
+            hide expression ni.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Guys, let's not make things worse.  Let's just wait and see what happens."
+            hide expression m.image
+
+    if adamproposition == True:
+            $ a.set_emotion('neutral')
+            show expression a.image at right with dissolve
+            a "This is what they deserve. Actions have consequences.  I'm just waiting to see what kind of punishment the principal will give them."
+            hide expression a.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "I hope this doesn't drag on forever. This drama is really stressing me out."
+            hide expression m.image
+
+    # The Door Opens
+    n "Suddenly, the door to the principal's office swings open, and Adam steps out, his face pale and his eyes downcast."
+    $ a.set_emotion('sad')
+    show expression a.image at right with dissolve
+    a "... I can't believe this is happening."
+    hide expression a.image
+    n "Everyone stares at Adam in shock. You can feel the anticipation building. What happened in there? What did the principal decide?"
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "Adam, what happened? What did the principal say?"
+    hide expression m.image
+    n "Adam hesitates for a moment, glancing back at the closed office door before turning to face you, his expression a mixture of anger and disbelief."
+
+
+
+
+
+label principal_office_scene:
+    scene principaloffice at cover_screen(1100, 1380) with dissolve
+    n "You follow Adam hesitantly into the principal's office, your heart pounding. The principal, Mr. Stan, sits behind his imposing desk, his face unreadable. Bryan is nowhere to be seen."
+
+    $ p.set_emotion('neutral')
+    show expression p.image at right with dissolve
+    p "[player_name], have a seat. We need to talk."
+    hide expression p.image
+
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "Sir, what happened?  Where's Bryan?"
+    hide expression m.image
+
+    # Dialogue Based on Study Group and Choices:
+    if adamproposition == True:
+        if bryan_proofs == True:
+            $ p.set_emotion('sad')
+            show expression p.image at right with dissolve
+            p "Adam presented evidence suggesting that Bryan was involved in some serious misconduct at that party. However, upon further investigation, it turned out the so-called 'proof' was fabricated. Doctored images, misleading videos... It seems Adam was determined to see Bryan punished, even if it meant resorting to dishonesty."
+            hide expression p.image
+            $ a.set_emotion('sad')
+            show expression a.image at right2 with dissolve
+            a "But... but they were breaking the rules! Drinking, fireworks, and... and..."
+            hide expression a.image
+            $ p.set_emotion('angry')
+            show expression p.image at right with dissolve
+            p "Enough, Adam! I'm deeply disappointed in your behavior.  Integrity is paramount in this institution, and your actions have undermined that trust.  You will face disciplinary action for your attempt to frame another student."
+            hide expression p.image
+            $ m.set_emotion('shocked')
+            show expression m.image at middle with dissolve
+            m "I... I can't believe Adam would do that."
+            hide expression m.image
+            $ p.set_emotion('neutral')
+            show expression p.image at right with dissolve
+            p "[player_name], I commend you for bringing this information to my attention, even if you were initially misled. However, I must also caution you.  Choose your friends wisely. And always seek the truth, even if it's uncomfortable."
+            hide expression p.image
+            # Adam's Fate and Player's Choice
+            n "You watch as Adam, head bowed in shame, is escorted out of the office. The principal turns back to you, his expression softening slightly."
+            $ p.set_emotion('neutral')
+            show expression p.image at right with dissolve
+            p "As for Bryan, I've given him a stern warning.  He understands the seriousness of his actions and has assured me that such behavior will not be repeated.  I believe in second chances, [player_name]. Do you?"
+            hide expression p.image
+            menu:
+                "Yes, sir. Everyone deserves a chance to redeem themselves.":
+                    $ principal_friendship += 5
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "Yes, sir. I believe everyone deserves a chance to learn from their mistakes."
+                    hide expression m.image
+                "I'm not so sure.  Bryan seems like a bad influence.":
+                    $ principal_friendship -= 2
+                    $ bryan_hate = True
+                    $ m.set_emotion('sad')
+                    show expression m.image at middle with dissolve
+                    m "I appreciate your leniency, sir. But I'm not convinced Bryan will change his ways."
+                    hide expression m.image
+
+        else: # Adam's accusations were false but he didn't fabricate evidence
+            show screen notification ("You didn't gather real evidence during the party so you will take bryan side no matter what since you are on adam path don't worry even if you did the proofs doesn't show a really prove the  incident")
+            $ p.set_emotion('sad')
+            show expression p.image at right with dissolve
+            p "[player_name], it seems Adam's accusations against Bryan were greatly exaggerated. While there was some inappropriate behavior at the party, there's no evidence to support the more serious claims.  It appears Adam was driven by personal animosity rather than genuine concern for the university's reputation."
+            hide expression p.image
+            $ a.set_emotion('sad')
+            show expression a.image at right2 with dissolve
+            a "But sir, they were being reckless!  Drinking, fireworks... It was dangerous!"
+            hide expression a.image
+            $ p.set_emotion('neutral')
+            show expression p.image at right with dissolve
+            p "Adam, I understand your concerns. However, making false accusations is not the way to address them.  You will be placed on disciplinary probation. Any further incidents will result in more severe consequences."
+            hide expression p.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "I knew Adam was being too harsh..."
+            hide expression m.image
+
+            n "Just then, the office door opens, and Bryan steps out, looking relieved."
+            $ b.set_emotion('neutral')
+            show expression b.image at right2 with dissolve
+            b "Thanks for having my back, [player_name].  I knew you wouldn't believe those lies."
+            hide expression b.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Don't mention it, Bryan.  Glad you're okay."
+            hide expression m.image
+
+    elif bryan_study_group == True:
+        if jock < 5:
+            $ p.set_emotion('neutral')
+            show expression p.image at right with dissolve
+            p "[player_name], Bryan has admitted to some rule violations at the party.  He's genuinely remorseful and has assured me that this won't happen again.  I've placed him on probationary status, but I believe he can learn from this experience.And Adam accusations were over exaggerated so i gave him a warning for that"
+            hide expression p.image
+            $ b.set_emotion('sad')
+            show expression b.image at right2 with dissolve
+            b "Thanks for giving me another chance, sir. I won't let you down."
+            hide expression b.image
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "I'm glad to hear that, Bryan. Just try to make better choices from now on, okay?"
+            hide expression m.image
+            jump principal_office_scene_aftermath
+        else:
+            $ p.set_emotion('angry')
+            show expression p.image at right with dissolve
+            p "[player_name], you're here because Adam has implicated you in some serious misconduct at that party. He claims you were involved in vandalizing university property, instigating a dangerous fireworks display, and providing alcohol to underage students.  These are very serious allegations."
+            hide expression p.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "That's ridiculous! Adam's lying! "
+            hide expression m.image
+            $ p.set_emotion('neutral')
+            show expression p.image at right with dissolve
+            p "I have statements from other students corroborating some of Adam's claims. They say they saw you participating in these activities."
+            hide expression p.image
+            menu:
+                "Lie and deny everything":
+                    $ negative_academic_friendship += 10
+                    $ jock += 5
+                    $ m.set_emotion('angry')
+                    show expression m.image at middle with dissolve
+                    m "Those witnesses are lying! I didn't do anything wrong!  Adam making this all up because he's mad that im more popular than him"
+                    hide expression m.image
+                    $ p.set_emotion('angry')
+                    show expression p.image at right with dissolve
+                    p "I'm not convinced by your denial, [player_name]. Your disrespectful attitude only reinforces the negative reports I've received about you. "
+                    hide expression p.image
+                "Admit to some involvement but downplay it":
+                    $ negative_academic_friendship += 5
+                    $ jock += 3
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "Okay, maybe I was hanging out with Bryan and his friends, but I wasn't the one vandalizing anything or starting fires!  I just had a couple of drinks. It was a party!"
+                    hide expression m.image
+                    $ p.set_emotion('sad')
+                    show expression p.image at right with dissolve
+                    p "[player_name], even being present and participating in such activities is unacceptable.  This university has a code of conduct, and you are expected to uphold it."
+                    hide expression p.image
+                "Blame it all on peer pressure":
+                    $ negative_academic_friendship += 3
+                    $ jock += 2
+                    $ m.set_emotion('sad')
+                    show expression m.image at middle with dissolve
+                    m "Look, sir, I was just trying to fit in.  Bryan and his friends are really popular, and I didn't want to be the lame one who didn't join in. I know I made some bad choices, but I'm not a bad person."
+                    hide expression m.image
+                    $ p.set_emotion('neutral')
+                    show expression p.image at right with dissolve
+                    p "[player_name], blaming your actions on peer pressure is a weak excuse.  You are responsible for your own choices."
+                    hide expression p.image
+
+            # Consequences and Warning
+            $ p.set_emotion('neutral')
+            show expression p.image at right with dissolve
+            p "Both you and Bryan will receive a formal warning for your misconduct.  This warning will be placed on your permanent academic record.  Any further violations of the university's code of conduct will result in suspension or expulsion.  Do I make myself clear?"
+            hide expression p.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Yes, sir.  I understand."
+            hide expression m.image
+
+            # Bryan's Reaction
+            n "Bryan smirks at you from across the room, a look of smug satisfaction on his face. It's clear he's enjoying seeing you squirm."
+            $ b.set_emotion('neutral')
+            show expression b.image at right2 with dissolve
+            b "Don't worry, [player_name].  We're in this together now. Partners in crime!"
+            hide expression b.image
+            n "You glare at Bryan, feeling a surge of anger and regret. You realize that aligning yourself with him was a huge mistake.  But it's too late to back out now. "
+
+    jump principal_office_scene_aftermath
+    n "You leave the principal's office, feeling a mix of relief and uncertainty. The drama with Bryan and Adam has left you shaken, but you're determined to focus on your project and navigate the rest of the semester with integrity."
+
+
+
+label principal_office_scene_aftermath:
+    scene uni_principaloffice at cover_screen(1100, 1380) with dissolve
+    n "You step out of the principal's office, the hallway seeming strangely quiet after the intensity of the meeting.  You take a deep breath, trying to process everything that just happened."
+
+    # Group-Specific Reactions and Transitions
+    if adamproposition == True:
+        if bryan_hate == True:
+            $ a.set_emotion('sad')
+            show expression a.image at right with dissolve
+            a "[player_name], I... I'm sorry for everything.  I let my anger get the best of me. I was wrong to try to frame Bryan.  I just wanted... I don't know what I wanted.  I guess I felt threatened by his popularity and the way he challenged my ideas."
+            hide expression a.image
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Adam, it's okay. We all make mistakes.  The important thing is that you're taking responsibility for your actions.  Just promise me you'll try to be more honest and less judgmental in the future."
+            hide expression m.image
+            $ a.set_emotion('happy')
+            show expression a.image at right with dissolve
+            a "I promise, [player_name]. I'll try to be better.  I still want to finish that project with you, if you'll have me."
+            hide expression a.image
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "Of course, Adam.  Let's go get this project done."
+            hide expression m.image
+            jump adam_project_scene
+
+        else:
+            $ b.set_emotion('happy')
+            show expression b.image at right with dissolve
+            b "Hey [player_name] thanks for believing me, i knew adam was gonna regret it"
+            hide expression b.image
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "Dont worry Bryan i knew he was over reacting, i have to catch up with adam to finish the project"
+            hide expression m.image
+            jump adam_project_scene
+
+    elif bryan_study_group == True:
+        if jock < 5:
+            $ b.set_emotion('happy')
+            show expression b.image at right with dissolve
+            b "Whew, that was close!  Thanks for the pep talk, [player_name].  I guess I dodged a bullet this time.  Come on, let's go grab some coffee and get back to work on that project."
+            hide expression b.image
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "Sounds good, Bryan.  I could really use a caffeine boost right now."
+            hide expression m.image
+            jump low_jock_project_scene
+
+        else:
+            $ b.set_emotion('neutral')
+            show expression b.image at right with dissolve
+            b "Man, that was intense!  Old Stan almost had us there.  But hey, at least we're both still in the game.  To celebrate our survival, let's hit up Club Quantum tonight!  I hear they've got a killer DJ and the drinks are flowing."
+            hide expression b.image
+            $ ni.set_emotion('happy')
+            show expression ni.image at right2 with dissolve
+            ni "Yeah, Club Quantum!  Let's blow off some steam and forget about all this school drama."
+            hide expression ni.image
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "Sounds like a plan!  I'm in. Let's go wild!"
+            hide expression m.image
+            jump nightclub_scene
+
+
+
+## Finishing project with adam
+label adam_project_scene:
+    scene uni_library_full at cover_screen(1100, 1380) with dissolve
+    n "You and Adam head to the library to work on your project. The tension from the earlier drama still lingers between you, but you both try to focus on the task at hand. The library is packed with students, all diligently preparing for the upcoming exam. You find a small, quiet corner and set up your laptops."
+
+    $ a.set_emotion('neutral')
+    show expression a.image at right with dissolve
+    a "Okay, [player_name], let's pick up where we left off. We need to finalize our implementation of Grover's algorithm and prepare for the presentation. Are you ready to focus?"
+    hide expression a.image
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Absolutely, Adam.  Let's get this done."
+    hide expression m.image
+
+    #  Working on the Project
+    n "You spend the next few hours immersed in the project, working through the code, running simulations, and refining your presentation.  Adam's meticulous attention to detail and your collaborative spirit create a productive, if slightly awkward, working environment."
+
+    # Adam's Reflection and Apology (Only if Bryan was hated)
+    if bryan_hate == True:
+        $ a.set_emotion('sad')
+        show expression a.image at right with dissolve
+        a "[player_name], I... I want to apologize again for what happened with Bryan. I know I messed up.  I've been so focused on getting ahead that I lost sight of what really matters - honesty and integrity.  I'm going to try to be a better person. A better friend."
+        hide expression a.image
+        $ m.set_emotion('happy')
+        show expression m.image at middle with dissolve
+        m "I appreciate that, Adam. It takes courage to admit when you're wrong. Just focus on being yourself, and things will work out."
+        hide expression m.image
+        $ a.set_emotion('happy')
+        show expression a.image at right with dissolve
+        a "Thanks, [player_name]. That means a lot to me. Now, let's finish this project.  I have a feeling we're going to nail it."
+        hide expression a.image
+
+    # Project Completion and Adam's Change
+    n "As you wrap up the final touches on the project, you notice a change in Adam.  He seems less tense, more relaxed. He even cracks a few jokes, surprising you with his dry sense of humor."
+
+    $ a.set_emotion('happy')
+    show expression a.image at right with dissolve
+    a "You know, [player_name], this project has been a real learning experience, and I don't just mean the quantum computing part. I've learned that it's okay to rely on others, to ask for help, and to admit when I'm wrong.  Thanks for being patient with me."
+    a "Rest well this weekend, we need to be at our best on Monday for the presentation"
+    hide expression a.image
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "You too, Adam.  We make a pretty good team."
+    hide expression m.image
+
+    # End Scene and Success
+    n "You pack up your things, feeling a sense of accomplishment and a newfound respect for Adam.  Despite the challenges and conflicts, you've managed to complete the project, learn some valuable life lessons, and maybe even forge a genuine friendship along the way."
+
+
+    $ skills += 200
+    show screen notification("You have gained 200 skills you have [skills] now! you and adam finished the project! good job!")
+
+    hide screen notification
+    jump go_home2
+## bryan group project scene
+label low_jock_project_scene:
+    n"You and Bryan head to Brett's favorite rooftop to finish the project."
+    scene building_rooftop at cover_screen(1100, 1380) with dissolve
+    $ br.set_emotion('sad')
+    show expression br.image at right2 with dissolve
+    br "Hey guys, everything went alright? [player_name], you look tired?"
+    hide expression br.image
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "Yeah, it was a bit intense. But Bryan's okay, so that's what matters."
+    hide expression m.image
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "Yeah, thanks to [player_name].  That pep talk helped a lot. Old Stan gave me a warning, but at least I'm not expelled.  Let's just finish this project and try to stay out of trouble, right?"
+    hide expression b.image
+
+    # Nico's Doubts
+    $ ni.set_emotion('angry')
+    show expression ni.image at right2 with dissolve
+    ni "I don't know, man. I still think Adam's a jerk for reporting us.  And this quantum computing stuff is way over my head. I'm not sure I can even pass this exam."
+    hide expression ni.image
+
+    # Player Encouragement
+    menu:
+        "Come on, Nico, you can do it! We'll help you understand.  Let's just focus on one concept at a time.":
+            $ skills += 5
+            $ ni.set_emotion('neutral')
+            show expression ni.image at right2 with dissolve
+            ni "Thanks, [player_name].  I appreciate that.  Maybe with your help, I can actually get this."
+            hide expression ni.image
+        "We're all feeling the pressure, Nico.  But we'll get through this together.  It's not just about passing the exam, it's about learning something new.":
+            $ bryan_friendship += 5
+            $ ni.set_emotion('neutral')
+            show expression ni.image at right2 with dissolve
+            ni "Yeah, I guess you're right. It's just tough to stay motivated when it feels like everything's going wrong."
+            hide expression ni.image
+        "Don't worry about it, Nico. If you fail, you fail.  It's not the end of the world.":
+            $ ni.set_emotion('neutral')
+            show expression ni.image at right2 with dissolve
+            ni "Easy for you to say, [player_name]. You're smart.  I'm just gonna end up flipping burgers for the rest of my life."
+            hide expression ni.image
+
+    #  Project Progress and Brett's Support
+    n "You all settle down and start working on the project. You guide Bryan and Nico through the concepts, patiently explaining the code and helping them with the simulations. ."
+
+    $ br.set_emotion('neutral')
+    show expression br.image at right2 with dissolve
+    br "Hey, guys, you're doing great! I'm impressed with how much progress you're making.  See, Nico, you're getting this!"
+    hide expression br.image
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "Yeah, thanks to [player_name]. They're a real lifesaver.  I think we might actually pull this off!"
+    hide expression b.image
+
+    #  Overcoming Challenges and Teamwork
+    n "As you work through the project, you face challenges and setbacks, but you work together to overcome them.  You realize that even though Bryan and Nico aren't the most academically inclined, they have strengths that contribute to the team."
+
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "Man, this entanglement stuff is making my brain hurt.  I'm glad you're here to explain it, [player_name]."
+    hide expression b.image
+    $ ni.set_emotion('neutral')
+    show expression ni.image at right2 with dissolve
+    ni "Yeah, you're a real quantum wizard, [player_name]. I still don't fully understand it, but I'm starting to see how it all works."
+    hide expression ni.image
+
+    # Project Completion and a Sense of Pride
+    n "After hours of work, you finally finish the project.  It might not be perfect, but it represents a solid effort from the team.  You all feel a sense of accomplishment and even a bit of pride."
+
+    $ skills += 100
+    show screen notification("Good Job! you and your group finished the project and you gained 100 skills you have [skills] now! ")
+    hide screen notification
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "We did it!  I can't believe we actually finished this thing.  High five, team!"
+    hide expression b.image
+    $ ni.set_emotion('neutral')
+    show expression ni.image at left2 with dissolve
+    ni "Yeah, we make a pretty good team, huh?  Thanks for sticking with us, [player_name]."
+    hide expression ni.image
+    n "You all exchange high fives, celebrating your success.  You realize that this project has been more than just an academic exercise.  It's been a test of teamwork, resilience, and the power of supporting each other through tough times."
+    $ br.set_emotion('neutral')
+    show expression br.image at right2 with dissolve
+    br "Thanks, [player_name]. I don't think if the group could have done it without you. I was thinking of going to the park to relax and have some fun this weekend , what do you think?"
+    hide expression br.image
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "That sounds like a great idea, Brett.  We all deserve a break after this.  Let's go have some fun this weekend !"
+
+    #  Transition
+    n "As the moon is casting a warm glow over the city, you pack up your things and head back to campus. You're tired but satisfied, knowing that you've helped Bryan and Nico achieve something they didn't think was possible. And maybe, just maybe, you've helped them see that there's more to life than just partying and popularity."
+    jump go_home2
+
+## Nightclub Scene
+label nightclub_scene:
+    scene nightclub2 at cover_screen(1100, 1380) with dissolve
+    n "The pulsing rhythm of the music vibrates through your chest as you enter Club Quantum.  Laser lights slice through the darkness, illuminating a sea of dancing bodies.  The air is thick with the scent of sweat, perfume, and something a bit stronger."
+
+    $ rd.set_emotion('neutral')
+    show expression rd.image at left2 with dissolve
+    hide expression rd.image
+
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "Welcome to the real world, [player_name]! No stuffy professors, no boring textbooks, just pure, unadulterated fun!"
+    hide expression b.image
+
+    $ ni.set_emotion('neutral')
+    show expression ni.image at right2 with dissolve
+    ni "Yeah! Let's forget about that old geezer Stan and his lame warnings. Tonight, we're gonna party like there's no tomorrow!"
+    hide expression ni.image
+
+    # Choices at the Nightclub
+    menu:
+        "Head straight to the dance floor":
+            $ popularity += 5
+            $ stress -= 10
+            $ jock += 5
+            n "You lose yourself in the rhythm, letting the music move your body. The stress of the day melts away as you dance with reckless abandon, surrounded by other students caught in the same euphoric trance."
+        "Grab a drink at the bar":
+            $ popularity += 3
+            $ stress += 5
+            $ jock += 3
+            n "You push your way through the crowd to the bar, flashing your fake ID to the bartender.  The music is deafening, but you manage to order a drink.  You take a sip, the alcohol hitting you fast.  It's not the best drink you've ever had, but it does the trick."
+            #  Potential Encounter:
+            n "As you're about to take another sip, you bump into someone. You turn to apologize, and your eyes meet those of..."
+            n "Into me? AH just kidding! Sorry  but if you thought emily or brett was gonna be there AND liking you, you are wrong! "
+        "Find a quieter spot to chill":
+            $ stress -= 5
+            n "You escape the throbbing heart of the dance floor and find a quieter lounge area.  You sink into a plush couch, taking in the scene from a distance.  The music is still loud, but it's less overwhelming here. You watch the swirling lights and dancing bodies, feeling a sense of detachment."
+            # Potential Reflection:
+            n "You start to wonder if this is really the life you want.  The thrill of rebellion is fading, replaced by a nagging sense of emptiness.  Is this all there is?  Partying, drinking, running from responsibility?"
+
+    # Bryan's Influence and Temptation
+    $ b.set_emotion('neutral')
+    show expression b.image at right with dissolve
+    b "Hey, [player_name], loosen up! This is what freedom feels like! Forget about quantum algorithms and project deadlines! Tonight, we're living in the moment!"
+    hide expression b.image
+    menu:
+        "Embrace the moment and let go":
+            $ jock += 5
+            $ negative_academic_friendship += 5
+            $ m.set_emotion('happy')
+            show expression m.image at middle with dissolve
+            m "You're right, Bryan! Let's make tonight legendary!"
+            hide expression m.image
+            n "You let it go and lose yourself ... someone bought you back home"
+            jump go_home2
+
+        "Enjoy the night but set boundaries and leave alone early ":
+            $ stress += 5
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "I'm having fun, Bryan, but I still need to keep my head on straight.  We have that exam coming up, remember?"
+            hide expression m.image
+            $ b.set_emotion('sad')
+            show expression b.image at right with dissolve
+            b "Fine, suit yourself.  But don't blame me if you miss out on all the fun!"
+            hide expression b.image
+            jump go_home2
+
+        "Suggest leaving early to study":
+            $ bryan_friendship -= 5
+            $ skills += 5
+            $ m.set_emotion('neutral')
+            show expression m.image at middle with dissolve
+            m "Actually, Bryan, I think I'm gonna head out soon.  I need to get some rest and study for the exam."
+            hide expression m.image
+            $ b.set_emotion('angry')
+            show expression b.image at right with dissolve
+            b "Seriously, [player_name]? You're gonna ditch us for some boring textbook?  What a buzzkill!"
+            hide expression b.image
+            $ ni.set_emotion('angry')
+            show expression ni.image at right2 with dissolve
+            ni "Yeah, [player_name], you're becoming a real nerd! What happened to the cool [player_gender] we met at the party?"
+            hide expression ni.image
+            jump go_home2
+
+
+## Emily's group  Coffee Scene for the project
+label emily_coffee_scene:
+    scene emily_room at cover_screen(1100, 1380) with dissolve
+    n "The aroma of freshly brewed coffee fills Emily's cozy room as you arrive for your final project session.  Sunlight streams through the window, casting a warm glow on the scattered textbooks and notes."
+
+    $ e.set_emotion('happy')
+    show expression e.image at right with dissolve
+    e "Hey, [player_name]!  I'm so glad you made it!  Grab a coffee and get comfy.  We've got a lot to cover before the presentation."
+    hide expression e.image
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Thanks, Emily.  This place smells amazing. What kind of coffee is this?"
+    hide expression m.image
+    $ e.set_emotion('happy')
+    show expression e.image at right with dissolve
+    e "It's a special blend from a local roaster. I discovered it a few weeks ago, and I'm hooked!  It's perfect for late-night study sessions."
+    hide expression e.image
+    n "You settle into a comfortable chair, sipping the aromatic coffee and feeling a sense of calm.  Despite the pressure of the upcoming exam, Emily's relaxed demeanor and the cozy atmosphere of her room help to ease your anxiety."
+
+    # Catching Up and Discussing the Principal Situation
+    $ m.set_emotion('neutral')
+    show expression m.image at middle with dissolve
+    m "So, Emily, what happened with Bryan and Adam? I heard there was some drama with the principal."
+    hide expression m.image
+    $ e.set_emotion('sad')
+    show expression e.image at right with dissolve
+    e "It was a mess, [player_name].  Adam tried to get Bryan in serious trouble, but it turned out he'd exaggerated everything and even fabricated some evidence.  The principal was furious.  Adam's on probation now, and Bryan got a warning.  It's all so ridiculous. "
+    hide expression e.image
+    $ m.set_emotion('sad')
+    show expression m.image at middle with dissolve
+    m "Wow, I can't believe Adam would do that.  I guess I misjudged him.  I'm just glad Bryan's okay."
+    hide expression m.image
+    if player_gender == "girl":
+      $ e.set_emotion('happy')
+      show expression e.image at right with dissolve
+      e "Me too!  I always knew he was a jerk, but this is next level.  I'm glad we decided to work together, [player_name].  You're way more trustworthy and fun to be around!"
+      hide expression e.image
+      $ m.set_emotion('happy')
+      show expression m.image at middle with dissolve
+      m "Thanks, Emily.  I feel the same way about you.  Now, let's focus on our project and show everyone what we've got!"
+      hide expression m.image
+    else:
+        $ e.set_emotion('happy')
+        show expression e.image at right with dissolve
+        e "Me too.  It's a shame, because Adam's really smart, but he lets his ego get in the way.  Anyway, let's not dwell on it.  We've got our own amazing project to focus on!"
+        hide expression e.image
+
+    # Finalizing the Project
+    n "You and Emily spend the next few hours polishing your presentation, reviewing the code, and ensuring you have a solid understanding of the concepts. Emily's enthusiasm is contagious, and you find yourself getting excited about presenting your work."
+
+    $ e.set_emotion('neutral')
+    show expression e.image at right with dissolve
+    e "I think we're in really good shape, [player_name]!  Our simulation of quantum teleportation is impressive, and our presentation is clear and engaging. I'm really proud of what we've accomplished."
+    hide expression e.image
+    $ m.set_emotion('happy')
+    show expression m.image at middle with dissolve
+    m "Me too, Emily.  We make a great team."
+    hide expression m.image
+
+    # A Moment of Connection (Optional Romantic Path)
+    if emily_friendship >= 60:
+        if player_gender == "girl":
+            n "As you're packing up your things, you catch Emily's eye.  She smiles at you, a warm, genuine smile that makes your heart skip a beat. You realize that you've developed a strong connection with her, a connection that goes beyond just friendship."
+            $ e.set_emotion('happy')
+            show expression e.image at right with dissolve
+            e "I'm really glad we decided to work together, [player_name].  I've had so much fun with you.  Maybe we can celebrate after the presentation? Just the two of us?"
+            hide expression e.image
+            menu:
+                "That sounds amazing, Emily! I'd love to.":
+                    $ emily_friendship += 10
+                    $ m.set_emotion('happy')
+                    show expression m.image at middle with dissolve
+                    m "I'd love that, Emily.  I feel like we have a lot to celebrate."
+                    hide expression m.image
+                "I'd like that, but maybe we should invite the others too?":
+                    $ emily_friendship += 5
+                    $ m.set_emotion('happy')
+                    show expression m.image at middle with dissolve
+                    m "I'd like that, Emily.  But maybe we should invite Bryan, Nico, and Brett too?  It's been a tough week for everyone."
+                    hide expression m.image
+        else:
+            n "As you're packing up your things, you catch Emily's eye.  She smiles at you, a warm, genuine smile that makes your heart skip a beat.  You realize that you've developed a strong connection with her, a connection that might be something more than just friendship."
+            $ e.set_emotion('happy')
+            show expression e.image at right with dissolve
+            e "[player_name], I've had so much fun working with you.  You're incredibly smart and kind, and... well, I was wondering if you'd like to grab dinner with me after the presentation? Just the two of us?"
+            hide expression e.image
+            menu:
+                "I'd love to, Emily.  I feel the same way about you.":
+                    $ emily_friendship += 10
+                    $ m.set_emotion('happy')
+                    show expression m.image at middle with dissolve
+                    m "I'd love to, Emily. I feel the same way about you."
+                    hide expression m.image
+                "That's really nice of you, Emily, but I'm not sure if I'm ready for that.":
+                    $ emily_friendship -= 5
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "That's really nice of you, Emily, but I'm not sure if I'm ready for that right now.  Maybe we can just hang out as friends for a while?"
+                    hide expression m.image
+                "Sorry, Emily, but I'm not interested.":
+                    $ emily_friendship -= 10
+                    $ m.set_emotion('neutral')
+                    show expression m.image at middle with dissolve
+                    m "I appreciate the offer, Emily, but I'm not interested. I just want to focus on my studies right now."
+                    hide expression m.image
+
+    # Ending the Scene
+    n "You leave Emily's room feeling energized and confident.  You're ready to face the project exam head-on, knowing that you have a strong partner by your side.  And maybe, just maybe, you have a chance at something more than just a study buddy."
+
+    $ skills += 250
+    show screen notification("You have completed the project and gained 250 skills! you have [skills] skills now! You are ready for the presentation! Good Job!")
+    hide screen notification
+
+
+
+label go_home2:
+    scene player_house_room_night at cover_screen(1100, 1380) with dissolve
+    n "You arrive home, exhausted but satisfied with the week's progress. The project is complete, and the drama with Adam and Bryan seems to be settling down (for now).  You collapse onto your bed, letting out a sigh of relief."
+
+    # Weekend Plans and Reflections
+    if emily_friendship >= 65 and player_gender == "girl" :
+        n "Your thoughts drift to Emily and the plans you made to spend the weekend together. A smile spreads across your face as you imagine exploring the amusement park with her.  You can't wait to have some fun and get to know her better."
+        jump weekend_with_emily
+    elif emily_friendship >= 65:
+        n "Your thoughts drift to Emily and the plans you made to spend the weekend together.  A flutter of excitement fills your stomach. This could be the start of something special. Or maybe it'll just be a fun day out with a friend. Either way, you're looking forward to it."
+        jump weekend_with_emily
+    elif bryan_study_group == True and jock < 5:
+        n "You think about Brett's invitation to the park.  It'll be good to get some fresh air and unwind after the stressful week.  And maybe you can even use the opportunity to help Bryan and Nico stay focused on their studies."
+        jump weekend_with_brett
+    else:
+        n "You close your eyes, letting the exhaustion wash over you. You don't have any big plans for the weekend, but you're looking forward to some much-needed rest and relaxation.  The project presentation looms on Monday, but for now, you're content to simply enjoy the quiet."
+        jump presentation_day
+
+# Weekend Scenes
+
+label weekend_with_emily:
+    scene amusement_park_day at cover_screen(1100, 1380) with dissolve
+    n "The bright lights and cheerful music of the amusement park fill the air as you and Emily arrive, ready for a day of fun and excitement.  The scent of popcorn and cotton candy wafts through the air, making your stomach rumble."
+
+    $ e.set_emotion('happy')
+    show expression e.image at right with dissolve
+    e "This is awesome, [player_name]!  I haven't been to an amusement park in ages!  What do you want to do first? Rollercoaster? Ferris wheel? Bumper cars?"
+    hide expression e.image
+
+    # ...  Continue the scene with choices for amusement park activities, interactions with Emily, and potential romantic moments...
+
+label weekend_with_brett:
+    scene amusement_park_day at cover_screen(1100, 1380) with dissolve
+    n "You meet up with Brett, Bryan, and Nico at the amusement park. The energy is high, and everyone seems excited to be there."
+
+    $ br.set_emotion('neutral')
+    show expression br.image at right with dissolve
+    br "Alright, guys, let's hit the rollercoasters first! Who's up for a thrill ride?"
+    hide expression br.image
+
+    # ... Continue the scene with choices for amusement park activities, interactions with the group, and potential for the player to influence Bryan and Nico in a positive direction...
+
+# Presentation Day
+
+label presentation_day:
+    scene uni_mainbighall at cover_screen(1100, 1380) with dissolve
+    n "The day of the project presentation arrives, bringing a mix of anticipation and nervousness.  You take a deep breath, reminding yourself of all the hard work you've put in.  You're ready to showcase your project and face the judges."
+
+    # ... Continue the scene with the presentation, feedback from the judges, and the outcome of the project exam...

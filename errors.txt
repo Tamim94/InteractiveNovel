@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2819: expected statement.
-    "Thank her for defending you":
-                                 ^
+File "game/script.rpy", line 3856: expected statement.
+    go_home2
+            ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Thu Aug  1 17:29:42 2024
+Fri Aug  2 21:53:44 2024
