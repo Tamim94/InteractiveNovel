@@ -1,27 +1,73 @@
+Documentation InteractiveNovel : Une Aventure Universitaire - Documentation du Projet Ren'Py
 
+1. Introduction
 
+Titre du Projet : InteractiveNovel : Une Aventure Universitaire
+Genre : Visual Novel, Tranche de Vie, Romance (Optionnelle)
+Moteur : Ren'Py
+Auteurs : Tamim, Ilyas
+Public Cible : Jeunes adultes et adultes intéressés par les histoires interactives, les visual novels, et les thèmes de l'amitié, de la vie universitaire et de la découverte de soi.
 
+2. Synopsis de l'histoire
 
-Documentation du projet InteractiveNovel :
+L'histoire suit un étudiant, [Nom du Joueur], qui est transféré à l'Université InteractiveNovel à New Paris après la fermeture de son ancienne université. Il doit faire face aux défis d'un nouvel environnement, se faire des amis, gérer la pression académique et faire des choix qui façonneront ses relations, ses compétences et, finalement, la fin qu'il atteindra.
 
+3. Caractéristiques Clés
 
+Personnalisation du Personnage : Le joueur choisit son nom et son genre, influençant l'apparence et les dialogues de son personnage.
+Plusieurs Chemins et Fins : Les choix du joueur tout au long du jeu mènent à différentes intrigues, amitiés et résultats.
+Système de Relations : Le joueur construit des relations avec des personnages clés à travers ses actions et ses choix de dialogue.
+Système de Compétences, de Popularité et de Stress : Les actions du joueur affectent ses compétences en informatique quantique, sa popularité auprès de ses camarades de classe et son niveau de stress, influençant les choix et les résultats.
+Personnages Dynamiques : Les personnages réagissent aux choix du joueur avec des émotions et des dialogues changeants, créant une expérience plus immersive.
+Choix aux Conséquences : Chaque choix a des conséquences, façonnant le récit, les relations et le développement du personnage.
+Voie Romantique Optionnelle : Le joueur peut développer une relation amoureuse avec Emily, en fonction de ses choix.
+Intrigue Captivante : L'histoire explore les thèmes de l'amitié, de la loyauté, de l'ambition, de la responsabilité et de la découverte de soi.
+4. Personnages
 
+[Nom du Joueur] : Le protagoniste, un étudiant transféré qui commence un nouveau chapitre à l'Université InteractiveNovel. Sa personnalité et son parcours sont façonnés par les choix du joueur.
+Adam : Un étudiant très ambitieux et studieux, concentré sur l'excellence académique. Il peut être un partenaire d'étude précieux, mais aussi critique et arrogant.
+Emily : Une étudiante gentille, extravertie et encourageante qui offre une approche équilibrée de la vie universitaire. Elle est une amie potentielle et un intérêt romantique pour le joueur.
+Bryan : Un étudiant populaire et charismatique, plus intéressé par les fêtes que par les études. Il peut être un ami amusant, mais aussi une mauvaise influence, entraînant le joueur vers les distractions et les problèmes.
+Nico : L'ami proche de Bryan, qui suit souvent son exemple. Il peut être influencé par le joueur.
+Brett : Un autre membre du groupe de Bryan, plus sensé que Nico. Il peut devenir un bon ami, même si le joueur ne suit pas entièrement le chemin de Bryan.
+M. Jackson : Un professeur d'informatique quantique strict et exigeant, qui met les étudiants au défi d'exceller.
+Mme Baker : Une enseignante gentille et encourageante, qui encourage la participation des étudiants et la pensée critique.
+Directeur Stan : Le directeur autoritaire de l'Université InteractiveNovel, qui veille au respect des normes de l'établissement et gère les problèmes de comportement des étudiants.
+5. Chemins et Fins
 
+Chemin d'Adam : Se concentre sur l'excellence académique, menant à des notes potentiellement élevées et au développement du personnage d'Adam. Peut impliquer des conflits avec le groupe de Bryan et un isolement social.
+Chemin de Bryan : Met l'accent sur la popularité et les fêtes, avec des risques de négliger les études et des problèmes potentiels. Offre des opportunités d'influencer Bryan vers une approche plus responsable.
+Chemin d'Emily : Équilibre les études et la vie sociale, menant à de solides amitiés, des gains de compétences et une romance potentielle. Nécessite de gérer les conflits potentiels avec la rigidité d'Adam.
+Fins :
+Succès Académique : Obtenir son diplôme avec mention et potentiellement poursuivre une carrière en informatique quantique (chemin d'Adam).
+Succès Équilibré : Obtenir son diplôme avec de bonnes notes, de solides amitiés et une romance potentielle (chemin d'Emily).
+Rédemption et Changement : Aider Bryan à devenir un étudiant plus responsable et à obtenir son diplôme avec succès (chemin de Bryan avec peu de points de popularité).
+Spirale Descendante : Échouer au projet, être expulsé ou adopter un mode de vie imprudent (chemin de Bryan avec beaucoup de points de popularité).
+6. Mécaniques de Jeu
 
+Choix de Dialogue : Le joueur sélectionne des options de dialogue qui influencent le déroulement de l'histoire, les relations avec les personnages et les variables du jeu.
+Compétences, Popularité et Stress : Ces variables sont affectées par les choix du joueur et influencent les options et les résultats futurs.
+Système de Relations : Les actions et les choix de dialogue du joueur renforcent ou endommagent les relations avec les personnages clés.
+Notifications : Des notifications à l'écran fournissent des informations sur les changements dans les variables du jeu et les événements importants.
+7. Détails Techniques
 
+Moteur : Ren'Py (dernière version stable)
+Langage de Programmation : Python
+Style Artistique : Style animé/Visual Novel avec des sprites de personnages et des arrière-plans originaux.
+Musique et Effets Sonores : Musique et effets sonores sous licence ou libres de droits pour améliorer l'atmosphère et l'impact émotionnel de l'histoire.
+8. Feuille de Route du Développement
 
+Terminé : Structure de base de l'histoire, développement des personnages, scènes initiales, mécanismes de jeu de base.
+En Cours : Expansion des intrigues, ajout de choix et de conséquences, amélioration des dialogues, création de scènes supplémentaires, mise en œuvre de l'art et de la musique.
+Plans Futurs : Tests et correction de bugs, amélioration des dialogues et du rythme, ajout d'une voie romantique optionnelle, création de fins supplémentaires, exploration d'extensions et de suites potentielles.
+9. Marketing et Distribution
 
+Plateformes Cibles : PC (Windows, Mac, Linux), potentiellement appareils mobiles (Android, iOS).
+Canaux de Distribution : itch.io, Steam (potentiel), autres plateformes pertinentes pour les visual novels.
+Stratégies Marketing : Promotion sur les réseaux sociaux, communication auprès des communautés de visual novels, collaborations potentielles avec des streamers et des critiques.
+10. Conclusion
 
-
-
-
-
-
-
-
-
-
-
+InteractiveNovel : Une Aventure Universitaire vise à offrir une expérience de visual novel captivante et rejouable, permettant aux joueurs de faire des choix significatifs qui façonnent leur propre histoire unique. Le projet se consacre à créer un récit convaincant, des personnages attachants et un monde qui résonne avec les joueurs longtemps après la fin du jeu.
 
 
 
@@ -90,3 +136,118 @@ Redemption and Change: Influencing Bryan to become a more responsible student (B
 Downward Spiral: Failing the project, getting expelled, or embracing a life of partying and reckless behavior (Bryan path with high jock points).
 
 Overall, the story explores themes of friendship, loyalty, ambition, responsibility, and the challenges of finding your place in a complex world. The player's choices shape the narrative, offering a personalized and engaging experience with multiple paths and outcomes.
+
+## Documentation in english :
+InteractiveNovel: A University Adventure - Ren'Py Project Documentation
+
+1. Introduction
+
+Project Title: InteractiveNovel: A University Adventure
+
+Genre: Visual Novel, Slice-of-Life, Romance (Optional)
+
+Engine: Ren'Py
+
+Authors: Tamim, Ilyas
+
+Target Audience: Young adults and adults interested in interactive stories, visual novels, and themes of friendship, university life, and self-discovery.
+
+2. Story Overview
+
+The story follows a student, [Player Name], who transfers to InteractiveNovel University in New Paris after their previous college closes down. They navigate the challenges of a new environment, make friends, face academic pressures, and make choices that shape their relationships, skills, and ultimately, the ending they achieve.
+
+3. Key Features
+
+Character Customization: The player chooses their name and gender, influencing their character's appearance and dialogue.
+
+Multiple Paths and Endings: The player's choices throughout the game lead to different storylines, friendships, and outcomes.
+
+Relationship System: The player builds relationships with key characters through their actions and dialogue choices.
+
+Skill, Popularity, and Stress System: The player's actions affect their skills in Quantum Computing, popularity among classmates, and stress levels, influencing choices and outcomes.
+
+Dynamic Characters: Characters react to the player's choices with changing emotions and dialogue, creating a more immersive experience.
+
+Choices with Consequences: Every choice has consequences, shaping the narrative, relationships, and character development.
+
+Optional Romantic Path: The player can develop a romantic relationship with Emily, depending on their choices.
+
+Engaging Storyline: The story explores themes of friendship, loyalty, ambition, responsibility, and self-discovery.
+
+4. Characters
+
+[Player Name]: The protagonist, a transfer student starting a new chapter at InteractiveNovel University. Their personality and path are shaped by the player's choices.
+
+Adam: A highly ambitious and studious student, focused on academic excellence. He can be a valuable study partner but can also be judgmental and arrogant.
+
+Emily: A kind, outgoing, and supportive student who offers a balanced approach to university life. She's a potential friend and romantic interest for the player.
+
+Bryan: A popular and charismatic student, more interested in partying than studying. He can be a fun friend but also a bad influence, leading the player towards distractions and trouble.
+
+Nico: Bryan's close friend, often following his lead. He can be swayed by the player's influence.
+
+Brett: Another member of Bryan's group, more level-headed than Nico. She can become a good friend, even if the player doesn't follow Bryan's path entirely.
+
+Mr. Jackson: A strict and demanding Quantum Computing teacher, challenging students to excel.
+
+Ms. Baker: A kind and supportive teacher, who encourages student engagement and critical thinking.
+
+Principal Stan: The authoritative head of InteractiveNovel University, upholding the institution's standards and dealing with student misconduct.
+
+5. Paths and Endings
+
+Adam Path: Focuses on academic excellence, leading to potential high grades and Adam's character development. May involve conflict with Bryan's group and social isolation.
+
+Bryan Path: Emphasizes popularity and partying, with risks of neglecting studies and potential trouble. Offers opportunities to influence Bryan towards a more responsible approach.
+
+Emily Path: Balances academics and social life, leading to strong friendships, skill gains, and potential romance. Requires navigating potential conflict with Adam's rigidity.
+
+Endings:
+
+Academic Success: Graduating with honors and potentially pursuing a career in Quantum Computing (Adam path).
+
+Balanced Success: Graduating with good grades, strong friendships, and potential romance (Emily path).
+
+Redemption and Change: Helping Bryan become a more responsible student and graduate successfully (Bryan path with low jock points).
+
+Downward Spiral: Failing the project, getting expelled, or embracing a reckless lifestyle (Bryan path with high jock points).
+
+6. Gameplay Mechanics
+
+Dialogue Choices: The player selects dialogue options that influence the flow of the story, character relationships, and game variables.
+
+Skill, Popularity, and Stress: These variables are affected by the player's choices and influence future options and outcomes.
+
+Relationship System: The player's actions and dialogue choices build or damage relationships with key characters.
+
+Notifications: On-screen notifications provide information about changes in game variables and significant events.
+
+7. Technical Details
+
+Engine: Ren'Py (latest stable version)
+
+Programming Language: Python
+
+Art Style: Anime/Visual Novel style with original character sprites and backgrounds.
+
+Music and Sound Effects: Licensed or royalty-free music and sound effects to enhance the atmosphere and emotional impact of the story.
+
+8. Development Roadmap
+
+Completed: Basic story outline, character development, initial scenes, core gameplay mechanics.
+
+In Progress: Expanding storylines, adding choices and consequences, refining dialogue, creating additional scenes, implementing art and music.
+
+Future Plans: Testing and bug fixing, polishing dialogue and pacing, adding optional romantic path, creating additional endings, exploring potential expansions and sequels.
+
+9. Marketing and Distribution
+
+Target Platforms: PC (Windows, Mac, Linux), potentially mobile devices (Android, iOS).
+
+Distribution Channels: itch.io, Steam (potential), other relevant platforms for visual novels.
+
+Marketing Strategies: Social media promotion, outreach to visual novel communities, potential collaborations with streamers and reviewers.
+
+10. Conclusion
+
+InteractiveNovel: A University Adventure aims to provide a captivating and replayable visual novel experience, allowing players to make meaningful choices that shape their own unique story. The project is dedicated to creating a compelling narrative, engaging characters, and a world that resonates with players long after they finish the game.
