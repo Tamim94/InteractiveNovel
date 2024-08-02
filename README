@@ -1,4 +1,6 @@
 Documentation InteractiveNovel : Une Aventure Universitaire - Documentation du Projet Ren'Py
+### Lien du jeu deployer : [A venir bientôt]
+[Si vous voulez le lancer en local avant le release deployer ] Si vous voulez voir le jeu en action, vous pouvez le télécharger et l'exécuter sur votre ordinateur. Assurez-vous d'avoir Ren'Py installé pour exécuter le jeu importer le projet sur Ren'Py et lancer le jeu en lançant le renpy.exe ensuite vous verrez InteractiveNovel dans la liste des projets et vous pourrez le lancer.
 Flowchart de l'histoire: flowchart_de_l'histoire.svg ( télécharger le et ouvrez le sur edge il n'est pas bien visible sur github en aperçu )
 1. Introduction
 
